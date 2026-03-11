@@ -280,15 +280,20 @@ footer {
   top: 0;
   right: -100%;
   width: 260px;
-  height: 100%;
-  background: #fff;
-  box-shadow: -4px 0 30px rgba(0, 0, 0, 0.15);
+  height: 100vh;
+
+  background: #ffffff;
+
   display: flex;
   flex-direction: column;
   padding: 90px 30px;
   gap: 10px;
-  transition: 0.35s;
-  z-index: 999;
+
+  box-shadow: -4px 0 30px rgba(0, 0, 0, 0.15);
+
+  transition: right 0.35s ease;
+
+  z-index: 2000;
 }
 
 .mobile-menu.open {
