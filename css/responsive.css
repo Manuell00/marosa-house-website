@@ -1,0 +1,193 @@
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+  /* HERO */
+
+  .hero-slider h1 {
+    font-size: 48px;
+  }
+
+  .hero-slider p {
+    font-size: 16px;
+  }
+
+  /* APARTMENTS */
+
+  .apartments-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* INFO */
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* AMENITIES */
+
+  .amenities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* REVIEWS */
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* GALLERY */
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================================
+       MOBILE
+    ========================================= */
+
+@media (max-width: 768px) {
+  /* HEADER */
+
+  header .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* NAVIGATION */
+
+  nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  /* HERO */
+
+  .hero-slider {
+    height: 60vh;
+  }
+
+  .hero-slider h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .hero-slider p {
+    font-size: 15px;
+  }
+
+  /* HERO BUTTONS */
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* APARTMENT CARDS */
+
+  .apartment-card img {
+    height: 200px;
+  }
+
+  /* WHY SECTION */
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .why-card {
+    padding: 18px;
+  }
+
+  .why-card h3 {
+    font-size: 16px;
+  }
+
+  /* LOCATION */
+
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  /* AMENITIES */
+
+  .amenities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* BOOKING */
+
+  .booking {
+    padding: 30px 20px;
+  }
+
+  .booking-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* GALLERY */
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid img {
+    height: 220px;
+  }
+
+  /* SECTION SPACING */
+
+  section {
+    padding: 50px 20px;
+  }
+}
+
+/* =========================================
+       SMALL MOBILE
+    ========================================= */
+
+@media (max-width: 480px) {
+  /* HERO */
+
+  .hero-slider h1 {
+    font-size: 26px;
+  }
+
+  .hero-slider p {
+    font-size: 14px;
+  }
+
+  /* LOGO */
+
+  .logo span {
+    font-size: 18px;
+  }
+
+  /* CONTAINER */
+
+  .container {
+    padding: 15px;
+  }
+
+  /* WHY */
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* LOCATION */
+
+  .location-grid {
+    grid-template-columns: 1fr;
+  }
+}

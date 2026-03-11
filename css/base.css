@@ -1,0 +1,328 @@
+/* =================================================
+1. RESET
+================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background: #f6f6f6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =================================================
+  2. TIPOGRAFIA
+  ================================================= */
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+}
+
+p {
+  color: #666;
+}
+
+/* =================================================
+  3. LAYOUT GENERALE
+  ================================================= */
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+section {
+  padding: 50px 0;
+}
+
+/* =================================================
+  4. HEADER
+  ================================================= */
+
+header {
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 65px;
+}
+
+/* =================================================
+  5. LOGO
+  ================================================= */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 36px;
+  transition: transform 0.2s ease;
+}
+
+.logo span {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+
+/* linea oro */
+
+.logo span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #c8a45c;
+  transition: width 0.25s ease;
+}
+
+.logo:hover span {
+  color: #c8a45c;
+}
+
+.logo:hover span::after {
+  width: 100%;
+}
+
+.logo:hover img {
+  transform: scale(1.05);
+}
+
+/* =================================================
+  6. NAVBAR
+  ================================================= */
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin-left: 28px;
+  font-size: 15px;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #c8a45c;
+  transition: 0.25s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a.active::after {
+  width: 100%;
+}
+
+/* =================================================
+  7. TITOLI SEZIONE
+  ================================================= */
+
+.intro h2::after,
+.apartments-preview h2::after,
+.why h2::after,
+.location h2::after,
+.reviews h2::after,
+.booking h2::after,
+.features h2::after,
+.guides h2::after,
+.map h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #c8a45c;
+  margin: 15px auto 25px;
+}
+
+/* =================================================
+  8. BOTTONI
+  ================================================= */
+
+.btn {
+  padding: 14px 30px;
+  border-radius: 10px;
+  min-width: 140px;
+  color: white;
+  font-weight: 500;
+  transition: 0.25s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.whatsapp {
+  background: #25d366;
+}
+
+.email {
+  background: #444;
+}
+
+.airbnb {
+  background: #ff5a5f;
+}
+
+.booking-btn {
+  background: #003580;
+}
+
+/* =================================================
+  9. CARD HOVER
+  ================================================= */
+
+.card-hover {
+  transition: all 0.25s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* =================================================
+  10. FOOTER
+  ================================================= */
+
+footer {
+  background: #111;
+  color: #bbb;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* =================================================
+  11. INFO INTRO
+  ================================================= */
+
+.info-intro {
+  max-width: 900px;
+  margin: 80px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.info-intro h2 {
+  font-size: 34px;
+  margin-bottom: 15px;
+}
+
+.info-intro h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #c8a45c;
+  margin: 15px auto 25px;
+}
+
+.info-intro p {
+  max-width: 650px;
+  margin: auto;
+}
+
+/* =================================================
+  12. HAMBURGER
+  ================================================= */
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* =================================================
+  13. MOBILE MENU
+  ================================================= */
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 260px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -4px 0 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  padding: 90px 30px;
+  gap: 10px;
+  transition: 0.35s;
+  z-index: 999;
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-menu a {
+  font-size: 18px;
+  font-weight: 500;
+  color: #222;
+  padding: 14px 16px;
+  border-radius: 8px;
+  transition: 0.25s;
+}
+
+.mobile-menu a:hover {
+  background: #f6f6f6;
+  color: #c8a45c;
+}
+
+.mobile-menu a:active {
+  transform: scale(0.97);
+}
+
+/* =========================================
+   SIDEBAR SOLO MOBILE
+========================================= */
+
+@media (min-width: 769px) {
+  .mobile-menu {
+    display: none !important;
+  }
+
+  .menu-toggle {
+    display: none !important;
+  }
+}

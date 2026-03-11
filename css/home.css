@@ -1,0 +1,361 @@
+/* =================================================
+1. HERO SLIDER
+================================================= */
+
+.hero-slider {
+  position: relative;
+  height: 80vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: white;
+
+  overflow: hidden;
+}
+
+/* overlay scuro */
+
+.hero-slider::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+/* container slide */
+
+.slides {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* singola slide */
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  background-size: cover;
+  background-position: center;
+
+  opacity: 0;
+  transition: opacity 1.6s ease;
+}
+
+/* slide attiva */
+
+.slide.active {
+  opacity: 1;
+}
+
+/* contenuto hero */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 20px;
+}
+
+/* titolo */
+
+.hero-slider h1 {
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+/* sottotitolo */
+
+.hero-slider p {
+  color: white;
+  font-size: 18px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* =================================================
+  2. HERO BUTTONS
+  ================================================= */
+
+.hero-buttons {
+  margin-top: 30px;
+
+  display: flex;
+  gap: 20px;
+
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+  background: #c8a45c;
+  color: white;
+
+  padding: 14px 30px;
+
+  border-radius: 8px;
+
+  font-weight: 500;
+
+  transition: all 0.25s ease;
+}
+
+.hero-buttons .btn:hover {
+  background: #b89345;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* =================================================
+  3. TRUST BAR
+  ================================================= */
+
+.trust {
+  background: white;
+
+  padding: 22px;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.trust-container {
+  max-width: 1100px;
+  margin: auto;
+
+  display: flex;
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  font-weight: 500;
+}
+
+.trust-item i {
+  color: #c8a45c;
+}
+
+/* =================================================
+  4. INTRO
+  ================================================= */
+
+.intro {
+  max-width: 900px;
+
+  margin: 70px auto;
+
+  text-align: center;
+}
+
+.intro h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.intro p {
+  max-width: 650px;
+  margin: auto;
+}
+
+/* =================================================
+  5. APPARTAMENTI
+  ================================================= */
+
+.apartments-preview {
+  max-width: 1100px;
+
+  margin: 80px auto;
+
+  text-align: center;
+}
+
+.apartments-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 35px;
+
+  margin-top: 35px;
+}
+
+/* card */
+
+.apartment-card {
+  background: white;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  transition: all 0.3s ease;
+}
+
+.apartment-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.apartment-card img {
+  width: 100%;
+  height: 260px;
+
+  object-fit: cover;
+}
+
+.apartment-info {
+  padding: 25px;
+}
+
+/* =================================================
+  6. WHY SECTION
+  ================================================= */
+
+.why {
+  max-width: 1100px;
+
+  margin: 80px auto;
+
+  text-align: center;
+}
+
+.why-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 28px;
+
+  margin-top: 35px;
+}
+
+.why-grid div {
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  transition: all 0.25s ease;
+}
+
+.why-grid div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+}
+
+.why i {
+  font-size: 30px;
+
+  color: #c8a45c;
+
+  margin-bottom: 12px;
+}
+
+/* =================================================
+  7. LOCATION
+  ================================================= */
+
+.location {
+  max-width: 1100px;
+
+  margin: 90px auto;
+
+  text-align: center;
+}
+
+.location p {
+  max-width: 650px;
+  margin: auto;
+}
+
+/* =================================================
+  8. REVIEWS
+  ================================================= */
+
+.reviews {
+  max-width: 1100px;
+
+  margin: 90px auto;
+
+  text-align: center;
+}
+
+.reviews-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 28px;
+
+  margin-top: 35px;
+}
+
+.review-card {
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  transition: all 0.25s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* =================================================
+  9. BOOKING
+  ================================================= */
+
+.booking {
+  max-width: 900px;
+
+  margin: 90px auto;
+
+  padding: 40px;
+
+  text-align: center;
+
+  background: white;
+
+  border-radius: 14px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.booking p {
+  margin-bottom: 50px;
+}
+
+.booking-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+}

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<!--
+Pagina appartamento: MaRoSa Bixio
+
+Struttura pagina:
+HEADER
+HERO
+DESCRIZIONE + GALLERIA
+SERVIZI
+GUIDE
+MAPPA
+PRENOTAZIONE
+FOOTER
+-->
+
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>MaRoSa Bixio | Rapallo</title>
+
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/apartments.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- ========================================= -->
+    <!-- HEADER -->
+    <!-- ========================================= -->
+
+    <header class="header">
+      <div class="container header-container">
+        <div class="logo">
+          <img src="img/logo.png" alt="MaRoSa House" />
+          <span>MaRoSa House</span>
+        </div>
+
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a class="active" href="marosa-bixio.html">Bixio</a>
+          <a href="marosa-magnolie.html">Magnolie</a>
+          <a href="info.html">Info</a>
+        </nav>
+
+        <!-- HAMBURGER -->
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+      </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="marosa-bixio.html">Bixio</a>
+      <a href="marosa-magnolie.html">Magnolie</a>
+      <a href="info.html">Info</a>
+    </div>
+
+    <!-- ========================================= -->
+    <!-- HERO -->
+    <!-- ========================================= -->
+
+    <section class="hero-apartment bixio-hero">
+      <div>
+        <h1>MaRoSa Bixio</h1>
+        <p>Cozy apartment in the center of Rapallo</p>
+      </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- DESCRIZIONE APPARTAMENTO -->
+    <!-- ========================================= -->
+
+    <section class="apartment">
+      <h2>MaRoSa Bixio</h2>
+
+      <p>
+        Appartamento accogliente situato nel centro di Rapallo, a pochi minuti
+        dal mare, dal lungomare e dalla stazione ferroviaria.
+      </p>
+
+      <!-- ========================================= -->
+      <!-- GALLERIA FOTO -->
+      <!-- ========================================= -->
+
+      <div class="gallery">
+        <img
+          src="img/Bixio/bixio-livingroom2.jpg"
+          alt="Soggiorno MaRoSa Bixio"
+          loading="lazy"
+        />
+
+        <img
+          src="img/Bixio/bixio-room1.jpg"
+          alt="Camera da letto MaRoSa Bixio"
+          loading="lazy"
+        />
+
+        <img
+          src="img/Bixio/bixio-room2.jpg"
+          alt="Camera matrimoniale MaRoSa Bixio"
+          loading="lazy"
+        />
+
+        <img
+          src="img/Bixio/bixio-kitchen1.jpg"
+          alt="Cucina appartamento MaRoSa Bixio"
+          loading="lazy"
+        />
+
+        <img
+          src="img/Bixio/bixio-bathroom1.jpg"
+          alt="Bagno appartamento MaRoSa Bixio"
+          loading="lazy"
+        />
+
+        <img
+          src="img/Bixio/bixio-entrance1.jpg"
+          alt="Ingresso palazzo MaRoSa Bixio"
+          loading="lazy"
+        />
+
+        <img
+          src="img/Bixio/bixio-entrance2.jpg"
+          alt="Entrata appartamento MaRoSa Bixio"
+          loading="lazy"
+        />
+
+        <img
+          src="img/Bixio/bixio-outside1.jpg"
+          alt="Balcone MaRoSa Bixio"
+          loading="lazy"
+        />
+
+        <img
+          src="img/Bixio/bixio-outside3.jpg"
+          alt="Vista esterna MaRoSa Bixio"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SERVIZI -->
+    <!-- ========================================= -->
+
+    <section class="features">
+      <h2>Servizi dell'appartamento</h2>
+
+      <div class="features-grid">
+        <div>
+          <i class="fa-solid fa-wifi"></i>
+          Wi-Fi veloce
+        </div>
+
+        <div>
+          <i class="fa-solid fa-snowflake"></i>
+          Aria condizionata
+        </div>
+
+        <div>
+          <i class="fa-solid fa-utensils"></i>
+          Cucina attrezzata
+        </div>
+
+        <div>
+          <i class="fa-solid fa-tv"></i>
+          Smart TV
+        </div>
+
+        <div>
+          <i class="fa-solid fa-bed"></i>
+          Lenzuola e asciugamani
+        </div>
+
+        <div>
+          <i class="fa-solid fa-key"></i>
+          Self check-in
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- GUIDE TURISTICHE -->
+    <!-- ========================================= -->
+
+    <section class="guides">
+      <h2>Guide della Riviera</h2>
+
+      <p>
+        Abbiamo preparato due guide gratuite con i migliori ristoranti, spiagge
+        e luoghi da visitare tra Rapallo, Portofino e Santa Margherita.
+      </p>
+
+      <div class="guides-grid">
+        <a href="pdf/guida-italiano.pdf" target="_blank" class="guide-card">
+          <img
+            src="img/Qrcode/guida_ita.png"
+            alt="Guida turistica Rapallo e Portofino"
+          />
+
+          <p class="scan-text">Scansiona il QR code o clicca</p>
+
+          <h3>Guida in Italiano</h3>
+
+          <p>
+            Scopri i migliori ristoranti, aperitivi e spiagge della Riviera.
+          </p>
+        </a>
+
+        <a href="pdf/guide-english.pdf" target="_blank" class="guide-card">
+          <img
+            src="img/Qrcode/guida_eng.png"
+            alt="Tourist guide Rapallo Portofino"
+          />
+
+          <p class="scan-text">Scan the QR code or click</p>
+
+          <h3>Guide in English</h3>
+
+          <p>
+            Discover the best places to visit in Rapallo, Portofino and Santa
+            Margherita.
+          </p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- MAPPA -->
+    <!-- ========================================= -->
+
+    <section class="map">
+      <h2>Dove si trova MaRoSa Magnolie</h2>
+
+      <p>
+        L'appartamento MaRoSa Magnolie si trova in una zona tranquilla di
+        Rapallo, facilmente collegata al centro e al mare, perfetta per
+        esplorare la Riviera Ligure e i suoi borghi.
+      </p>
+
+      <div class="map-box">
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps?q=Via+Nino+Bixio+Rapallo&output=embed"
+            loading="lazy"
+          >
+          </iframe>
+        </div>
+
+        <div class="map-info">
+          <div class="map-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Centro di Rapallo</span>
+          </div>
+
+          <div class="map-item">
+            <i class="fa-solid fa-water"></i>
+            <span>Vicino al lungomare</span>
+          </div>
+
+          <div class="map-item">
+            <i class="fa-solid fa-train"></i>
+            <span>Comodo per Portofino e Cinque Terre</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- PRENOTAZIONE -->
+    <!-- ========================================= -->
+
+    <section class="booking">
+      <h2>Prenota il tuo soggiorno</h2>
+
+      <p>Contattaci direttamente oppure prenota tramite Airbnb o Booking.</p>
+
+      <div class="booking-buttons">
+        <a class="btn whatsapp" href="https://wa.me/393383232207">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+
+        <a class="btn email" href="mailto:manuell.caselli@gmail.com">
+          <i class="fa-solid fa-envelope"></i> Email
+        </a>
+
+        <a
+          class="btn airbnb"
+          href="https://www.airbnb.it/rooms/1370215212202187719"
+        >
+          <i class="fa-brands fa-airbnb"></i> Airbnb
+        </a>
+
+        <a
+          class="btn booking-btn"
+          href="https://www.booking.com/hotel/it/marosa-rapallo.it.html"
+        >
+          <i class="fa-solid fa-hotel"></i> Booking
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- FOOTER -->
+    <!-- ========================================= -->
+
+    <footer>
+      <p>© MaRoSa House</p>
+    </footer>
+  </body>
+</html>

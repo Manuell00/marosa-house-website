@@ -1,0 +1,558 @@
+/* =========================================
+   INFO PAGE
+========================================= */
+
+.info-section {
+  max-width: 1000px;
+
+  margin: 100px auto;
+
+  text-align: center;
+
+  padding: 0 20px;
+}
+
+.info-section p {
+  max-width: 650px;
+
+  margin: auto;
+
+  margin-top: 10px;
+}
+
+/* =========================================
+   AMENITIES
+========================================= */
+
+.amenities-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 20px;
+
+  margin-top: 40px;
+}
+
+.amenity {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  background: white;
+
+  padding: 16px;
+
+  border-radius: 10px;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+
+  font-weight: 500;
+
+  transition: 0.25s;
+}
+
+.amenity:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.amenity i {
+  color: #c8a45c;
+
+  font-size: 18px;
+}
+
+/* =========================================
+   INFO CARDS
+========================================= */
+
+.info-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  justify-items: center;
+  gap: 30px;
+
+  margin-top: 40px;
+}
+
+.info-card {
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  transition: 0.25s;
+
+  max-width: 320px;
+
+  text-align: center;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+}
+
+.info-card i {
+  font-size: 28px;
+
+  color: #c8a45c;
+
+  margin-bottom: 10px;
+}
+
+/* =========================================
+   FAQ
+========================================= */
+
+/* =========================================
+   FAQ
+========================================= */
+
+.faq {
+  max-width: 750px;
+
+  margin: 50px auto;
+}
+
+.faq-item {
+  background: white;
+
+  padding: 25px 28px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+
+  margin-bottom: 18px;
+
+  transition: all 0.25s ease;
+
+  cursor: default;
+}
+
+.faq-item:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+}
+
+.faq-item h3 {
+  font-size: 17px;
+
+  font-weight: 600;
+
+  margin-bottom: 6px;
+
+  color: #222;
+}
+
+.faq-item p {
+  font-size: 15px;
+
+  color: #666;
+
+  line-height: 1.5;
+}
+
+.faq-item h3 i {
+  color: #c8a45c;
+
+  margin-right: 8px;
+}
+/* =========================================
+   HERO APPARTAMENTI
+========================================= */
+
+.hero-apartment {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-apartment h1 {
+  font-size: 64px;
+  margin-bottom: 10px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hero-apartment p {
+  font-size: 18px;
+  color: white;
+}
+
+/* immagini hero */
+
+.bixio-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url("../img/Bixio/bixio-livingroom1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.magnolie-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url("../img/Magnolie/magnolie-kitchen2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* =========================================
+       SEZIONE APPARTAMENTO
+    ========================================= */
+
+.apartment {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.apartment h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.apartment p {
+  max-width: 600px;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+/* =========================================
+       GALLERIA
+    ========================================= */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+  transition: 0.35s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* =========================================
+       SERVIZI
+    ========================================= */
+
+.features {
+  max-width: 1000px;
+  margin: 80px auto;
+  text-align: center;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.features-grid div {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================================
+       GUIDE
+    ========================================= */
+
+.guides {
+  max-width: 1000px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.guides-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.guide-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.guide-card img {
+  width: 230px;
+  margin: auto;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.scan-text {
+  font-size: 13px;
+  color: #c8a45c;
+  margin-bottom: 14px;
+}
+
+/* =========================================
+   MAPPA APPARTAMENTO
+========================================= */
+
+.map {
+  max-width: 1100px;
+  margin: 120px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.map p {
+  max-width: 650px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+/* contenitore card mappa */
+
+.map-box {
+  background: white;
+
+  border-radius: 14px;
+
+  padding: 25px;
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* iframe mappa */
+
+.map-container {
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  margin-bottom: 18px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 420px;
+  border: 0;
+}
+
+/* info posizione */
+
+.map-info {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 35px;
+
+  flex-wrap: wrap;
+}
+
+.map-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-weight: 500;
+
+  color: #444;
+}
+
+.map-item i {
+  color: #c8a45c;
+
+  font-size: 18px;
+}
+
+.map-box:hover {
+  transform: translateY(-3px);
+  transition: 0.25s;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================================
+   MAP INFO (sotto la mappa)
+========================================= */
+
+.map-info {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 40px;
+
+  margin-top: 25px;
+
+  flex-wrap: wrap;
+}
+
+.map-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-weight: 500;
+
+  color: #444;
+}
+
+.map-item i {
+  color: #c8a45c;
+
+  font-size: 18px;
+}
+/* =========================================
+       BOOKING
+    ========================================= */
+
+.booking {
+  max-width: 900px;
+  margin: 120px auto;
+  padding: 40px;
+  text-align: center;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.booking p {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  font-size: 16px;
+}
+
+.booking-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.features h2,
+.guides h2,
+.map h2 {
+  margin-bottom: 20px;
+}
+
+.guides p {
+  max-width: 700px;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+/* =========================================
+   ICONE SERVIZI
+========================================= */
+
+.features-grid i {
+  font-size: 22px;
+  color: #c8a45c;
+  margin-bottom: 6px;
+}
+
+/* guida */
+
+.scan-text {
+  font-size: 13px;
+  color: #c8a45c;
+  margin-bottom: 14px;
+}
+
+/* icone generiche */
+
+.guides i,
+.map i {
+  color: #c8a45c;
+}
+
+.features-grid div {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.25s;
+}
+
+.features-grid div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+}
+
+.guide-card {
+  transition: 0.25s;
+}
+
+.guide-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+}
+
+.map h2 {
+  margin-bottom: 15px;
+}
+
+.map p {
+  margin-bottom: 45px;
+}
+
+.map-container {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  border: 1px solid #eee;
+  transition: 0.25s;
+}
+
+.map-container:hover {
+  transform: scale(1.01);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 900px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .amenities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
