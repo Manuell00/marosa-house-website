@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let items = [];
     let currentIndex = 0;
+    const mobileBreakpoint = window.matchMedia("(max-width: 768px)");
+    const tabletBreakpoint = window.matchMedia("(max-width: 1024px)");
 
     const closeLightbox = () => {
         overlay.classList.remove("active");
@@ -63,6 +65,37 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         });
+
+        if (galleryItems.length > 3) {
+            gallery.classList.add("has-mobile-preview");
+
+            if (galleryItems.length > 4) {
+                gallery.classList.add("has-tablet-preview");
+            }
+
+            const actionWrap = document.createElement("div");
+            actionWrap.className = "gallery-mobile-actions";
+
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "gallery-more-button";
+            button.textContent = `Vedi tutte le ${galleryItems.length} foto`;
+
+            button.addEventListener("click", () => {
+                openLightbox(galleryItems, 0);
+            });
+
+            actionWrap.appendChild(button);
+            gallery.insertAdjacentElement("afterend", actionWrap);
+
+            const syncPreviewState = () => {
+                actionWrap.hidden = !tabletBreakpoint.matches;
+            };
+
+            syncPreviewState();
+            tabletBreakpoint.addEventListener("change", syncPreviewState);
+            mobileBreakpoint.addEventListener("change", syncPreviewState);
+        }
     });
 
     closeButton.addEventListener("click", closeLightbox);

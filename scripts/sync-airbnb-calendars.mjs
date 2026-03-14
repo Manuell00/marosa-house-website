@@ -4,15 +4,23 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 const outputPath = new URL("../js/availability-data.js", import.meta.url);
 
 const calendars = [
-  { key: "bixio", title: "Disponibilita MaRoSa Bixio", url: process.env.BIXIO_ICS_URL },
-  { key: "magnolie", title: "Disponibilita MaRoSa Magnolie", url: process.env.MAGNOLIE_ICS_URL },
+  {
+    key: "bixio",
+    title: "Disponibilita MaRoSa Bixio",
+    urls: [process.env.BIXIO_ICS_URL, process.env.BIXIO_BOOKING_ICS_URL].filter(Boolean),
+  },
+  {
+    key: "magnolie",
+    title: "Disponibilita MaRoSa Magnolie",
+    urls: [process.env.MAGNOLIE_ICS_URL].filter(Boolean),
+  },
 ];
 
-const missing = calendars.filter((calendar) => !calendar.url);
+const missing = calendars.filter((calendar) => calendar.urls.length === 0);
 
 if (missing.length > 0) {
   console.error(
-    "Missing ICS URL. Set both BIXIO_ICS_URL and MAGNOLIE_ICS_URL before running this script."
+    "Missing ICS URL. Set MAGNOLIE_ICS_URL and at least one source for BIXIO_ICS_URL or BIXIO_BOOKING_ICS_URL before running this script."
   );
   process.exit(1);
 }
@@ -43,6 +51,19 @@ function toKey(date) {
   const month = String(date.getUTCMonth() + 1).padStart(2, "0");
   const day = String(date.getUTCDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
+}
+
+function getVisibleRange() {
+  const now = new Date();
+  const start = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1));
+  const end = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 6, 1));
+  return { start, end };
+}
+
+function isWithinVisibleRange(key) {
+  const { start, end } = getVisibleRange();
+  const date = new Date(`${key}T00:00:00Z`);
+  return date >= start && date < end;
 }
 
 function parseBookedDates(icsText) {
@@ -82,17 +103,23 @@ function parseBookedDates(icsText) {
 }
 
 async function loadCalendar(calendar) {
-  const response = await fetch(calendar.url);
+  const sources = await Promise.all(
+    calendar.urls.map(async (url) => {
+      const response = await fetch(url);
 
-  if (!response.ok) {
-    throw new Error(`Unable to fetch ${calendar.key}: ${response.status} ${response.statusText}`);
-  }
+      if (!response.ok) {
+        throw new Error(`Unable to fetch ${calendar.key}: ${response.status} ${response.statusText}`);
+      }
 
-  const icsText = await response.text();
+      return response.text();
+    })
+  );
 
   return {
     ...calendar,
-    booked: parseBookedDates(icsText),
+    booked: [...new Set(sources.flatMap((icsText) => parseBookedDates(icsText)))]
+      .filter(isWithinVisibleRange)
+      .sort(),
   };
 }
 
@@ -114,4 +141,4 @@ const output = `window.marosaAvailability = ${JSON.stringify(
 
 await fs.writeFile(outputPath, output, "utf8");
 
-console.log(`Updated ${outputPath.pathname} with Airbnb availability data.`);
+console.log(`Updated ${outputPath.pathname} with booking channel availability data.`);

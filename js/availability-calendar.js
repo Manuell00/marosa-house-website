@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return weekdays;
     };
 
-    const renderMonth = (grid, currentMonth, bookedSet) => {
+    const renderMonth = (grid, currentMonth, bookedSet, todayKey) => {
         grid.innerHTML = "";
 
         const firstDay = startOfMonth(currentMonth);
@@ -44,11 +44,16 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let day = 1; day <= totalDays; day += 1) {
             const date = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
             const key = toKey(date);
+            const isPast = key < todayKey;
             const isBooked = bookedSet.has(key);
             const cell = document.createElement("span");
-            cell.className = `availability-day ${isBooked ? "is-booked" : "is-free"}`;
+            const stateClass = isPast ? "is-past" : isBooked ? "is-booked" : "is-free";
+            cell.className = `availability-day ${stateClass}`;
             cell.textContent = String(day);
-            cell.setAttribute("title", isBooked ? "Occupato" : "Disponibile");
+            cell.setAttribute(
+                "title",
+                isPast ? "Data passata" : isBooked ? "Occupato" : "Disponibile"
+            );
             grid.appendChild(cell);
         }
     };
@@ -61,6 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const bookedSet = new Set(config.booked);
         const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const todayKey = toKey(today);
         const startMonth = new Date(today.getFullYear(), today.getMonth(), 1);
         const maxOffset = 5;
         let currentOffset = 0;
@@ -96,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const update = () => {
             const month = new Date(startMonth.getFullYear(), startMonth.getMonth() + currentOffset, 1);
             title.textContent = formatter.format(month);
-            renderMonth(grid, month, bookedSet);
+            renderMonth(grid, month, bookedSet, todayKey);
             prevButton.disabled = currentOffset === 0;
             nextButton.disabled = currentOffset === maxOffset;
         };
