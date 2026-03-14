@@ -430,3 +430,12 @@ TRUST SECTION
 
   flex-wrap: wrap;
 }
+
+.booking-buttons .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 220px;
+  min-height: 56px;
+}

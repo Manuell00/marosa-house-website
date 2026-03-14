@@ -1,6 +1,7 @@
 const toggle = document.getElementById("menu-toggle");
 const menu = document.getElementById("mobile-menu");
 const overlay = document.getElementById("menu-overlay");
+const closeButton = document.getElementById("mobile-menu-close");
 const menuLinks = menu ? menu.querySelectorAll("a") : [];
 
 if (toggle && menu && overlay) {
@@ -19,6 +20,7 @@ if (toggle && menu && overlay) {
     });
 
     overlay.addEventListener("click", closeMenu);
+    closeButton?.addEventListener("click", closeMenu);
 
     menuLinks.forEach((link) => {
         link.addEventListener("click", closeMenu);

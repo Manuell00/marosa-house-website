@@ -541,12 +541,14 @@
   .hero-buttons .btn,
   .booking-buttons .btn {
     width: 100%;
-    max-width: 320px;
+    max-width: none;
+    min-height: 64px;
   }
 
   .booking-buttons {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    justify-items: center;
+    align-items: stretch;
+    grid-auto-rows: 1fr;
   }
 
   .apartments-grid,
@@ -672,6 +674,10 @@
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
     z-index: 1900;
     transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  }
+
+  .mobile-sticky-cta:not(:has(.mobile-sticky-secondary)) {
+    grid-template-columns: 1fr;
   }
 
   .gallery-lightbox {

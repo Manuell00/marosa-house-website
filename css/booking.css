@@ -1,0 +1,234 @@
+.booking-hero {
+  min-height: 58vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px 60px;
+  text-align: center;
+  color: white;
+  background:
+    linear-gradient(rgba(17, 17, 17, 0.42), rgba(17, 17, 17, 0.42)),
+    url("../img/Magnolie/magnolie-livingroom1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.booking-hero-content {
+  max-width: 760px;
+}
+
+.booking-kicker {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  font-size: var(--fs-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.booking-hero h1 {
+  margin: 18px 0 14px;
+  font-size: var(--fs-h1-page);
+}
+
+.booking-hero p {
+  max-width: 640px;
+  margin: 0 auto;
+  color: white;
+  font-size: var(--fs-body-lg);
+}
+
+.request-section {
+  max-width: 1180px;
+  margin: 54px auto 100px;
+  padding: 0 20px;
+}
+
+.request-card {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 28px;
+  align-items: start;
+  background: white;
+  border-radius: 26px;
+  padding: 34px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(200, 164, 92, 0.12);
+}
+
+.request-copy h2 {
+  margin-bottom: 12px;
+}
+
+.request-copy p {
+  margin-bottom: 22px;
+}
+
+.request-notes {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+}
+
+.request-notes li {
+  position: relative;
+  padding-left: 20px;
+  color: #585858;
+}
+
+.request-notes li::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #c8a45c;
+}
+
+.request-form {
+  display: grid;
+  gap: 18px;
+}
+
+.request-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field span {
+  color: #4d4d4d;
+  font-size: var(--fs-body-sm);
+  font-weight: 700;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid rgba(200, 164, 92, 0.22);
+  border-radius: 16px;
+  padding: 14px 16px;
+  font: inherit;
+  color: #222;
+  background: #fffdf8;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: rgba(200, 164, 92, 0.75);
+  box-shadow: 0 0 0 4px rgba(200, 164, 92, 0.12);
+  background: white;
+}
+
+.field-full {
+  grid-column: 1 / -1;
+}
+
+.request-helper {
+  margin: 0;
+  color: #757575;
+  font-size: var(--fs-body-sm);
+}
+
+.request-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.request-submit {
+  border: 0;
+  cursor: pointer;
+}
+
+.request-status {
+  min-height: 24px;
+  margin: 0;
+  color: #6f5523;
+  font-weight: 600;
+}
+
+.request-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(18px);
+  opacity: 0;
+  visibility: hidden;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: rgba(17, 17, 17, 0.92);
+  color: #f5efe2;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
+  z-index: 2600;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+.request-toast.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 1024px) {
+  .request-card {
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-hero {
+    min-height: 48vh;
+    padding: 72px 18px 48px;
+  }
+
+  .request-section {
+    margin: 48px auto 72px;
+    padding: 0 16px;
+  }
+
+  .request-card {
+    border-radius: 22px;
+    padding: 22px 18px;
+    gap: 22px;
+  }
+
+  .request-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .request-actions {
+    flex-direction: column;
+  }
+
+  .request-actions .btn {
+    width: 100%;
+  }
+
+  .request-toast {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    transform: translateY(18px);
+    text-align: center;
+  }
+
+  .request-toast.is-visible {
+    transform: translateY(0);
+  }
+}

@@ -57,6 +57,7 @@
           <a href="marosa-bixio.html">Bixio</a>
           <a class="active" href="marosa-magnolie.html">Magnolie</a>
           <a href="info.html">Info</a>
+          <a href="prenota.html">Prenota</a>
         </nav>
 
         <!-- HAMBURGER -->
@@ -66,10 +67,12 @@
 
     <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobile-menu">
+      <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Chiudi menu">×</button>
       <a href="index.html">Home</a>
       <a href="marosa-bixio.html">Bixio</a>
       <a href="marosa-magnolie.html">Magnolie</a>
       <a href="info.html">Info</a>
+      <a href="prenota.html">Prenota</a>
     </div>
 
     <!-- ========================================= -->
@@ -89,7 +92,6 @@
       <a href="#servizi">Servizi</a>
       <a href="#mappa">Mappa</a>
       <a href="#disponibilita">Disponibilita</a>
-      <a href="#prenota">Prenota</a>
     </nav>
 
     <!-- ========================================= -->
@@ -383,12 +385,12 @@
       <p>Contattaci direttamente oppure prenota tramite Airbnb.</p>
 
       <div class="booking-buttons">
-        <a class="btn whatsapp" href="https://wa.me/3933832322007">
-          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        <a class="btn email" href="prenota.html?apartment=magnolie">
+          <i class="fa-solid fa-calendar-check"></i> Richiesta soggiorno
         </a>
 
-        <a class="btn email" href="mailto:manuell.caselli@gmail.com">
-          <i class="fa-solid fa-envelope"></i> Email
+        <a class="btn whatsapp" href="https://wa.me/393383232007">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
         </a>
 
         <a
@@ -408,14 +410,8 @@
       <div class="footer-inner">
         <div class="footer-brand">© MaRoSa House · Rapallo</div>
         <div class="footer-links">
-          <a href="marosa-bixio.html">Bixio</a>
-          <a href="marosa-magnolie.html">Magnolie</a>
-          <a href="info.html">Info</a>
+          <a href="prenota.html">Prenota</a>
           <a href="privacy-cookie.html">Privacy & Cookie</a>
-        </div>
-        <div class="footer-meta">
-          <a href="mailto:manuell.caselli@gmail.com">Email</a>
-          <a href="https://wa.me/3933832322007">WhatsApp</a>
         </div>
       </div>
     </footer>
@@ -423,29 +419,14 @@
     <div class="mobile-sticky-cta">
       <button class="mobile-sticky-dismiss" aria-label="Nascondi barra prenotazione">×</button>
 
-      <a class="mobile-sticky-primary" href="https://wa.me/3933832322007">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span>Scrivici su WhatsApp</span>
-      </a>
-
-      <a
-        class="mobile-sticky-secondary"
-        href="https://www.airbnb.it/rooms/1637753276156157006?adults=2&check_in=2026-07-01&check_out=2026-07-03&guests=2&search_mode=regular_search&source_impression_id=p3_1773237482_P39CsR4UrMP5uUvT&previous_page_section_name=1000&federated_search_id=e58953f1-653c-4dca-8d8d-1b4c4af80e31"
-      >
-        <i class="fa-brands fa-airbnb"></i>
+      <a class="mobile-sticky-primary" href="prenota.html?apartment=magnolie">
+        <i class="fa-solid fa-calendar-check"></i>
         <span>Prenota</span>
       </a>
     </div>
 
     <div class="desktop-sticky-cta">
-      <a class="desktop-sticky-primary" href="https://wa.me/3933832322007">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span>Scrivici</span>
-      </a>
-      <a
-        class="desktop-sticky-secondary"
-        href="https://www.airbnb.it/rooms/1637753276156157006?adults=2&check_in=2026-07-01&check_out=2026-07-03&guests=2&search_mode=regular_search&source_impression_id=p3_1773237482_P39CsR4UrMP5uUvT&previous_page_section_name=1000&federated_search_id=e58953f1-653c-4dca-8d8d-1b4c4af80e31"
-      >
+      <a class="desktop-sticky-secondary" href="prenota.html?apartment=magnolie">
         <i class="fa-solid fa-calendar-check"></i>
         <span>Prenota</span>
       </a>
@@ -475,6 +456,7 @@
 
     <script src="js/availability-data.js"></script>
     <script src="js/availability-calendar.js"></script>
+    <script src="js/apartment-anchors.js"></script>
     <script src="js/gallery-lightbox.js"></script>
     <script src="js/cookie-consent.js"></script>
     <script src="js/mobile-sticky-cta.js"></script>

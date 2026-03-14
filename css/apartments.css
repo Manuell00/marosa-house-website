@@ -247,17 +247,44 @@
   font-weight: 700;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
   text-decoration: none;
+  outline: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, background 0.2s ease,
     border-color 0.2s ease;
 }
 
-.apartment-anchors a:hover {
+.apartment-anchors a::after {
+  content: none;
+}
+
+.apartment-anchors a:hover,
+.apartment-anchors a:focus-visible {
   transform: translateY(-2px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
   color: #b78e42;
   background: #fffaf0;
   border-color: rgba(200, 164, 92, 0.35);
   text-decoration: none;
+}
+
+.apartment-anchors a:visited,
+.apartment-anchors a.active {
+  text-decoration: none;
+}
+
+.apartment-anchors a.active {
+  color: white;
+  background: linear-gradient(135deg, #c8a45c, #b78e42);
+  border-color: rgba(183, 142, 66, 0.72);
+  box-shadow: 0 14px 26px rgba(200, 164, 92, 0.22);
+  transform: none;
+}
+
+#foto,
+#servizi,
+#mappa,
+#disponibilita,
+#prenota {
+  scroll-margin-top: 150px;
 }
 
 /* immagini hero */
@@ -812,6 +839,17 @@
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+}
+
+.booking-buttons .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 220px;
+  min-height: 56px;
+  text-align: center;
+  line-height: 1.25;
 }
 
 .mobile-sticky-cta {

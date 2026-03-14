@@ -311,6 +311,10 @@ footer {
   flex-wrap: wrap;
 }
 
+.footer-links {
+  justify-content: center;
+}
+
 footer a {
   color: #d5c299;
   transition: color 0.2s ease;
@@ -426,10 +430,10 @@ footer a:hover {
   font-size: 0;
   line-height: 0;
 
-  color: #6f5523;
-  background: linear-gradient(135deg, #f8f1df, #ead4a2);
-  box-shadow: 0 10px 24px rgba(200, 164, 92, 0.22);
-  border: 1px solid rgba(200, 164, 92, 0.22);
+  color: #3f3f3f;
+  background: linear-gradient(135deg, #f2f2f2, #d7d7d7);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 
   cursor: pointer;
 
@@ -461,11 +465,11 @@ footer a:hover {
 
 .menu-toggle:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(200, 164, 92, 0.28);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
 }
 
 .menu-toggle.active {
-  background: linear-gradient(135deg, #c8a45c, #b78e42);
+  background: linear-gradient(135deg, #4f4f4f, #2f2f2f);
   color: white;
 }
 
@@ -553,6 +557,27 @@ footer a:hover {
   letter-spacing: 0.02em;
 
   color: #5b451d;
+}
+
+.mobile-menu-close {
+  position: absolute;
+  top: 20px;
+  right: 18px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(17, 17, 17, 0.08);
+  color: #5b451d;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-menu-close:hover {
+  background: rgba(17, 17, 17, 0.14);
+  transform: rotate(90deg);
 }
 
 /* apertura sidebar */
