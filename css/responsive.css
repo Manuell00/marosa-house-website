@@ -74,6 +74,18 @@
     font-size: 15px;
   }
 
+  .hero-apartment h1 {
+    font-size: 55px;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
   /* HERO BUTTONS */
 
   .hero-buttons {
@@ -85,6 +97,30 @@
 
   .apartment-card img {
     height: 200px;
+  }
+
+  .features {
+    max-width: 1000px;
+    margin: 40px auto;
+    text-align: center;
+  }
+
+  .guides {
+    max-width: 1000px;
+    margin: 40px auto;
+    text-align: center;
+  }
+
+  .map {
+    max-width: 1100px;
+    margin: 60px auto;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .booking {
+    padding-bottom: 80px;
+    margin: 50px 0 auto;
   }
 
   /* WHY */
@@ -117,10 +153,6 @@
 
   /* BOOKING */
 
-  .booking {
-    padding: 30px 20px;
-  }
-
   .booking-buttons {
     flex-direction: column;
     gap: 12px;
@@ -151,8 +183,7 @@
   .reviews,
   .location,
   .why,
-  .apartments-preview,
-  .booking {
+  .apartments-preview {
     margin: 50px 0;
   }
 
