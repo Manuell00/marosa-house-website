@@ -38,7 +38,7 @@ FOOTER
     />
   </head>
 
-  <body>
+  <body class="has-mobile-cta">
     <!-- ========================================= -->
     <!-- HEADER -->
     <!-- ========================================= -->
@@ -94,6 +94,28 @@ FOOTER
         Appartamento accogliente situato nel centro di Rapallo, a pochi minuti
         dal mare, dal lungomare e dalla stazione ferroviaria.
       </p>
+
+      <div class="quick-info">
+        <div class="quick-info-item">
+          <i class="fa-solid fa-users"></i>
+          <span>Ideale per 2-4 ospiti</span>
+        </div>
+
+        <div class="quick-info-item">
+          <i class="fa-solid fa-bed"></i>
+          <span>Zona notte confortevole</span>
+        </div>
+
+        <div class="quick-info-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>A pochi minuti dal mare</span>
+        </div>
+
+        <div class="quick-info-item">
+          <i class="fa-solid fa-key"></i>
+          <span>Self check-in disponibile</span>
+        </div>
+      </div>
 
       <!-- ========================================= -->
       <!-- GALLERIA FOTO -->
@@ -280,7 +302,55 @@ FOOTER
             <span>Comodo per Portofino e Cinque Terre</span>
           </div>
         </div>
+
+        <a
+          class="map-cta"
+          href="https://www.google.com/maps/search/?api=1&query=Via+Nino+Bixio+Rapallo"
+          target="_blank"
+        >
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>Apri in Google Maps</span>
+        </a>
       </div>
+    </section>
+
+    <section class="direct-booking">
+      <h2>Perché prenotare diretto</h2>
+
+      <div class="direct-booking-grid">
+        <div class="direct-booking-card">
+          <i class="fa-solid fa-comments"></i>
+          <h3>Contatto immediato</h3>
+          <p>Ricevi risposta rapida e assistenza diretta prima del soggiorno.</p>
+        </div>
+
+        <div class="direct-booking-card">
+          <i class="fa-solid fa-circle-info"></i>
+          <h3>Info locali utili</h3>
+          <p>Suggerimenti pratici su arrivo, quartiere, ristoranti e spostamenti.</p>
+        </div>
+
+        <div class="direct-booking-card">
+          <i class="fa-solid fa-heart"></i>
+          <h3>Esperienza piu personale</h3>
+          <p>Un contatto piu semplice e umano per organizzare al meglio il soggiorno.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="availability">
+      <h2>Disponibilita aggiornata</h2>
+      <p>
+        Calendario dei prossimi mesi sincronizzato con Airbnb. La disponibilita
+        finale viene comunque confermata al momento della prenotazione.
+      </p>
+
+      <div class="availability-legend">
+        <span><i class="availability-dot free"></i>Disponibile</span>
+        <span><i class="availability-dot booked"></i>Occupato</span>
+      </div>
+
+      <div class="availability-calendar" data-apartment="bixio"></div>
     </section>
 
     <!-- ========================================= -->
@@ -321,9 +391,66 @@ FOOTER
     <!-- FOOTER -->
     <!-- ========================================= -->
 
-    <footer>
-      <p>© MaRoSa House</p>
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">© MaRoSa House · Rapallo</div>
+        <div class="footer-links">
+          <a href="marosa-bixio.html">Bixio</a>
+          <a href="marosa-magnolie.html">Magnolie</a>
+          <a href="info.html">Info</a>
+          <a href="privacy-cookie.html">Privacy & Cookie</a>
+        </div>
+        <div class="footer-meta">
+          <a href="mailto:manuell.caselli@gmail.com">Email</a>
+          <a href="https://wa.me/393383232207">WhatsApp</a>
+        </div>
+      </div>
     </footer>
+
+    <div class="mobile-sticky-cta">
+      <button class="mobile-sticky-dismiss" aria-label="Nascondi barra prenotazione">×</button>
+
+      <a class="mobile-sticky-primary" href="https://wa.me/393383232207">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>Scrivici su WhatsApp</span>
+      </a>
+
+      <a
+        class="mobile-sticky-secondary"
+        href="https://www.airbnb.it/rooms/1370215212202187719"
+      >
+        <i class="fa-brands fa-airbnb"></i>
+        <span>Prenota</span>
+      </a>
+    </div>
+
+    <div class="gallery-lightbox" id="gallery-lightbox">
+      <div class="gallery-lightbox-content">
+        <button class="gallery-lightbox-close" id="gallery-lightbox-close" aria-label="Chiudi galleria">×</button>
+        <button class="gallery-lightbox-nav gallery-lightbox-prev" id="gallery-lightbox-prev" aria-label="Foto precedente">‹</button>
+        <img class="gallery-lightbox-image" id="gallery-lightbox-image" src="" alt="" />
+        <button class="gallery-lightbox-nav gallery-lightbox-next" id="gallery-lightbox-next" aria-label="Foto successiva">›</button>
+        <p class="gallery-lightbox-caption" id="gallery-lightbox-caption"></p>
+      </div>
+    </div>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <p>
+        Questo sito usa cookie tecnici essenziali e contenuti esterni come mappe
+        e font web. Puoi leggere i dettagli nella
+        <a href="privacy-cookie.html">Privacy & Cookie Policy</a>.
+      </p>
+      <div class="cookie-banner-actions">
+        <button class="cookie-btn reject" id="cookie-reject">Rifiuta</button>
+        <button class="cookie-btn accept" id="cookie-accept">Accetta</button>
+      </div>
+    </div>
+
+    <script src="js/availability-data.js"></script>
+    <script src="js/availability-calendar.js"></script>
+    <script src="js/gallery-lightbox.js"></script>
+    <script src="js/cookie-consent.js"></script>
+    <script src="js/mobile-sticky-cta.js"></script>
     <script src="js/sidebar.js"></script>
   </body>
 </html>
