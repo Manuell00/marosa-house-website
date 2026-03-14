@@ -219,6 +219,47 @@
   color: white;
 }
 
+.apartment-anchors {
+  position: sticky;
+  top: 77px;
+  z-index: 900;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  background: rgba(246, 246, 246, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(200, 164, 92, 0.12);
+}
+
+.apartment-anchors a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: white;
+  border: 1px solid rgba(200, 164, 92, 0.18);
+  color: #6f5523;
+  font-size: var(--fs-body-sm);
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.apartment-anchors a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  color: #b78e42;
+  background: #fffaf0;
+  border-color: rgba(200, 164, 92, 0.35);
+  text-decoration: none;
+}
+
 /* immagini hero */
 
 .bixio-hero {
@@ -535,7 +576,7 @@
 .gallery-mobile-actions {
   display: none;
   justify-content: center;
-  margin-top: 18px;
+  margin-top: 12px;
 }
 
 .gallery-more-button {
@@ -775,6 +816,45 @@
 
 .mobile-sticky-cta {
   display: none;
+}
+
+.desktop-sticky-cta {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1800;
+}
+
+.desktop-sticky-primary,
+.desktop-sticky-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 0 18px;
+  border-radius: 999px;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.16);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.desktop-sticky-primary {
+  background: #25d366;
+}
+
+.desktop-sticky-secondary {
+  background: #111;
+}
+
+.desktop-sticky-primary:hover,
+.desktop-sticky-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
 }
 
 .mobile-sticky-cta.is-hidden,
