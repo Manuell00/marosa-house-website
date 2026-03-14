@@ -66,18 +66,33 @@
   padding: 20px;
 }
 
+.hero-kicker {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: white;
+  font-size: var(--fs-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+}
+
 /* titolo */
 
 .hero-slider h1 {
-  font-size: 64px;
+  font-size: var(--fs-h1-hero);
   margin-bottom: 20px;
+  text-wrap: balance;
 }
 
 /* sottotitolo */
 
 .hero-slider p {
   color: white;
-  font-size: 18px;
+  font-size: var(--fs-body-lg);
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -150,7 +165,7 @@ TRUST SECTION
 
   padding: 10px 16px;
 
-  font-size: 14px;
+  font-size: var(--fs-label);
   font-weight: 500;
 
   color: #333;
@@ -182,13 +197,17 @@ TRUST SECTION
 }
 
 .intro h2 {
-  font-size: 36px;
   margin-bottom: 15px;
 }
 
 .intro p {
   max-width: 650px;
   margin: auto;
+}
+
+.section-lead {
+  max-width: 700px;
+  margin: 0 auto 18px;
 }
 
 /* =================================================
@@ -240,6 +259,39 @@ TRUST SECTION
 
 .apartment-info {
   padding: 25px;
+}
+
+.apartment-tag {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #b78e42;
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.apartment-info h3 {
+  margin-bottom: 10px;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  color: #8f6b2a;
+  font-size: var(--fs-body-sm);
+  font-weight: 600;
+}
+
+.card-link::after {
+  content: "->";
+  transition: transform 0.2s ease;
+}
+
+.apartment-card:hover .card-link::after {
+  transform: translateX(4px);
 }
 
 /* =================================================
