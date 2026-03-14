@@ -21,8 +21,8 @@ a {
 }
 
 /* =================================================
-  2. TIPOGRAFIA
-  ================================================= */
+2. TIPOGRAFIA
+================================================= */
 
 h1,
 h2,
@@ -35,8 +35,8 @@ p {
 }
 
 /* =================================================
-  3. LAYOUT GENERALE
-  ================================================= */
+3. LAYOUT GENERALE
+================================================= */
 
 .container {
   max-width: 1200px;
@@ -49,14 +49,15 @@ section {
 }
 
 /* =================================================
-  4. HEADER
-  ================================================= */
+4. HEADER
+================================================= */
 
 header {
   background: #fff;
   position: sticky;
   top: 0;
   z-index: 1000;
+
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
 }
 
@@ -64,12 +65,13 @@ header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   height: 65px;
 }
 
 /* =================================================
-  5. LOGO
-  ================================================= */
+5. LOGO
+================================================= */
 
 .logo {
   display: flex;
@@ -87,7 +89,6 @@ header .container {
   font-size: 20px;
   font-weight: 600;
   position: relative;
-  display: inline-block;
 }
 
 /* linea oro */
@@ -97,9 +98,12 @@ header .container {
   position: absolute;
   left: 0;
   bottom: -3px;
+
   width: 0;
   height: 2px;
+
   background: #c8a45c;
+
   transition: width 0.25s ease;
 }
 
@@ -116,8 +120,8 @@ header .container {
 }
 
 /* =================================================
-  6. NAVBAR
-  ================================================= */
+6. NAVBAR
+================================================= */
 
 nav {
   display: flex;
@@ -128,19 +132,24 @@ nav a {
   margin-left: 28px;
   font-size: 15px;
   font-weight: 500;
+
   position: relative;
   padding-bottom: 4px;
 }
 
 nav a::after {
   content: "";
+
   position: absolute;
   left: 0;
   bottom: 0;
+
   width: 0;
   height: 2px;
+
   background: #c8a45c;
-  transition: 0.25s;
+
+  transition: width 0.25s ease;
 }
 
 nav a:hover::after {
@@ -152,8 +161,8 @@ nav a.active::after {
 }
 
 /* =================================================
-  7. TITOLI SEZIONE
-  ================================================= */
+7. TITOLI SEZIONE
+================================================= */
 
 .intro h2::after,
 .apartments-preview h2::after,
@@ -165,28 +174,38 @@ nav a.active::after {
 .guides h2::after,
 .map h2::after {
   content: "";
+
   display: block;
+
   width: 60px;
   height: 2px;
+
   background: #c8a45c;
+
   margin: 15px auto 25px;
 }
 
 /* =================================================
-  8. BOTTONI
-  ================================================= */
+8. BOTTONI
+================================================= */
 
 .btn {
   padding: 14px 30px;
+
   border-radius: 10px;
+
   min-width: 140px;
+
   color: white;
+
   font-weight: 500;
-  transition: 0.25s;
+
+  transition: all 0.25s ease;
 }
 
 .btn:hover {
   transform: translateY(-3px);
+
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
@@ -207,8 +226,8 @@ nav a.active::after {
 }
 
 /* =================================================
-  9. CARD HOVER
-  ================================================= */
+9. CARD HOVER
+================================================= */
 
 .card-hover {
   transition: all 0.25s ease;
@@ -216,29 +235,37 @@ nav a.active::after {
 
 .card-hover:hover {
   transform: translateY(-6px);
+
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* =================================================
-  10. FOOTER
-  ================================================= */
+10. FOOTER
+================================================= */
 
 footer {
   background: #111;
+
   color: #bbb;
+
   text-align: center;
+
   padding: 20px;
+
   font-size: 14px;
 }
 
 /* =================================================
-  11. INFO INTRO
-  ================================================= */
+11. INFO INTRO
+================================================= */
 
 .info-intro {
   max-width: 900px;
+
   margin: 80px auto;
+
   text-align: center;
+
   padding: 0 20px;
 }
 
@@ -249,45 +276,56 @@ footer {
 
 .info-intro h2::after {
   content: "";
+
   display: block;
+
   width: 60px;
   height: 2px;
+
   background: #c8a45c;
+
   margin: 15px auto 25px;
 }
 
 .info-intro p {
   max-width: 650px;
+
   margin: auto;
 }
 
 /* =================================================
-  12. HAMBURGER
-  ================================================= */
+12. HAMBURGER
+================================================= */
 
 .menu-toggle {
   display: none;
+
   font-size: 24px;
+
   cursor: pointer;
 }
 
 /* =================================================
-  13. MOBILE MENU
-  ================================================= */
+13. MOBILE MENU
+================================================= */
 
 .mobile-menu {
   position: fixed;
+
   top: 0;
   right: -100%;
+
   width: 260px;
   height: 100vh;
 
-  background: #ffffff;
+  background: #fff;
 
   display: flex;
   flex-direction: column;
+
   padding: 90px 30px;
-  gap: 10px;
+
+  gap: 14px;
 
   box-shadow: -4px 0 30px rgba(0, 0, 0, 0.15);
 
@@ -300,27 +338,46 @@ footer {
   right: 0;
 }
 
+/* =================================================
+14. SIDEBAR LINKS
+================================================= */
+
 .mobile-menu a {
-  font-size: 18px;
+  padding: 14px 20px;
+
+  border: 2px solid #c8a45c;
+
+  border-radius: 10px;
+
+  text-align: center;
+
+  font-size: 17px;
   font-weight: 500;
-  color: #222;
-  padding: 14px 16px;
-  border-radius: 8px;
-  transition: 0.25s;
+
+  color: #333;
+
+  transition: all 0.25s ease;
 }
 
 .mobile-menu a:hover {
-  background: #f6f6f6;
-  color: #c8a45c;
+  background: #c8a45c;
+
+  color: white;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
 }
 
-.mobile-menu a:active {
-  transform: scale(0.97);
+.mobile-menu a.active {
+  background: #c8a45c;
+
+  color: white;
 }
 
-/* =========================================
-   SIDEBAR SOLO MOBILE
-========================================= */
+/* =================================================
+15. MOBILE ONLY
+================================================= */
 
 @media (min-width: 769px) {
   .mobile-menu {
