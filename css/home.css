@@ -115,39 +115,58 @@
 }
 
 /* =================================================
-  3. TRUST BAR
-  ================================================= */
+TRUST SECTION
+================================================= */
 
 .trust {
   background: white;
-
-  padding: 22px;
-
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  padding: 30px 20px;
 }
 
 .trust-container {
-  max-width: 1100px;
+  max-width: 900px;
   margin: auto;
 
   display: flex;
-  justify-content: space-between;
-
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+
+  gap: 16px;
 }
+
+/* singolo elemento */
 
 .trust-item {
   display: flex;
   align-items: center;
+  justify-content: center;
 
   gap: 8px;
 
+  background: white;
+
+  border: 2px solid #c8a45c;
+  border-radius: 10px;
+
+  padding: 10px 16px;
+
+  font-size: 14px;
   font-weight: 500;
+
+  color: #333;
+
+  transition: all 0.25s ease;
 }
 
 .trust-item i {
   color: #c8a45c;
+  font-size: 16px;
+}
+
+.trust-item:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
 }
 
 /* =================================================

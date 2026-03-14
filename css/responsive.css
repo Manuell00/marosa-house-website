@@ -1,271 +1,488 @@
 /* =========================================
-   TABLET
+   LARGE TABLET / SMALL LAPTOP
 ========================================= */
 
-@media (max-width: 1024px) {
-  /* HERO */
-
-  .hero-slider h1 {
-    font-size: 48px;
+@media (max-width: 1180px) {
+  .container {
+    padding: 18px 24px;
   }
 
-  .hero-slider p {
-    font-size: 16px;
+  header .container {
+    height: 72px;
   }
 
-  /* APARTMENTS */
-
-  .apartments-grid {
-    grid-template-columns: 1fr;
+  nav a {
+    margin-left: 18px;
+    font-size: 14px;
   }
 
-  /* INFO */
+  .hero-slider h1,
+  .hero-apartment h1 {
+    font-size: 56px;
+  }
 
+  .hero-content {
+    max-width: 620px;
+  }
+
+  .apartments-preview,
+  .why,
+  .location,
+  .reviews,
+  .features,
+  .guides,
+  .map,
+  .booking,
+  .info-section,
+  .info-intro,
+  .apartment {
+    width: auto;
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
+  .apartments-grid,
+  .reviews-grid,
   .info-grid {
-    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
-  /* AMENITIES */
+  .why-grid {
+    gap: 22px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .gallery img,
+  .gallery-grid img {
+    height: 240px;
+  }
 
   .amenities-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .features-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* REVIEWS */
-
-  .reviews-grid {
-    grid-template-columns: 1fr;
+  .guides-grid {
+    gap: 24px;
   }
 
-  /* GALLERY */
+  .guide-card {
+    padding: 24px;
+  }
 
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .map-container iframe {
+    height: 360px;
+  }
+
+  .booking {
+    width: min(100%, 900px);
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 /* =========================================
-     MOBILE
-  ========================================= */
+   TABLET
+========================================= */
 
-@media (max-width: 768px) {
-  /* HEADER */
+@media (max-width: 1024px) {
+  .header,
+  .container,
+  .hero-content,
+  .hero-buttons,
+  .apartments-grid,
+  .why-grid,
+  .reviews-grid,
+  .amenities-grid,
+  .info-grid,
+  .features-grid,
+  .guides-grid,
+  .booking-buttons,
+  .map-info {
+    min-width: 0;
+  }
 
+  .why-grid > *,
+  .reviews-grid > *,
+  .amenities-grid > *,
+  .info-grid > *,
+  .features-grid > *,
+  .guides-grid > *,
+  .booking-buttons > *,
+  .hero-buttons > * {
+    min-width: 0;
+  }
+
+  .logo span {
+    font-size: 20px;
+  }
+
+  .hero-slider {
+    height: 68vh;
+  }
+
+  .hero-slider h1,
+  .hero-apartment h1 {
+    font-size: 52px;
+  }
+
+  .hero-slider p,
+  .hero-apartment p {
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  h3 {
+    font-size: 28px;
+  }
+
+  p,
+  li,
+  .trust-item,
+  .amenity,
+  .info-card,
+  .faq-item p,
+  .features-grid div,
+  .guide-card,
+  .map-item,
+  .booking p,
+  .apartment-info p,
+  .mobile-menu a {
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  nav a,
+  .btn {
+    font-size: 16px;
+  }
+
+  .trust-item,
+  .map-item,
+  .faq-item h3,
+  .faq-item p,
+  .guide-card h3,
+  .features-grid div,
+  .info-card,
+  .review-card,
+  .apartment-info,
+  .why-grid div {
+    overflow-wrap: anywhere;
+  }
+
+  .hero-buttons {
+    gap: 14px;
+  }
+
+  .hero-buttons .btn,
+  .booking-buttons .btn {
+    min-width: 200px;
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .amenities-grid,
+  .info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .why-grid > :last-child:nth-child(odd),
+  .reviews-grid > :last-child:nth-child(odd),
+  .info-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(100%, 320px);
+  }
+
+  .info-card {
+    max-width: none;
+    width: 100%;
+  }
+
+  .booking {
+    padding: 36px 28px;
+  }
+
+  .booking h2 {
+    font-size: 42px;
+  }
+
+  .booking p {
+    font-size: 18px;
+  }
+
+  .booking-buttons .btn {
+    padding: 16px 28px;
+    min-height: 60px;
+    font-size: 17px;
+  }
+
+  .booking-buttons .btn i {
+    font-size: 22px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  .map-box {
+    padding: 20px;
+  }
+
+  .map-info {
+    gap: 20px;
+  }
+}
+
+/* =========================================
+   SMALL TABLET
+========================================= */
+
+@media (max-width: 1024px) {
   nav {
     display: none;
   }
 
   .menu-toggle {
+    display: inline-flex !important;
+  }
+
+  .mobile-menu {
+    display: flex !important;
+  }
+
+  .container {
+    padding: 16px 20px;
+  }
+
+  section {
+    padding: 36px 0;
+  }
+
+  .hero-slider {
+    height: 62vh;
+  }
+
+  .hero-content {
+    max-width: 560px;
+    padding: 20px 12px;
+  }
+
+  .hero-content p {
     display: block;
   }
 
-  /* HERO */
-
-  .hero-slider {
-    height: 60vh;
-  }
-
-  .hero-slider h1 {
-    font-size: 28px;
-    line-height: 1.2;
-  }
-
-  .hero-slider p {
-    font-size: 15px;
-  }
-
-  .hero-apartment h1 {
-    font-size: 55px;
-    margin-bottom: 10px;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  }
-
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-  }
-
-  /* HERO BUTTONS */
-
-  .hero-buttons {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  /* APARTMENTS */
-
-  .apartment-card img {
-    height: 200px;
-  }
-
-  .features {
-    max-width: 1000px;
-    margin: 40px auto;
-    text-align: center;
-  }
-
-  .guides {
-    max-width: 1000px;
-    margin: 40px auto;
-    text-align: center;
-  }
-
-  .map {
-    max-width: 1100px;
-    margin: 60px auto;
-    text-align: center;
-    padding: 0 20px;
-  }
-
-  .booking {
-    padding-bottom: 80px;
-    margin: 50px 0 auto;
-  }
-
-  /* WHY */
-
-  .why-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .why-card {
-    padding: 18px;
-  }
-
-  .why-card h3 {
-    font-size: 16px;
-  }
-
-  /* LOCATION */
-
-  .location-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  /* AMENITIES */
-
-  .amenities-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* BOOKING */
-
-  .booking-buttons {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  /* GALLERY */
-
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .gallery-grid img {
-    height: 180px;
-    object-fit: cover;
-  }
-
-  /* SECTION SPACING */
-
-  section {
-    padding: 25px 20px;
-  }
-
-  .intro {
-    margin: 25px auto;
-  }
-
-  .reviews,
-  .location,
+  .intro,
+  .apartments-preview,
   .why,
-  .apartments-preview {
-    margin: 50px 0;
+  .location,
+  .reviews,
+  .features,
+  .guides,
+  .map,
+  .booking,
+  .info-section,
+  .info-intro {
+    margin-top: 56px;
+    margin-bottom: 56px;
   }
 
-  /* TRUST SECTION */
-
-  .trust-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .trust-item {
-    width: 100%;
-    max-width: 260px;
-  }
-
-  /* APARTMENT FEATURES */
-
-  .features-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-
-  .feature {
-    padding: 12px;
-    font-size: 14px;
-  }
-
-  /* GUIDES */
-
+  .features-grid,
   .guides-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
   .guide-card {
-    max-width: 260px;
-    margin: auto;
+    max-width: 420px;
+    margin: 0 auto;
   }
 
   .guide-card img {
-    max-width: 200px;
-    margin: auto;
+    width: min(100%, 210px);
+  }
+
+  .booking-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .mobile-menu {
+    padding-top: 104px;
+  }
+
+  .mobile-menu::before {
+    font-size: 26px;
   }
 }
 
 /* =========================================
-     SMALL MOBILE
-  ========================================= */
+   MOBILE
+========================================= */
 
-@media (max-width: 480px) {
-  /* HERO */
+@media (max-width: 768px) {
+  .hero-slider {
+    height: 60vh;
+  }
 
   .hero-slider h1 {
-    font-size: 26px;
+    font-size: 46px;
+    line-height: 1.15;
   }
 
-  .hero-slider p {
-    font-size: 14px;
+  .hero-apartment h1 {
+    font-size: 42px;
+    line-height: 1.15;
   }
 
-  /* LOGO */
+  .hero-content p {
+    display: none;
+  }
+
+  .intro {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .intro p {
+    max-width: 100%;
+    padding: 0 4px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-buttons .btn,
+  .booking-buttons .btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .apartments-grid,
+  .gallery,
+  .gallery-grid,
+  .why-grid,
+  .amenities-grid,
+  .info-grid,
+  .features-grid,
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .apartments-grid,
+  .why-grid,
+  .reviews-grid {
+    gap: 18px;
+  }
+
+  .apartment-card,
+  .why-grid > div,
+  .reviews-grid > .review-card {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .why-grid > :last-child:nth-child(odd),
+  .reviews-grid > :last-child:nth-child(odd),
+  .info-grid > :last-child:nth-child(odd) {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .gallery img,
+  .gallery-grid img,
+  .apartment-card img {
+    height: 220px;
+  }
+
+  .trust-container {
+    justify-content: center;
+  }
+
+  .trust-item {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .booking {
+    padding: 28px 20px;
+  }
+
+  .reviews-grid {
+    margin-top: 24px;
+  }
+
+  .review-card {
+    padding: 24px 20px;
+  }
+
+  .map p,
+  .guides p {
+    display: none;
+  }
+
+  .map-container iframe {
+    height: 300px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .container {
+    padding: 14px 16px;
+  }
 
   .logo span {
-    font-size: 18px;
+    font-size: 17px;
   }
 
-  /* CONTAINER */
-
-  .container {
-    padding: 15px;
+  .hero-slider h1 {
+    font-size: 40px;
   }
 
-  /* WHY */
-
-  .why-grid {
-    grid-template-columns: 1fr;
+  .hero-apartment h1 {
+    font-size: 36px;
   }
 
-  /* LOCATION */
+  .hero-buttons .btn,
+  .booking-buttons .btn {
+    min-width: 0;
+  }
 
-  .location-grid {
-    grid-template-columns: 1fr;
+  .gallery img,
+  .gallery-grid img,
+  .apartment-card img {
+    height: 200px;
+  }
+
+  .apartment-card,
+  .why-grid > div,
+  .reviews-grid > .review-card {
+    max-width: 100%;
+  }
+
+  .map-container iframe {
+    height: 260px;
   }
 }

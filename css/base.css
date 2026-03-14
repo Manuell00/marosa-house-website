@@ -13,11 +13,19 @@ body {
   line-height: 1.6;
   color: #222;
   background: #f6f6f6;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+img,
+iframe {
+  display: block;
+  max-width: 100%;
 }
 
 /* =================================================
@@ -298,11 +306,56 @@ footer {
 ================================================= */
 
 .menu-toggle {
+  width: 46px;
+  height: 46px;
+
+  border-radius: 14px;
+
   display: none;
+  align-items: center;
+  justify-content: center;
 
   font-size: 24px;
+  line-height: 1;
+
+  color: #6f5523;
+  background: linear-gradient(135deg, #f8f1df, #ead4a2);
+  box-shadow: 0 10px 24px rgba(200, 164, 92, 0.22);
 
   cursor: pointer;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.menu-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(200, 164, 92, 0.28);
+}
+
+.menu-toggle.active {
+  background: linear-gradient(135deg, #c8a45c, #b78e42);
+  color: white;
+}
+
+.menu-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(17, 17, 17, 0.3);
+  backdrop-filter: blur(3px);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  z-index: 1500;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* =================================================
@@ -312,30 +365,98 @@ footer {
 .mobile-menu {
   position: fixed;
 
-  top: 0;
-  right: -100%;
+  top: 12px;
+  right: 12px;
 
-  width: 260px;
-  height: 100vh;
+  width: min(320px, calc(100vw - 24px));
+  height: calc(100vh - 24px);
 
-  background: #fff;
+  background: linear-gradient(180deg, #fffdf8 0%, #f7efdf 100%);
 
   display: flex;
   flex-direction: column;
 
-  padding: 90px 30px;
+  padding: 96px 22px 28px;
 
-  gap: 14px;
+  gap: 12px;
 
-  box-shadow: -4px 0 30px rgba(0, 0, 0, 0.15);
+  border-radius: 26px;
 
-  transition: right 0.35s ease;
+  border: 1px solid rgba(200, 164, 92, 0.28);
+
+  box-shadow: -12px 0 42px rgba(0, 0, 0, 0.16);
+
+  transform: translateX(calc(100% + 24px));
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 
   z-index: 2000;
+
+  overflow-y: auto;
 }
 
-.mobile-menu.open {
-  right: 0;
+.mobile-menu::before {
+  content: "MaRoSa House";
+
+  position: absolute;
+  top: 28px;
+  left: 22px;
+
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+
+  color: #5b451d;
+}
+
+/* apertura sidebar */
+
+.mobile-menu.active {
+  transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* links sidebar */
+
+.mobile-menu a {
+  padding: 16px 18px;
+
+  border: 1px solid rgba(200, 164, 92, 0.28);
+
+  border-radius: 16px;
+
+  text-align: left;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  color: #333;
+
+  background: rgba(255, 255, 255, 0.72);
+
+  transition: all 0.25s ease;
+}
+
+.mobile-menu a:hover {
+  background: linear-gradient(135deg, #cfab63, #b78e42);
+
+  color: white;
+
+  transform: translateX(-4px);
+
+  box-shadow: 0 12px 24px rgba(183, 142, 66, 0.22);
+}
+
+.mobile-menu a.active {
+  background: linear-gradient(135deg, #c8a45c, #b78e42);
+
+  color: white;
+
+  box-shadow: 0 12px 24px rgba(183, 142, 66, 0.2);
 }
 
 /* =================================================
@@ -343,35 +464,14 @@ footer {
 ================================================= */
 
 .mobile-menu a {
-  padding: 14px 20px;
-
-  border: 2px solid #c8a45c;
-
-  border-radius: 10px;
-
-  text-align: center;
-
-  font-size: 17px;
-  font-weight: 500;
-
-  color: #333;
-
-  transition: all 0.25s ease;
+  letter-spacing: 0.01em;
 }
 
 .mobile-menu a:hover {
-  background: #c8a45c;
-
   color: white;
-
-  transform: translateY(-2px);
-
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
 }
 
 .mobile-menu a.active {
-  background: #c8a45c;
-
   color: white;
 }
 
@@ -379,7 +479,7 @@ footer {
 15. MOBILE ONLY
 ================================================= */
 
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
   .mobile-menu {
     display: none !important;
   }
