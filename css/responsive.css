@@ -312,7 +312,7 @@
   .booking-buttons > :last-child:nth-child(odd) {
     grid-column: 1 / -1;
     justify-self: center;
-    width: min(100%, 320px);
+    width: min(100%, 420px);
   }
 
   .info-card {
@@ -382,6 +382,12 @@
     padding: 16px 20px;
   }
 
+  header {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  }
+
   section {
     padding: 36px 0;
   }
@@ -392,11 +398,20 @@
 
   .hero-content {
     max-width: 560px;
-    padding: 20px 12px;
+    padding: 28px 24px 24px;
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(18, 18, 18, 0.24) 0%, rgba(18, 18, 18, 0.12) 100%);
+    box-shadow: 0 22px 40px rgba(0, 0, 0, 0.14);
+    backdrop-filter: blur(8px);
   }
 
   .hero-content p {
     display: block;
+  }
+
+  .hero-kicker {
+    padding: 7px 12px;
+    background: rgba(255, 255, 255, 0.16);
   }
 
   .intro,
@@ -414,9 +429,83 @@
     margin-bottom: 56px;
   }
 
+  .apartments-grid {
+    gap: 22px;
+  }
+
+  .apartment-card {
+    border-radius: 22px;
+  }
+
+  .apartment-card img {
+    height: 250px;
+  }
+
+  .apartment-info {
+    padding: 24px 22px 26px;
+  }
+
+  .apartment-tag {
+    padding: 6px 11px;
+  }
+
+  .review-card {
+    padding: 30px 24px 24px;
+    border-radius: 20px;
+  }
+
+  .review-card::before {
+    top: 16px;
+    left: 18px;
+    font-size: 30px;
+  }
+
   .features-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
+  }
+
+  .trust-container {
+    max-width: 980px;
+    gap: 18px;
+  }
+
+  .trust-item {
+    min-height: 76px;
+    padding: 16px 18px;
+    border-radius: 20px;
+  }
+
+  .trust-item i {
+    width: 36px;
+    height: 36px;
+  }
+
+  .why-grid div,
+  .features-grid div,
+  .guide-card,
+  .info-card,
+  .direct-booking-card,
+  .stay-times-card,
+  .map-box {
+    border-radius: 22px;
+  }
+
+  .amenity,
+  .quick-info-item {
+    border-radius: 18px;
+    min-height: 82px;
+  }
+
+  .apartment-anchors {
+    top: 84px;
+    padding: 12px 16px;
+    gap: 10px;
+  }
+
+  .apartment-anchors a {
+    min-height: 44px;
+    padding: 10px 17px;
   }
 
   .guides-grid {
@@ -521,11 +610,12 @@
   }
 
   .hero-slider {
-    height: 60vh;
+    height: 56vh;
   }
 
   .hero-slider h1 {
     line-height: 1.15;
+    margin-bottom: 14px;
   }
 
   .hero-apartment h1 {
@@ -536,11 +626,29 @@
     display: none;
   }
 
+  .hero-content {
+    max-width: 360px;
+    padding: 22px 18px 18px;
+    border-radius: 26px;
+    background: linear-gradient(180deg, rgba(17, 17, 17, 0.18) 0%, rgba(17, 17, 17, 0.08) 100%);
+    box-shadow: 0 20px 36px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(6px);
+  }
+
+  .trust {
+    padding-top: 24px;
+    padding-bottom: 4px;
+  }
+
   .hero-kicker {
     margin-bottom: 12px;
+    padding: 6px 11px;
+    background: rgba(255, 255, 255, 0.16);
   }
 
   .intro {
+    margin-top: 48px;
+    margin-bottom: 56px;
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -552,13 +660,34 @@
 
   .hero-buttons {
     flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
   }
 
   .hero-buttons .btn,
   .booking-buttons .btn {
     width: 100%;
     max-width: none;
-    min-height: 64px;
+  }
+
+  .hero-buttons .btn {
+    min-height: 60px;
+  }
+
+  .booking-buttons .btn {
+    min-height: 54px;
+  }
+
+  .booking .booking-buttons .btn {
+    min-height: 48px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 15px;
+  }
+
+  .booking .booking-buttons .btn i {
+    font-size: 18px;
+    margin-right: 8px;
   }
 
   .booking-buttons {
@@ -591,6 +720,14 @@
     gap: 18px;
   }
 
+  .apartments-preview,
+  .why,
+  .reviews,
+  .booking {
+    margin-top: 52px;
+    margin-bottom: 52px;
+  }
+
   .apartment-card,
   .why-grid > div,
   .reviews-grid > .review-card,
@@ -601,6 +738,23 @@
     width: 100%;
     max-width: 360px;
     margin: 0 auto;
+  }
+
+  .apartment-card {
+    border-radius: 22px;
+  }
+
+  .apartment-card img {
+    height: 230px;
+  }
+
+  .apartment-info {
+    padding: 22px 20px 24px;
+  }
+
+  .apartment-tag {
+    margin-bottom: 10px;
+    padding: 6px 11px;
   }
 
   .why-grid > :last-child:nth-child(odd),
@@ -705,12 +859,23 @@
   }
 
   .trust-container {
+    grid-template-columns: 1fr;
     justify-content: center;
+    gap: 12px;
   }
 
   .trust-item {
     width: 100%;
-    max-width: 280px;
+    max-width: 320px;
+    min-height: 64px;
+    padding: 12px 14px;
+    margin: 0 auto;
+  }
+
+  .trust-item i {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
   }
 
   .booking {
@@ -723,7 +888,14 @@
   }
 
   .review-card {
-    padding: 24px 20px;
+    padding: 34px 20px 24px;
+    border-radius: 18px;
+  }
+
+  .review-card::before {
+    top: 12px;
+    left: 18px;
+    font-size: 28px;
   }
 
   .map p,
@@ -752,11 +924,11 @@
     grid-template-columns: 1.5fr 1fr;
     gap: 10px;
     padding: 10px;
-    background: rgba(255, 253, 248, 0.92);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(200, 164, 92, 0.2);
-    border-radius: 20px;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+    background: rgba(255, 252, 247, 0.9);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(200, 164, 92, 0.16);
+    border-radius: 22px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     z-index: 1900;
     transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
   }
@@ -812,6 +984,10 @@
     padding: 14px 16px;
   }
 
+  header {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  }
+
   .hero-buttons .btn,
   .booking-buttons .btn {
     min-width: 0;
@@ -830,6 +1006,10 @@
 
   .mobile-sticky-cta {
     grid-template-columns: 1fr;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 9px;
   }
 
   .apartment-card,

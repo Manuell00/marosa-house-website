@@ -16,6 +16,53 @@
   overflow: hidden;
 }
 
+.hero-slider,
+.trust,
+.intro,
+.apartments-preview,
+.why,
+.location,
+.reviews,
+.booking {
+  animation: homeFadeUp 0.7s ease both;
+}
+
+.trust {
+  animation-delay: 0.06s;
+}
+
+.intro {
+  animation-delay: 0.1s;
+}
+
+.apartments-preview {
+  animation-delay: 0.14s;
+}
+
+.why {
+  animation-delay: 0.18s;
+}
+
+.reviews {
+  animation-delay: 0.22s;
+}
+
+.booking {
+  animation-delay: 0.26s;
+}
+
+@keyframes homeFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* overlay scuro */
 
 .hero-slider::before {
@@ -111,22 +158,20 @@
 }
 
 .hero-buttons .btn {
-  background: #c8a45c;
+  background: linear-gradient(135deg, #cdaa5f, #b88d42);
   color: white;
-
   padding: 14px 30px;
-
-  border-radius: 8px;
-
-  font-weight: 500;
+  border-radius: 14px;
+  font-weight: 700;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
 
   transition: all 0.25s ease;
 }
 
 .hero-buttons .btn:hover {
-  background: #b89345;
+  background: linear-gradient(135deg, #bf954b, #a97d37);
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.22);
 }
 
 /* =================================================
@@ -134,18 +179,16 @@ TRUST SECTION
 ================================================= */
 
 .trust {
-  background: white;
-  padding: 30px 20px;
+  background: linear-gradient(180deg, #fbfaf7 0%, #f5f1e7 100%);
+  padding: 30px 20px 12px;
 }
 
 .trust-container {
   max-width: 900px;
   margin: auto;
 
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -154,34 +197,38 @@ TRUST SECTION
 .trust-item {
   display: flex;
   align-items: center;
-  justify-content: center;
-
-  gap: 8px;
-
-  background: white;
-
-  border: 2px solid #c8a45c;
-  border-radius: 10px;
-
-  padding: 10px 16px;
-
-  font-size: var(--fs-label);
-  font-weight: 500;
-
-  color: #333;
-
-  transition: all 0.25s ease;
+  justify-content: flex-start;
+  gap: 12px;
+  min-height: 72px;
+  padding: 14px 16px;
+  background: linear-gradient(180deg, #ffffff 0%, #fcf7ec 100%);
+  border: 1px solid rgba(191, 161, 101, 0.18);
+  border-radius: 18px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #2f2f2f;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  text-align: left;
 }
 
 .trust-item i {
-  color: #c8a45c;
-  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: rgba(191, 161, 101, 0.12);
+  color: #a88339;
+  font-size: 15px;
 }
 
 .trust-item:hover {
-  transform: translateY(-2px);
-
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+  border-color: rgba(200, 164, 92, 0.34);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.09);
 }
 
 /* =================================================
@@ -191,7 +238,7 @@ TRUST SECTION
 .intro {
   max-width: 900px;
 
-  margin: 70px auto;
+  margin: 62px auto 74px;
 
   text-align: center;
 }
@@ -207,7 +254,7 @@ TRUST SECTION
 
 .section-lead {
   max-width: 700px;
-  margin: 0 auto 18px;
+  margin: 0 auto 22px;
 }
 
 /* =================================================
@@ -217,7 +264,7 @@ TRUST SECTION
 .apartments-preview {
   max-width: 1100px;
 
-  margin: 80px auto;
+  margin: 74px auto 88px;
 
   text-align: center;
 }
@@ -234,55 +281,91 @@ TRUST SECTION
 /* card */
 
 .apartment-card {
-  background: white;
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #fdfbf7 100%);
 
-  border-radius: 14px;
+  border-radius: 24px;
 
   overflow: hidden;
 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(191, 161, 101, 0.14);
+  box-shadow: 0 18px 42px rgba(22, 18, 12, 0.08);
 
   transition: all 0.3s ease;
 }
 
+.apartment-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 45%,
+    rgba(248, 241, 224, 0.28) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
 .apartment-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 24px 48px rgba(22, 18, 12, 0.14);
+}
+
+.apartment-card:hover::after {
+  opacity: 1;
 }
 
 .apartment-card img {
   width: 100%;
-  height: 260px;
+  height: 280px;
 
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.apartment-card:hover img {
+  transform: scale(1.04);
 }
 
 .apartment-info {
-  padding: 25px;
+  position: relative;
+  z-index: 1;
+  padding: 26px 26px 28px;
+  text-align: left;
 }
 
 .apartment-tag {
   display: inline-block;
-  margin-bottom: 10px;
-  color: #b78e42;
-  font-size: var(--fs-label);
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(191, 161, 101, 0.12);
+  color: #9b7935;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .apartment-info h3 {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  color: #212121;
+}
+
+.apartment-info p {
+  color: #666155;
 }
 
 .card-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 14px;
+  margin-top: 16px;
   color: #8f6b2a;
   font-size: var(--fs-body-sm);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .card-link::after {
@@ -301,7 +384,7 @@ TRUST SECTION
 .why {
   max-width: 1100px;
 
-  margin: 80px auto;
+  margin: 88px auto 84px;
 
   text-align: center;
 }
@@ -310,6 +393,7 @@ TRUST SECTION
   display: grid;
 
   grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
 
   gap: 28px;
 
@@ -317,13 +401,16 @@ TRUST SECTION
 }
 
 .why-grid div {
+  width: 100%;
+  height: 100%;
   background: white;
 
   padding: 30px;
 
-  border-radius: 12px;
+  border-radius: 20px;
 
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(191, 161, 101, 0.14);
+  box-shadow: 0 16px 34px rgba(22, 18, 12, 0.08);
 
   transition: all 0.25s ease;
 }
@@ -334,11 +421,17 @@ TRUST SECTION
 }
 
 .why i {
-  font-size: 30px;
-
-  color: #c8a45c;
-
-  margin-bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 14px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #f9f1df 0%, #f0debb 100%);
+  color: #b68b3c;
+  font-size: 22px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
 }
 
 /* =================================================
@@ -348,7 +441,7 @@ TRUST SECTION
 .location {
   max-width: 1100px;
 
-  margin: 90px auto;
+  margin: 84px auto 90px;
 
   text-align: center;
 }
@@ -358,6 +451,31 @@ TRUST SECTION
   margin: auto;
 }
 
+.location .why-grid div {
+  border-radius: 22px;
+  border: 1px solid rgba(191, 161, 101, 0.14);
+  background: linear-gradient(180deg, #ffffff 0%, #fbf8f1 100%);
+  box-shadow: 0 16px 34px rgba(22, 18, 12, 0.08);
+}
+
+.location .why-grid i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 16px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #fbf3e4 0%, #efdfbd 100%);
+  color: #a88339;
+  font-size: 23px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.location .why-grid h3 {
+  margin-bottom: 12px;
+}
+
 /* =================================================
   8. REVIEWS
   ================================================= */
@@ -365,7 +483,7 @@ TRUST SECTION
 .reviews {
   max-width: 1100px;
 
-  margin: 90px auto;
+  margin: 86px auto 92px;
 
   text-align: center;
 }
@@ -374,6 +492,7 @@ TRUST SECTION
   display: grid;
 
   grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
 
   gap: 28px;
 
@@ -381,28 +500,50 @@ TRUST SECTION
 }
 
 .review-card {
-  background: white;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #fcfaf6 100%);
 
-  padding: 30px;
+  padding: 44px 28px 28px;
 
-  border-radius: 12px;
+  border-radius: 22px;
 
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(191, 161, 101, 0.14);
+  box-shadow: 0 16px 34px rgba(22, 18, 12, 0.08);
 
   transition: all 0.25s ease;
 }
 
+.review-card::before {
+  content: "\201C";
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  color: rgba(191, 161, 101, 0.18);
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.review-card p {
+  position: relative;
+  z-index: 1;
+  color: #575247;
+}
+
 .review-meta {
   display: block;
-  margin: 14px 0 8px;
-  color: #8a8a8a;
-  font-size: 14px;
-  font-weight: 500;
+  margin: 18px 0 8px;
+  color: #8c8373;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .review-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 22px 40px rgba(22, 18, 12, 0.14);
 }
 
 /* =================================================
@@ -412,7 +553,7 @@ TRUST SECTION
 .booking {
   max-width: 900px;
 
-  margin: 90px auto;
+  margin: 92px auto 86px;
 
   padding: 40px;
 
@@ -423,6 +564,19 @@ TRUST SECTION
   border-radius: 14px;
 
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slider,
+  .trust,
+  .intro,
+  .apartments-preview,
+  .why,
+  .location,
+  .reviews,
+  .booking {
+    animation: none;
+  }
 }
 
 .booking p {

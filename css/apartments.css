@@ -40,38 +40,34 @@
 
 .amenity {
   display: flex;
-
   align-items: center;
-
   gap: 12px;
-
   background: linear-gradient(180deg, #fffdf8 0%, #f8f1e2 100%);
-
   padding: 18px 16px;
-
-  border-radius: 14px;
-
-  border: 1px solid rgba(200, 164, 92, 0.18);
-
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-
+  border-radius: 18px;
+  border: 1px solid rgba(191, 161, 101, 0.16);
+  box-shadow: 0 14px 30px rgba(22, 18, 12, 0.06);
   font-weight: 500;
-
-  transition: 0.25s;
-
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   text-align: left;
 }
 
 .amenity:hover {
   transform: translateY(-3px);
-
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+  border-color: rgba(191, 161, 101, 0.3);
+  box-shadow: 0 20px 38px rgba(22, 18, 12, 0.11);
 }
 
 .amenity i {
-  color: #c8a45c;
-
-  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(191, 161, 101, 0.14);
+  color: #a88339;
+  font-size: 17px;
   flex-shrink: 0;
 }
 
@@ -90,35 +86,34 @@
 }
 
 .info-card {
-  background: white;
-
+  background: linear-gradient(180deg, #ffffff 0%, #fcfaf6 100%);
   padding: 30px;
-
-  border-radius: 16px;
-
-  border: 1px solid rgba(200, 164, 92, 0.12);
-
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-
-  transition: 0.25s;
-
+  border-radius: 22px;
+  border: 1px solid rgba(191, 161, 101, 0.14);
+  box-shadow: 0 16px 34px rgba(22, 18, 12, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   max-width: 320px;
-
   text-align: center;
 }
 
 .info-card:hover {
   transform: translateY(-5px);
-
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+  border-color: rgba(191, 161, 101, 0.28);
+  box-shadow: 0 22px 40px rgba(22, 18, 12, 0.13);
 }
 
 .info-card i {
-  font-size: 28px;
-
-  color: #c8a45c;
-
-  margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 16px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #fbf3e4 0%, #efdfbd 100%);
+  color: #a88339;
+  font-size: 23px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.68);
 }
 
 .info-card h3 {
@@ -141,26 +136,19 @@
 
 .faq-item {
   background: linear-gradient(180deg, #ffffff 0%, #fcfaf4 100%);
-
   padding: 25px 28px;
-
-  border-radius: 16px;
-
-  border: 1px solid rgba(200, 164, 92, 0.12);
-
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-
+  border-radius: 20px;
+  border: 1px solid rgba(191, 161, 101, 0.14);
+  box-shadow: 0 14px 30px rgba(22, 18, 12, 0.06);
   margin-bottom: 18px;
-
   transition: all 0.25s ease;
-
   cursor: default;
 }
 
 .faq-item:hover {
   transform: translateY(-3px);
-
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+  border-color: rgba(191, 161, 101, 0.28);
+  box-shadow: 0 20px 38px rgba(22, 18, 12, 0.11);
 }
 
 .faq-item h3 {
@@ -227,10 +215,15 @@
   justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
-  padding: 16px 20px;
-  background: rgba(246, 246, 246, 0.92);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(200, 164, 92, 0.12);
+  width: fit-content;
+  max-width: calc(100% - 40px);
+  margin: 18px auto 0;
+  padding: 12px 14px;
+  background: rgba(255, 251, 244, 0.86);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(191, 161, 101, 0.16);
+  border-radius: 999px;
+  box-shadow: 0 16px 32px rgba(22, 18, 12, 0.08);
 }
 
 .apartment-anchors a {
@@ -240,12 +233,12 @@
   min-height: 42px;
   padding: 10px 16px;
   border-radius: 999px;
-  background: white;
-  border: 1px solid rgba(200, 164, 92, 0.18);
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(191, 161, 101, 0.14);
   color: #6f5523;
   font-size: var(--fs-body-sm);
   font-weight: 700;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 18px rgba(22, 18, 12, 0.05);
   text-decoration: none;
   outline: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, background 0.2s ease,
@@ -259,10 +252,10 @@
 .apartment-anchors a:hover,
 .apartment-anchors a:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-  color: #b78e42;
+  box-shadow: 0 14px 26px rgba(22, 18, 12, 0.09);
+  color: #9f7935;
   background: #fffaf0;
-  border-color: rgba(200, 164, 92, 0.35);
+  border-color: rgba(191, 161, 101, 0.32);
   text-decoration: none;
 }
 
@@ -340,8 +333,8 @@
   padding: 18px 16px;
   background: linear-gradient(180deg, #fffdf8 0%, #f8f1e2 100%);
   border: 1px solid rgba(200, 164, 92, 0.22);
-  border-radius: 16px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+  border-radius: 18px;
+  box-shadow: 0 14px 28px rgba(22, 18, 12, 0.06);
   color: #3f3b34;
   font-weight: 600;
   text-align: center;
@@ -921,31 +914,38 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  min-height: 54px;
-  border-radius: 16px;
+  gap: 10px;
+  min-height: 56px;
+  border-radius: 18px;
   font-weight: 700;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
 }
 
 .mobile-sticky-primary {
-  background: #25d366;
+  background: linear-gradient(135deg, #cdaa5f, #b78e42);
   color: white;
 }
 
 .mobile-sticky-secondary {
-  background: #ff5a5f;
-  color: white;
+  background: #ffffff;
+  color: #5f4820;
+  border: 1px solid rgba(200, 164, 92, 0.24);
+}
+
+.mobile-sticky-primary:hover,
+.mobile-sticky-secondary:hover {
+  transform: translateY(-1px);
 }
 
 .mobile-sticky-dismiss {
   position: absolute;
-  top: -10px;
-  right: -4px;
+  top: -8px;
+  right: -2px;
   width: 30px;
   height: 30px;
   border: 0;
   border-radius: 999px;
-  background: rgba(17, 17, 17, 0.78);
+  background: rgba(28, 28, 28, 0.72);
   color: white;
   font-size: 16px;
   cursor: pointer;
@@ -1057,25 +1057,27 @@
 }
 
 .features-grid div {
-  background: white;
+  background: linear-gradient(180deg, #ffffff 0%, #fcfaf6 100%);
   padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  transition: 0.25s;
+  border-radius: 20px;
+  border: 1px solid rgba(191, 161, 101, 0.14);
+  box-shadow: 0 16px 34px rgba(22, 18, 12, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .features-grid div:hover {
   transform: translateY(-5px);
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+  border-color: rgba(191, 161, 101, 0.28);
+  box-shadow: 0 22px 40px rgba(22, 18, 12, 0.12);
 }
 
 .guide-card {
-  transition: 0.25s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .guide-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 22px 40px rgba(22, 18, 12, 0.12);
 }
 
 .map h2 {

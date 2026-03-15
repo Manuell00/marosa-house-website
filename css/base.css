@@ -91,12 +91,13 @@ section {
 ================================================= */
 
 header {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.98);
   position: sticky;
   top: 0;
   z-index: 1000;
 
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
 header .container {
@@ -531,8 +532,8 @@ footer a:hover {
   line-height: 0;
 
   color: #3f3f3f;
-  background: linear-gradient(135deg, #f2f2f2, #d7d7d7);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(135deg, #f6f6f6, #dddddd);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.08);
 
   cursor: pointer;
@@ -618,7 +619,7 @@ footer a:hover {
   width: min(320px, calc(100vw - 24px));
   height: calc(100vh - 24px);
 
-  background: linear-gradient(180deg, #fffdf8 0%, #f7efdf 100%);
+  background: linear-gradient(180deg, #fffdf9 0%, #f8f1e3 100%);
 
   display: flex;
   flex-direction: column;
@@ -631,7 +632,7 @@ footer a:hover {
 
   border: 1px solid rgba(200, 164, 92, 0.28);
 
-  box-shadow: -12px 0 42px rgba(0, 0, 0, 0.16);
+  box-shadow: -14px 0 40px rgba(0, 0, 0, 0.14);
 
   transform: translateX(calc(100% + 24px));
   visibility: hidden;
