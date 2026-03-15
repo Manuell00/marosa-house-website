@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkout = document.getElementById("checkout");
     const guests = document.getElementById("guests");
     const toast = document.getElementById("request-toast");
+    const isEnglish = document.documentElement.lang === "en";
 
     if (!form || !whatsappButton || !status || !apartment || !checkin || !checkout || !guests) return;
 
@@ -25,9 +26,49 @@ document.addEventListener("DOMContentLoaded", () => {
         apartment.value = "MaRoSa Magnolie";
     }
 
+    const labels = isEnglish
+        ? {
+              select: "Select",
+              invalidFields: "Please fill in the main fields before continuing.",
+              invalidDates: "Check-out must be after check-in.",
+              emailReady: "Email draft ready. If nothing opens, check the email app on your device.",
+              whatsappReady: "WhatsApp message ready.",
+              toastEmail: "Request ready: opening your email app.",
+              toastWhatsapp: "Request ready: opening WhatsApp.",
+              subject: (apartmentName, name) => `Stay request ${apartmentName} | ${name}`,
+              intro: (checkinDate, checkoutDate) =>
+                  `Hello, I would like to request information for a stay from ${checkinDate} to ${checkoutDate}.`,
+              apartment: "Apartment",
+              guests: "Guests",
+              name: "Name",
+              email: "Email",
+              phone: "Phone",
+              message: "Message",
+          }
+        : {
+              select: "Seleziona",
+              invalidFields: "Compila i campi principali prima di continuare.",
+              invalidDates: "La data di check-out deve essere successiva al check-in.",
+              emailReady: "Bozza email pronta. Se non si apre nulla, controlla il client email del dispositivo.",
+              whatsappReady: "Messaggio WhatsApp pronto.",
+              toastEmail: "Richiesta pronta: apertura email in corso.",
+              toastWhatsapp: "Messaggio pronto: apertura WhatsApp in corso.",
+              subject: (apartmentName, name) => `Richiesta soggiorno ${apartmentName} | ${name}`,
+              intro: (checkinDate, checkoutDate) =>
+                  `Ciao, vorrei richiedere informazioni per un soggiorno da ${checkinDate} a ${checkoutDate}.`,
+              apartment: "Appartamento",
+              guests: "Ospiti",
+              name: "Nome",
+              email: "Email",
+              phone: "Telefono",
+              message: "Messaggio",
+          };
+
     const guestOptionsByApartment = {
-        "MaRoSa Bixio": ["1 ospite", "2 ospiti"],
-        "MaRoSa Magnolie": ["1 ospite", "2 ospiti", "3 ospiti", "4 ospiti"],
+        "MaRoSa Bixio": isEnglish ? ["1 guest", "2 guests"] : ["1 ospite", "2 ospiti"],
+        "MaRoSa Magnolie": isEnglish
+            ? ["1 guest", "2 guests", "3 guests", "4 guests"]
+            : ["1 ospite", "2 ospiti", "3 ospiti", "4 ospiti"],
     };
 
     const updateGuestOptions = () => {
@@ -35,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const options = guestOptionsByApartment[selectedApartment] || [];
         const currentValue = guests.value;
 
-        guests.innerHTML = '<option value="">Seleziona</option>';
+        guests.innerHTML = `<option value="">${labels.select}</option>`;
 
         options.forEach((optionValue) => {
             const option = document.createElement("option");
@@ -86,36 +127,36 @@ document.addEventListener("DOMContentLoaded", () => {
             !values.name ||
             !values.email
         ) {
-            status.textContent = "Compila i campi principali prima di continuare.";
+            status.textContent = labels.invalidFields;
             return null;
         }
 
         if (values.checkout <= values.checkin) {
-            status.textContent = "La data di check-out deve essere successiva al check-in.";
+            status.textContent = labels.invalidDates;
             return null;
         }
 
         status.textContent = "";
 
         const lines = [
-            `Ciao, vorrei richiedere informazioni per un soggiorno da ${values.checkin} a ${values.checkout}.`,
+            labels.intro(values.checkin, values.checkout),
             "",
-            `Appartamento: ${values.apartment}`,
-            `Ospiti: ${values.guests}`,
-            `Nome: ${values.name}`,
-            `Email: ${values.email}`,
+            `${labels.apartment}: ${values.apartment}`,
+            `${labels.guests}: ${values.guests}`,
+            `${labels.name}: ${values.name}`,
+            `${labels.email}: ${values.email}`,
         ];
 
         if (values.phone) {
-            lines.push(`Telefono: ${values.phone}`);
+            lines.push(`${labels.phone}: ${values.phone}`);
         }
 
         if (values.message) {
-            lines.push("", `Messaggio: ${values.message}`);
+            lines.push("", `${labels.message}: ${values.message}`);
         }
 
         return {
-            subject: `Richiesta soggiorno ${values.apartment} | ${values.name}`,
+            subject: labels.subject(values.apartment, values.name),
             body: lines.join("\n"),
         };
     };
@@ -127,8 +168,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!payload) return;
 
         const mailto = `mailto:manuell.caselli@gmail.com?subject=${encodeURIComponent(payload.subject)}&body=${encodeURIComponent(payload.body)}`;
-        status.textContent = "Bozza email pronta. Se non si apre nulla, controlla il client email del dispositivo.";
-        showToast("Richiesta pronta: apertura email in corso.");
+        status.textContent = labels.emailReady;
+        showToast(labels.toastEmail);
         window.setTimeout(() => {
             window.location.href = mailto;
         }, 180);
@@ -140,8 +181,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!payload) return;
 
         const whatsappUrl = `https://wa.me/393383232007?text=${encodeURIComponent(payload.body)}`;
-        showToast("Messaggio pronto: apertura WhatsApp in corso.");
+        showToast(labels.toastWhatsapp);
         window.open(whatsappUrl, "_blank", "noopener");
-        status.textContent = "Messaggio WhatsApp pronto.";
+        status.textContent = labels.whatsappReady;
     });
 });

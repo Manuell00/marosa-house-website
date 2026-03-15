@@ -107,6 +107,12 @@ header .container {
   height: 65px;
 }
 
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
 /* =================================================
 5. LOGO
 ================================================= */
@@ -196,6 +202,100 @@ nav a:hover::after {
 
 nav a.active::after {
   width: 100%;
+}
+
+.language-switch,
+.mobile-menu-language {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.language-switch {
+  position: relative;
+  gap: 10px;
+  padding-left: 18px;
+}
+
+.language-switch::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 24px;
+  background: rgba(34, 34, 34, 0.12);
+  transform: translateY(-50%);
+}
+
+.language-switch a + a {
+  position: relative;
+}
+
+.language-switch a + a::before {
+  content: "/";
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  color: rgba(61, 48, 20, 0.38);
+  transform: translateY(-50%);
+}
+
+.language-switch a,
+.mobile-menu-language a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(200, 164, 92, 0.18);
+  background: #fff;
+  color: #5b451d;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.language-switch a {
+  min-width: auto;
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #7a7a7a;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.language-switch a::after,
+.mobile-menu-language a::after {
+  content: none;
+}
+
+.language-switch a:hover {
+  color: #3d3014;
+}
+
+.language-switch a.active,
+.mobile-menu-language a.active {
+  background: linear-gradient(135deg, #c8a45c, #b78e42);
+  border-color: rgba(183, 142, 66, 0.52);
+  color: white;
+}
+
+.language-switch a.active {
+  background: transparent;
+  border-color: transparent;
+  color: #3d3014;
+  text-decoration: underline;
+  text-decoration-color: rgba(200, 164, 92, 0.75);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
 }
 
 /* =================================================
@@ -586,6 +686,11 @@ footer a:hover {
   transform: translateX(0);
   visibility: visible;
   pointer-events: auto;
+}
+
+.mobile-menu-language {
+  margin-top: 4px;
+  margin-bottom: 6px;
 }
 
 /* links sidebar */

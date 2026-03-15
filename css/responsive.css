@@ -232,6 +232,10 @@
     height: 68vh;
   }
 
+  .language-switch {
+    display: none;
+  }
+
   .hero-slider p,
   .hero-apartment p {
     font-size: var(--fs-body-lg);
