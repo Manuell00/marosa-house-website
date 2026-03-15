@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let items = [];
     let currentIndex = 0;
+    let imageTransitionTimeout = null;
     const mobileBreakpoint = window.matchMedia("(max-width: 768px)");
     const tabletBreakpoint = window.matchMedia("(max-width: 1024px)");
 
@@ -37,17 +38,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!currentItem) return;
 
-        image.src = currentItem.src;
-        image.alt = currentItem.alt || "";
-        caption.textContent = currentItem.alt || "";
+        image.classList.add("is-transitioning");
+        caption.classList.add("is-transitioning");
+
+        window.clearTimeout(imageTransitionTimeout);
+        imageTransitionTimeout = window.setTimeout(() => {
+            image.src = currentItem.src;
+            image.alt = currentItem.alt || "";
+            caption.textContent = currentItem.alt || "";
+            image.classList.remove("is-transitioning");
+            caption.classList.remove("is-transitioning");
+        }, 140);
     };
 
     const openLightbox = (galleryItems, startIndex) => {
         items = galleryItems;
         currentIndex = startIndex;
+        overlay.classList.add("is-opening");
         updateLightbox();
         overlay.classList.add("active");
         document.body.style.overflow = "hidden";
+        window.setTimeout(() => {
+            overlay.classList.remove("is-opening");
+        }, 280);
     };
 
     const showNext = () => {

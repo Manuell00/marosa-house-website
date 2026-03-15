@@ -4,24 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Richiesta soggiorno | MaRoSa House</title>
+    <title>Prenota il tuo soggiorno a Rapallo | MaRoSa House</title>
     <meta
       name="description"
-      content="Invia una richiesta soggiorno per MaRoSa House. Compila il modulo e contattaci facilmente via email o WhatsApp."
+      content="Prenota il tuo soggiorno a Rapallo con MaRoSa House. Invia una richiesta per Bixio o Magnolie e contattaci facilmente via email o WhatsApp."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Richiesta soggiorno | MaRoSa House" />
+    <meta property="og:title" content="Prenota il tuo soggiorno a Rapallo | MaRoSa House" />
     <meta
       property="og:description"
-      content="Compila il modulo e invia facilmente una richiesta soggiorno per MaRoSa House via email o WhatsApp."
+      content="Compila il modulo e invia una richiesta soggiorno per i nostri appartamenti vacanza a Rapallo."
     />
     <meta property="og:image" content="img/logo.png" />
     <meta property="og:locale" content="it_IT" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Richiesta soggiorno | MaRoSa House" />
+    <meta name="twitter:title" content="Prenota il tuo soggiorno a Rapallo | MaRoSa House" />
     <meta
       name="twitter:description"
-      content="Compila il modulo e invia facilmente una richiesta soggiorno per MaRoSa House via email o WhatsApp."
+      content="Compila il modulo e invia una richiesta soggiorno per i nostri appartamenti vacanza a Rapallo."
     />
     <meta name="twitter:image" content="img/logo.png" />
     <link rel="alternate" hreflang="it" href="prenota.html" />
@@ -111,7 +111,13 @@
           </ul>
         </div>
 
-        <form class="request-form" id="request-form">
+        <form
+          class="request-form"
+          id="request-form"
+          data-form-endpoint="https://formspree.io/f/xqeydlla"
+          data-success-message="Richiesta inviata correttamente. Ti risponderemo il prima possibile."
+          data-error-message="Invio non riuscito. Puoi comunque usare email o WhatsApp qui sotto."
+        >
           <div class="request-grid">
             <label class="field">
               <span>Appartamento</span>
@@ -163,21 +169,35 @@
                 placeholder="Inserisci eventuali richieste o informazioni utili."
               ></textarea>
             </label>
+
+            <label class="field field-hidden" aria-hidden="true">
+              <span>Non compilare questo campo</span>
+              <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" />
+            </label>
           </div>
 
           <p class="request-helper">
-            Il form non invia automaticamente dati a un server: apre direttamente
-            il tuo client email o WhatsApp con la richiesta già compilata.
+            Invia la tua richiesta direttamente a MaRoSa House. Se preferisci,
+            puoi anche contattarci via email o WhatsApp.
           </p>
 
           <div class="request-actions">
-            <button class="btn email request-submit" type="submit">
-              <i class="fa-solid fa-envelope"></i> Prepara email
+            <button class="btn email request-submit" type="submit" id="request-submit">
+              <i class="fa-solid fa-paper-plane"></i> Invia richiesta diretta
             </button>
+          </div>
 
-            <button class="btn whatsapp request-submit" type="button" id="request-whatsapp">
-              <i class="fa-brands fa-whatsapp"></i> Invia su WhatsApp
-            </button>
+          <div class="request-alternatives">
+            <span class="request-alternatives-label">Oppure usa</span>
+            <div class="request-alternative-buttons">
+              <button class="btn email request-submit secondary-submit" type="button" id="request-email">
+                <i class="fa-solid fa-envelope"></i> Email
+              </button>
+
+              <button class="btn whatsapp request-submit secondary-submit" type="button" id="request-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+              </button>
+            </div>
           </div>
 
           <p class="request-status" id="request-status" aria-live="polite"></p>
@@ -210,6 +230,7 @@
     </div>
 
     <script src="js/booking-form.js"></script>
+    <script src="js/reveal-animations.js"></script>
     <script src="js/cookie-consent.js"></script>
     <script src="js/sidebar.js"></script>
   </body>

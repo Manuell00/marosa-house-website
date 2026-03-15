@@ -1,6 +1,32 @@
 window.marosaAvailability = {
     "bixio": {
         "title": "Disponibilita MaRoSa Bixio",
+        "prices": {
+            "03": {
+                "weekday": { "min": 48, "max": 62 },
+                "weekend": { "min": 55, "max": 75 }
+            },
+            "04": {
+                "weekday": { "min": 40, "max": 75 },
+                "weekend": { "min": 49, "max": 88 }
+            },
+            "05": {
+                "weekday": { "min": 48, "max": 85 },
+                "weekend": { "min": 72, "max": 90 }
+            },
+            "06": {
+                "weekday": { "min": 80, "max": 100 },
+                "weekend": { "min": 90, "max": 110 }
+            },
+            "08": {
+                "weekday": { "min": 108, "max": 130 },
+                "weekend": { "min": 115, "max": 150 }
+            },
+            "09": {
+                "weekday": { "min": 80, "max": 90 },
+                "weekend": { "min": 86, "max": 100 }
+            }
+        },
         "booked": [
             "2026-03-14",
             "2026-03-15",
@@ -64,6 +90,28 @@ window.marosaAvailability = {
     },
     "magnolie": {
         "title": "Disponibilita MaRoSa Magnolie",
+        "prices": {
+            "03": {
+                "weekday": { "min": 48, "max": 61 },
+                "weekend": { "min": 54, "max": 63 }
+            },
+            "04": {
+                "weekday": { "min": 56, "max": 85 },
+                "weekend": { "min": 58, "max": 100 }
+            },
+            "06": {
+                "weekday": { "min": 72, "max": 100 },
+                "weekend": { "min": 90, "max": 110 }
+            },
+            "07": {
+                "weekday": { "min": 99, "max": 135 },
+                "weekend": { "min": 113, "max": 153 }
+            },
+            "09": {
+                "weekday": { "min": 72, "max": 90 },
+                "weekend": { "min": 86, "max": 99 }
+            }
+        },
         "booked": [
             "2026-03-12",
             "2026-03-13",

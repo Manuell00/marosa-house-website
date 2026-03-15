@@ -3,24 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stay request | MaRoSa House</title>
+    <title>Book your stay in Rapallo | MaRoSa House</title>
     <meta
       name="description"
-      content="Send a stay request for MaRoSa House. Fill in the form and contact us easily by email or WhatsApp."
+      content="Book your stay in Rapallo with MaRoSa House. Send a request for Bixio or Magnolie and contact us easily by email or WhatsApp."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Stay request | MaRoSa House" />
+    <meta property="og:title" content="Book your stay in Rapallo | MaRoSa House" />
     <meta
       property="og:description"
-      content="Fill in the form and easily send a stay request for MaRoSa House by email or WhatsApp."
+      content="Fill in the form and send a stay request for our holiday apartments in Rapallo."
     />
     <meta property="og:image" content="img/logo.png" />
     <meta property="og:locale" content="en_GB" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Stay request | MaRoSa House" />
+    <meta name="twitter:title" content="Book your stay in Rapallo | MaRoSa House" />
     <meta
       name="twitter:description"
-      content="Fill in the form and easily send a stay request for MaRoSa House by email or WhatsApp."
+      content="Fill in the form and send a stay request for our holiday apartments in Rapallo."
     />
     <meta name="twitter:image" content="img/logo.png" />
     <link rel="alternate" hreflang="it" href="prenota.html" />
@@ -97,7 +97,13 @@
             <li>Final availability is always confirmed by us</li>
           </ul>
         </div>
-        <form class="request-form" id="request-form">
+        <form
+          class="request-form"
+          id="request-form"
+          data-form-endpoint="https://formspree.io/f/xqeydlla"
+          data-success-message="Request sent successfully. We will reply as soon as possible."
+          data-error-message="Could not send the request. You can still use email or WhatsApp below."
+        >
           <div class="request-grid">
             <label class="field">
               <span>Apartment</span>
@@ -137,11 +143,21 @@
               <span>Message</span>
               <textarea name="message" id="message" rows="5" placeholder="Add any requests or useful information."></textarea>
             </label>
+            <label class="field field-hidden" aria-hidden="true">
+              <span>Do not fill in this field</span>
+              <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" />
+            </label>
           </div>
-          <p class="request-helper">The form does not send data to a server automatically: it opens your email app or WhatsApp with the message already prepared.</p>
+          <p class="request-helper">Send your request directly to MaRoSa House. If you prefer, you can also contact us by email or WhatsApp.</p>
           <div class="request-actions">
-            <button class="btn email request-submit" type="submit"><i class="fa-solid fa-envelope"></i> Prepare email</button>
-            <button class="btn whatsapp request-submit" type="button" id="request-whatsapp"><i class="fa-brands fa-whatsapp"></i> Send on WhatsApp</button>
+            <button class="btn email request-submit" type="submit" id="request-submit"><i class="fa-solid fa-paper-plane"></i> Send direct request</button>
+          </div>
+          <div class="request-alternatives">
+            <span class="request-alternatives-label">Or use</span>
+            <div class="request-alternative-buttons">
+              <button class="btn email request-submit secondary-submit" type="button" id="request-email"><i class="fa-solid fa-envelope"></i> Email</button>
+              <button class="btn whatsapp request-submit secondary-submit" type="button" id="request-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</button>
+            </div>
           </div>
           <p class="request-status" id="request-status" aria-live="polite"></p>
         </form>
@@ -169,6 +185,7 @@
     </div>
 
     <script src="js/booking-form.js"></script>
+    <script src="js/reveal-animations.js"></script>
     <script src="js/cookie-consent.js"></script>
     <script src="js/sidebar.js"></script>
   </body>
