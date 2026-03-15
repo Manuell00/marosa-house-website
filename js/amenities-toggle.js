@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const amenitiesGrids = document.querySelectorAll(".amenities-grid");
-    const mobileBreakpoint = window.matchMedia("(max-width: 768px)");
+    const tabletBreakpoint = window.matchMedia("(max-width: 1024px)");
 
     if (amenitiesGrids.length === 0) return;
 
@@ -35,9 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
         grid.insertAdjacentElement("afterend", actionWrap);
 
         const syncVisibility = () => {
-            actionWrap.hidden = !mobileBreakpoint.matches;
+            actionWrap.hidden = !tabletBreakpoint.matches;
 
-            if (!mobileBreakpoint.matches) {
+            if (!tabletBreakpoint.matches) {
                 grid.classList.remove("is-expanded");
             }
 
@@ -45,6 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         syncVisibility();
-        mobileBreakpoint.addEventListener("change", syncVisibility);
+        tabletBreakpoint.addEventListener("change", syncVisibility);
     });
 });
