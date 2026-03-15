@@ -8,9 +8,51 @@
       name="description"
       content="Discover MaRoSa Magnolie, a bright and modern holiday apartment in Rapallo, ideal for 2 to 4 guests and perfect for exploring the Riviera."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MaRoSa Magnolie | Rapallo" />
+    <meta
+      property="og:description"
+      content="A bright and modern holiday apartment in Rapallo, ideal for 2 to 4 guests and perfect for exploring the Riviera."
+    />
+    <meta property="og:image" content="img/Magnolie/magnolie-livingroom1.jpg" />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MaRoSa Magnolie | Rapallo" />
+    <meta
+      name="twitter:description"
+      content="A bright and modern holiday apartment in Rapallo, ideal for 2 to 4 guests and perfect for exploring the Riviera."
+    />
+    <meta name="twitter:image" content="img/Magnolie/magnolie-livingroom1.jpg" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VacationRental",
+        "name": "MaRoSa Magnolie",
+        "description": "A bright and modern holiday apartment in Rapallo, ideal for 2 to 4 guests and perfect for exploring the Riviera.",
+        "image": "img/Magnolie/magnolie-livingroom1.jpg",
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "maxValue": 4
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Via Privata delle Magnolie",
+          "addressLocality": "Rapallo",
+          "addressRegion": "Liguria",
+          "addressCountry": "IT"
+        },
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Fast Wi-Fi", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Self check-in", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Air conditioning", "value": true }
+        ]
+      }
+    </script>
     <link rel="alternate" hreflang="it" href="marosa-magnolie.html" />
     <link rel="alternate" hreflang="en" href="marosa-magnolie-en.html" />
     <link rel="alternate" hreflang="x-default" href="marosa-magnolie.html" />
+    <link rel="icon" href="img/logo.png" />
+    <link rel="apple-touch-icon" href="img/logo.png" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/apartments.css" />
     <link rel="stylesheet" href="css/responsive.css" />
@@ -55,7 +97,7 @@
       </div>
       <a href="index-en.html">Home</a>
       <a href="marosa-bixio-en.html">Bixio</a>
-      <a href="marosa-magnolie-en.html">Magnolie</a>
+      <a class="active" href="marosa-magnolie-en.html">Magnolie</a>
       <a href="info-en.html">Info</a>
       <a href="prenota-en.html">Book</a>
     </div>
@@ -108,25 +150,6 @@
       </div>
     </section>
 
-    <section class="guides">
-      <h2>Riviera guides</h2>
-      <p>We prepared two free guides with the best restaurants, beaches and places to visit between Rapallo, Portofino and Santa Margherita.</p>
-      <div class="guides-grid">
-        <a href="pdf/guida-riviera-ita.pdf" target="_blank" class="guide-card">
-          <img src="img/Qrcode/guida_ita.png" alt="Italian Riviera guide in Italian" />
-          <p class="scan-text">Scan the QR code or click</p>
-          <h3>Italian guide</h3>
-          <p>Discover the best restaurants, aperitifs and beaches of the Riviera.</p>
-        </a>
-        <a href="pdf/guida-riviera-eng.pdf" target="_blank" class="guide-card">
-          <img src="img/Qrcode/guida_eng.png" alt="Italian Riviera guide in English" />
-          <p class="scan-text">Scan the QR code or click</p>
-          <h3>English guide</h3>
-          <p>Discover the best places to visit in Rapallo, Portofino and Santa Margherita.</p>
-        </a>
-      </div>
-    </section>
-
     <section class="map" id="mappa">
       <h2>Where it is</h2>
       <p>MaRoSa Magnolie is in a quiet area of Rapallo, well connected to the center and sea, perfect for exploring the Italian Riviera.</p>
@@ -155,8 +178,8 @@
     </section>
 
     <section class="availability" id="disponibilita">
-      <h2>Updated availability</h2>
-      <p>The next months calendar is synced with booking channels. Final availability is always confirmed when booking.</p>
+      <h2>Availability</h2>
+      <p>Next months calendar.</p>
       <div class="availability-legend">
         <span><i class="availability-dot free"></i>Available</span>
         <span><i class="availability-dot booked"></i>Booked</span>

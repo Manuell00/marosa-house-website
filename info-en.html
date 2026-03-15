@@ -8,9 +8,26 @@
       name="description"
       content="Useful stay information for MaRoSa House: amenities, how to arrive, parking details and frequently asked questions."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Useful information | MaRoSa House" />
+    <meta
+      property="og:description"
+      content="Amenities, how to arrive, parking details and frequently asked questions for your stay at MaRoSa House."
+    />
+    <meta property="og:image" content="img/logo.png" />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Useful information | MaRoSa House" />
+    <meta
+      name="twitter:description"
+      content="Amenities, how to arrive, parking details and frequently asked questions for your stay at MaRoSa House."
+    />
+    <meta name="twitter:image" content="img/logo.png" />
     <link rel="alternate" hreflang="it" href="info.html" />
     <link rel="alternate" hreflang="en" href="info-en.html" />
     <link rel="alternate" hreflang="x-default" href="info.html" />
+    <link rel="icon" href="img/logo.png" />
+    <link rel="apple-touch-icon" href="img/logo.png" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/apartments.css" />
     <link rel="stylesheet" href="css/responsive.css" />
@@ -69,7 +86,11 @@
     <section class="info-section">
       <h2>Apartment amenities</h2>
       <p>MaRoSa apartments are fully equipped to ensure a comfortable and relaxing stay on the Italian Riviera.</p>
-      <div class="amenities-grid">
+      <div
+        class="amenities-grid"
+        data-show-all-label="Show all 16 amenities"
+        data-show-less-label="Show less"
+      >
         <div class="amenity"><i class="fa-solid fa-wifi"></i><span>Fast Wi-Fi</span></div>
         <div class="amenity"><i class="fa-solid fa-snowflake"></i><span>Air conditioning</span></div>
         <div class="amenity"><i class="fa-solid fa-tv"></i><span>Smart TV with Netflix and Prime Video</span></div>
@@ -122,13 +143,44 @@
       </div>
     </section>
 
+    <section class="info-section stay-times">
+      <h2>Check-in and stay times</h2>
+      <p>The arrival and departure rules are the same for all MaRoSa House apartments.</p>
+      <div class="stay-times-grid">
+        <div class="stay-times-card">
+          <i class="fa-solid fa-door-open"></i>
+          <h3>Check-in</h3>
+          <p>From 3:00 PM onwards, with autonomous access through self check-in.</p>
+        </div>
+        <div class="stay-times-card">
+          <i class="fa-solid fa-door-closed"></i>
+          <h3>Check-out</h3>
+          <p>By 11:00 AM, to allow us to prepare the apartment for the next stay.</p>
+        </div>
+        <div class="stay-times-card">
+          <i class="fa-solid fa-key"></i>
+          <h3>Flexible arrival</h3>
+          <p>Arriving late is not a problem: self check-in gives you more freedom.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="guides info-section">
+      <h2>Riviera guide</h2>
+      <p>On the English page we show only the English guide, so the content stays consistent with the selected language.</p>
+      <div class="guides-grid single-guide">
+        <a href="pdf/guida-riviera-eng.pdf" target="_blank" class="guide-card">
+          <img src="img/Qrcode/guida_eng.png" alt="Riviera guide in English" />
+          <p class="scan-text">Scan the QR code or click</p>
+          <h3>English guide</h3>
+          <p>Discover the best restaurants, beaches and places to visit between Rapallo, Portofino and Santa Margherita.</p>
+        </a>
+      </div>
+    </section>
+
     <section class="info-section">
       <h2>Frequently asked questions</h2>
       <div class="faq">
-        <div class="faq-item">
-          <h3><i class="fa-solid fa-circle-question"></i> What time is check-in?</h3>
-          <p>Check-in is available from 3:00 PM through self check-in.</p>
-        </div>
         <div class="faq-item">
           <h3><i class="fa-solid fa-circle-question"></i> Can I arrive late?</h3>
           <p>Yes, thanks to self check-in you can arrive at any time.</p>
@@ -177,6 +229,7 @@
     </div>
 
     <script src="js/cookie-consent.js"></script>
+    <script src="js/amenities-toggle.js"></script>
     <script src="js/sidebar.js"></script>
   </body>
 </html>

@@ -297,6 +297,10 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .stay-times-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .gallery.has-tablet-preview img:nth-child(n + 5) {
     display: none;
   }
@@ -453,6 +457,14 @@
 ========================================= */
 
 @media (max-width: 768px) {
+  .location {
+    display: none;
+  }
+
+  .direct-booking {
+    display: none;
+  }
+
   .apartment-anchors {
     top: 73px;
     justify-content: flex-start;
@@ -563,7 +575,8 @@
   .guides-grid,
   .reviews-grid,
   .quick-info,
-  .direct-booking-grid {
+  .direct-booking-grid,
+  .stay-times-grid {
     grid-template-columns: 1fr;
   }
 
@@ -580,7 +593,11 @@
 
   .apartment-card,
   .why-grid > div,
-  .reviews-grid > .review-card {
+  .reviews-grid > .review-card,
+  .direct-booking-card,
+  .guide-card,
+  .info-grid > .info-card,
+  .stay-times-card {
     width: 100%;
     max-width: 360px;
     margin: 0 auto;
@@ -592,6 +609,7 @@
   .direct-booking-grid > :last-child:nth-child(odd) {
     width: 100%;
     max-width: 360px;
+    margin: 0 auto;
   }
 
   .gallery img,
@@ -604,15 +622,71 @@
     display: none;
   }
 
+  .amenities-grid.has-mobile-preview:not(.is-expanded) .amenity:nth-child(n + 7) {
+    display: none;
+  }
+
   .gallery-mobile-actions {
     display: flex;
   }
 
-  .direct-booking-card,
-  .guide-card {
-    width: 100%;
-    max-width: 360px;
-    margin: 0 auto;
+  .availability {
+    margin-top: 44px;
+    margin-bottom: 44px;
+  }
+
+  .availability p {
+    margin-top: 8px;
+    margin-bottom: 0;
+    font-size: var(--fs-body-sm);
+  }
+
+  .availability-legend {
+    gap: 12px;
+    margin: 16px 0 20px;
+  }
+
+  .availability-legend span {
+    gap: 6px;
+    font-size: 13px;
+  }
+
+  .availability-dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .availability-month {
+    padding: 16px 12px;
+    border-radius: 16px;
+  }
+
+  .availability-header {
+    grid-template-columns: 38px 1fr 38px;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .availability-nav {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+
+  .availability-weekdays,
+  .availability-grid {
+    gap: 6px;
+  }
+
+  .availability-weekdays {
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+
+  .availability-day {
+    min-height: 34px;
+    border-radius: 10px;
+    font-size: 13px;
   }
 
   .booking-buttons:has(> :nth-child(4)) {
@@ -621,6 +695,13 @@
 
   .booking-buttons:not(:has(> :nth-child(4))) {
     grid-template-columns: 1fr;
+  }
+
+  .booking-buttons > :last-child:nth-child(odd) {
+    grid-column: auto;
+    justify-self: stretch;
+    width: 100%;
+    max-width: none;
   }
 
   .trust-container {

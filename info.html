@@ -9,9 +9,26 @@
       name="description"
       content="Informazioni utili per il soggiorno a MaRoSa House: dotazioni, come arrivare, parcheggi e domande frequenti."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Informazioni utili | MaRoSa House" />
+    <meta
+      property="og:description"
+      content="Dotazioni, come arrivare, parcheggi e domande frequenti per il soggiorno a MaRoSa House."
+    />
+    <meta property="og:image" content="img/logo.png" />
+    <meta property="og:locale" content="it_IT" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Informazioni utili | MaRoSa House" />
+    <meta
+      name="twitter:description"
+      content="Dotazioni, come arrivare, parcheggi e domande frequenti per il soggiorno a MaRoSa House."
+    />
+    <meta name="twitter:image" content="img/logo.png" />
     <link rel="alternate" hreflang="it" href="info.html" />
     <link rel="alternate" hreflang="en" href="info-en.html" />
     <link rel="alternate" hreflang="x-default" href="info.html" />
+    <link rel="icon" href="img/logo.png" />
+    <link rel="apple-touch-icon" href="img/logo.png" />
 
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/apartments.css" />
@@ -50,7 +67,7 @@
             <a href="index.html">Home</a>
             <a href="marosa-bixio.html">Bixio</a>
             <a href="marosa-magnolie.html">Magnolie</a>
-            <a class="active" href="info.html">Info</a>
+          <a class="active" href="info.html">Info</a>
             <a href="prenota.html">Prenota</a>
           </nav>
           <div class="language-switch" aria-label="Selezione lingua">
@@ -74,7 +91,7 @@
       <a href="index.html">Home</a>
       <a href="marosa-bixio.html">Bixio</a>
       <a href="marosa-magnolie.html">Magnolie</a>
-      <a class="active" href="info.html">Info</a>
+      <a class="active" href="info.html">Informazioni</a>
       <a href="prenota.html">Prenota</a>
     </div>
 
@@ -99,7 +116,11 @@
         soggiorno comodo e rilassante sulla Riviera Ligure.
       </p>
 
-      <div class="amenities-grid">
+      <div
+        class="amenities-grid"
+        data-show-all-label="Vedi tutte le 16 dotazioni"
+        data-show-less-label="Mostra meno"
+      >
         <div class="amenity">
           <i class="fa-solid fa-wifi"></i>
           <span>Wi-Fi veloce</span>
@@ -248,22 +269,50 @@
       </div>
     </section>
 
+    <section class="info-section stay-times">
+      <h2>Orari e check-in</h2>
+      <p>
+        Le regole di arrivo e partenza sono le stesse per tutti gli
+        appartamenti MaRoSa House.
+      </p>
+      <div class="stay-times-grid">
+        <div class="stay-times-card">
+          <i class="fa-solid fa-door-open"></i>
+          <h3>Check-in</h3>
+          <p>Dalle 15:00 in poi, con accesso autonomo tramite self check-in.</p>
+        </div>
+        <div class="stay-times-card">
+          <i class="fa-solid fa-door-closed"></i>
+          <h3>Check-out</h3>
+          <p>Entro le 11:00, per permettere la preparazione dell'appartamento.</p>
+        </div>
+        <div class="stay-times-card">
+          <i class="fa-solid fa-key"></i>
+          <h3>Arrivo flessibile</h3>
+          <p>Se arrivi tardi nessun problema: il self check-in ti permette più libertà.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="guides info-section">
+      <h2>Guida della Riviera</h2>
+      <p>In questa pagina in italiano mostriamo solo la guida italiana, così il contenuto resta coerente con la lingua scelta.</p>
+      <div class="guides-grid single-guide">
+        <a href="pdf/guida-riviera-ita.pdf" target="_blank" class="guide-card">
+          <img src="img/Qrcode/guida_ita.png" alt="Guida della Riviera in italiano" />
+          <p class="scan-text">Scansiona il QR code o clicca</p>
+          <h3>Guida in Italiano</h3>
+          <p>Scopri i migliori ristoranti, aperitivi, spiagge e luoghi da visitare tra Rapallo, Portofino e Santa Margherita.</p>
+        </a>
+      </div>
+    </section>
+
     <!-- FAQ -->
 
     <section class="info-section">
       <h2>Domande frequenti</h2>
 
       <div class="faq">
-        <div class="faq-item">
-          <h3>
-            <i class="fa-solid fa-circle-question"></i> A che ora è il check-in?
-          </h3>
-
-          <p>
-            Il check-in è disponibile dalle ore 15:00 tramite self check-in.
-          </p>
-        </div>
-
         <div class="faq-item">
           <h3>
             <i class="fa-solid fa-circle-question"></i>È possibile arrivare
@@ -328,7 +377,7 @@
         <div class="footer-brand">© MaRoSa House · Rapallo</div>
         <div class="footer-links">
           <a href="prenota.html">Prenota</a>
-          <a href="privacy-cookie.html">Privacy & Cookie</a>
+          <a href="privacy-cookie.html">Privacy e Cookie</a>
         </div>
       </div>
     </footer>
@@ -336,7 +385,7 @@
       <p>
         Questo sito usa cookie tecnici essenziali e contenuti esterni come mappe
         e font web. Puoi leggere i dettagli nella
-        <a href="privacy-cookie.html">Privacy & Cookie Policy</a>.
+        <a href="privacy-cookie.html">Informativa Privacy e Cookie</a>.
       </p>
       <div class="cookie-banner-actions">
         <button class="cookie-btn reject" id="cookie-reject">Rifiuta</button>
@@ -344,6 +393,7 @@
       </div>
     </div>
     <script src="js/cookie-consent.js"></script>
+    <script src="js/amenities-toggle.js"></script>
     <script src="js/sidebar.js"></script>
   </body>
 </html>

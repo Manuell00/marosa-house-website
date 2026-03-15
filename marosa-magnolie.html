@@ -24,9 +24,51 @@
       name="description"
       content="Scopri MaRoSa Magnolie, appartamento vacanza moderno e luminoso a Rapallo, ideale per 2-4 ospiti e perfetto per visitare la Riviera."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MaRoSa Magnolie | Rapallo" />
+    <meta
+      property="og:description"
+      content="Appartamento vacanza moderno e luminoso a Rapallo, ideale per 2-4 ospiti e perfetto per visitare la Riviera."
+    />
+    <meta property="og:image" content="img/Magnolie/magnolie-livingroom1.jpg" />
+    <meta property="og:locale" content="it_IT" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MaRoSa Magnolie | Rapallo" />
+    <meta
+      name="twitter:description"
+      content="Appartamento vacanza moderno e luminoso a Rapallo, ideale per 2-4 ospiti e perfetto per visitare la Riviera."
+    />
+    <meta name="twitter:image" content="img/Magnolie/magnolie-livingroom1.jpg" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VacationRental",
+        "name": "MaRoSa Magnolie",
+        "description": "Appartamento vacanza moderno e luminoso a Rapallo, ideale per 2-4 ospiti e perfetto per visitare la Riviera.",
+        "image": "img/Magnolie/magnolie-livingroom1.jpg",
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "maxValue": 4
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Via Privata delle Magnolie",
+          "addressLocality": "Rapallo",
+          "addressRegion": "Liguria",
+          "addressCountry": "IT"
+        },
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Wi-Fi veloce", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Self check-in", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Aria condizionata", "value": true }
+        ]
+      }
+    </script>
     <link rel="alternate" hreflang="it" href="marosa-magnolie.html" />
     <link rel="alternate" hreflang="en" href="marosa-magnolie-en.html" />
     <link rel="alternate" hreflang="x-default" href="marosa-magnolie.html" />
+    <link rel="icon" href="img/logo.png" />
+    <link rel="apple-touch-icon" href="img/logo.png" />
 
     <!-- FontAwesome -->
     <link
@@ -87,8 +129,8 @@
       </div>
       <a href="index.html">Home</a>
       <a href="marosa-bixio.html">Bixio</a>
-      <a href="marosa-magnolie.html">Magnolie</a>
-      <a href="info.html">Info</a>
+      <a class="active" href="marosa-magnolie.html">Magnolie</a>
+      <a href="info.html">Informazioni</a>
       <a href="prenota.html">Prenota</a>
     </div>
 
@@ -100,7 +142,7 @@
       <div>
         <h1>MaRoSa Magnolie</h1>
 
-        <p>Modern apartment in the heart of Rapallo</p>
+        <p>Appartamento moderno nel cuore di Rapallo</p>
       </div>
     </section>
 
@@ -150,8 +192,6 @@
       <!-- ========================================= -->
 
       <div class="gallery">
-        <!-- Living room -->
-
         <img
           src="img/Magnolie/magnolie-livingroom1.jpg"
           alt="Soggiorno MaRoSa Magnolie"
@@ -160,11 +200,9 @@
 
         <img
           src="img/Magnolie/magnolie-livingroom2.jpg"
-          alt="Living room MaRoSa Magnolie"
+          alt="Soggiorno MaRoSa Magnolie"
           loading="lazy"
         />
-
-        <!-- Kitchen -->
 
         <img
           src="img/Magnolie/magnolie-kitchen1.jpg"
@@ -177,8 +215,6 @@
           alt="Cucina moderna MaRoSa Magnolie"
           loading="lazy"
         />
-
-        <!-- Bedrooms -->
 
         <img
           src="img/Magnolie/magnolie-room1.jpg"
@@ -197,8 +233,6 @@
           alt="Seconda camera MaRoSa Magnolie"
           loading="lazy"
         />
-
-        <!-- Bathroom -->
 
         <img
           src="img/Magnolie/magnolie-bathroom1.jpg"
@@ -249,58 +283,8 @@
 
         <div>
           <i class="fa-solid fa-key"></i>
-          Self check-in
+          Check-in autonomo
         </div>
-      </div>
-    </section>
-
-    <!-- ========================================= -->
-    <!-- GUIDE TURISTICHE -->
-    <!-- ========================================= -->
-
-    <section class="guides">
-      <h2>Guide della Riviera</h2>
-
-      <p>
-        Abbiamo preparato due guide gratuite con i migliori ristoranti, spiagge
-        e luoghi da visitare tra Rapallo, Portofino e Santa Margherita.
-      </p>
-
-      <div class="guides-grid">
-        <!-- guida italiana -->
-
-        <a href="pdf/guida-riviera-ita.pdf" target="_blank" class="guide-card">
-          <img
-            src="img/Qrcode/guida_ita.png"
-            alt="Guida turistica Rapallo Portofino"
-          />
-
-          <p class="scan-text">Scansiona il QR code o clicca</p>
-
-          <h3>Guida in Italiano</h3>
-
-          <p>
-            Scopri i migliori ristoranti, aperitivi e spiagge della Riviera.
-          </p>
-        </a>
-
-        <!-- guida inglese -->
-
-        <a href="pdf/guida-riviera-eng.pdf" target="_blank" class="guide-card">
-          <img
-            src="img/Qrcode/guida_eng.png"
-            alt="Tourist guide Rapallo Portofino"
-          />
-
-          <p class="scan-text">Scan the QR code or click</p>
-
-          <h3>Guide in English</h3>
-
-          <p>
-            Discover the best places to visit in Rapallo, Portofino and Santa
-            Margherita.
-          </p>
-        </a>
       </div>
     </section>
 
@@ -378,11 +362,8 @@
     </section>
 
     <section class="availability" id="disponibilita">
-      <h2>Disponibilita aggiornata</h2>
-      <p>
-        Calendario dei prossimi mesi sincronizzato con i canali di prenotazione.
-        La disponibilita finale viene comunque confermata al momento della prenotazione.
-      </p>
+      <h2>Disponibilita</h2>
+      <p>Calendario dei prossimi mesi.</p>
 
       <div class="availability-legend">
         <span><i class="availability-dot free"></i>Disponibile</span>
@@ -428,7 +409,7 @@
         <div class="footer-brand">© MaRoSa House · Rapallo</div>
         <div class="footer-links">
           <a href="prenota.html">Prenota</a>
-          <a href="privacy-cookie.html">Privacy & Cookie</a>
+          <a href="privacy-cookie.html">Privacy e Cookie</a>
         </div>
       </div>
     </footer>
@@ -463,7 +444,7 @@
       <p>
         Questo sito usa cookie tecnici essenziali e contenuti esterni come mappe
         e font web. Puoi leggere i dettagli nella
-        <a href="privacy-cookie.html">Privacy & Cookie Policy</a>.
+        <a href="privacy-cookie.html">Informativa Privacy e Cookie</a>.
       </p>
       <div class="cookie-banner-actions">
         <button class="cookie-btn reject" id="cookie-reject">Rifiuta</button>

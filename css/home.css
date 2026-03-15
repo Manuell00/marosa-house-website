@@ -392,6 +392,14 @@ TRUST SECTION
   transition: all 0.25s ease;
 }
 
+.review-meta {
+  display: block;
+  margin: 14px 0 8px;
+  color: #8a8a8a;
+  font-size: 14px;
+  font-weight: 500;
+}
+
 .review-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);

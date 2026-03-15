@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const galleries = document.querySelectorAll(".gallery");
+    const isEnglish = document.documentElement.lang === "en";
 
     if (galleries.length === 0) return;
 
@@ -9,6 +10,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeButton = document.getElementById("gallery-lightbox-close");
     const prevButton = document.getElementById("gallery-lightbox-prev");
     const nextButton = document.getElementById("gallery-lightbox-next");
+    const labels = isEnglish
+        ? {
+              showAll: (count) => `Show all ${count} photos`,
+          }
+        : {
+              showAll: (count) => `Vedi tutte le ${count} foto`,
+          };
 
     if (!overlay || !image || !caption || !closeButton || !prevButton || !nextButton) {
         return;
@@ -79,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const button = document.createElement("button");
             button.type = "button";
             button.className = "gallery-more-button";
-            button.textContent = `Vedi tutte le ${galleryItems.length} foto`;
+            button.textContent = labels.showAll(galleryItems.length);
 
             button.addEventListener("click", () => {
                 openLightbox(galleryItems, 0);
