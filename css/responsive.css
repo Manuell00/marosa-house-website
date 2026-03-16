@@ -645,7 +645,7 @@
     height: auto;
     min-height: clamp(420px, 58svh, 560px);
     min-height: clamp(420px, 58dvh, 560px);
-    padding: 104px 20px 36px;
+    padding: 104px 20px 0;
     align-items: flex-end;
   }
 
@@ -672,8 +672,8 @@
 
   .hero-content {
     max-width: 360px;
-    padding: 22px 18px 18px;
-    border-radius: 26px;
+    padding: 22px 18px 26px;
+    border-radius: 26px 26px 0 0;
     background: linear-gradient(180deg, rgba(17, 17, 17, 0.28) 0%, rgba(17, 17, 17, 0.16) 100%);
     box-shadow: 0 20px 36px rgba(0, 0, 0, 0.12);
     backdrop-filter: none;
