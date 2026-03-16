@@ -33,6 +33,31 @@ body {
   width: 100%;
 }
 
+@media (min-width: 1025px) {
+  html {
+    scrollbar-color: #c8a45c rgba(200, 164, 92, 0.12);
+    scrollbar-width: thin;
+  }
+
+  body::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  body::-webkit-scrollbar-track {
+    background: rgba(200, 164, 92, 0.12);
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #d6b675 0%, #b78e42 100%);
+    border: 2px solid #f6f6f6;
+    border-radius: 999px;
+  }
+
+  body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #cdaa5f 0%, #a97d37 100%);
+  }
+}
+
 a {
   text-decoration: none;
   color: inherit;
