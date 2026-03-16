@@ -616,6 +616,10 @@
     transform: translateY(18px);
   }
 
+  .cookie-banner.active {
+    transform: translateY(0);
+  }
+
   .cookie-banner-actions {
     width: 100%;
   }
@@ -649,6 +653,10 @@
     align-items: center;
   }
 
+  .hero-slider::before {
+    background: rgba(0, 0, 0, 0.42);
+  }
+
   .hero-slider h1 {
     line-height: 1.15;
     margin-bottom: 14px;
@@ -676,11 +684,11 @@
     margin: 0 auto;
     padding: 22px 18px 26px;
     border-radius: 26px;
-    background: linear-gradient(180deg, rgba(17, 17, 17, 0.28) 0%, rgba(17, 17, 17, 0.16) 100%);
-    box-shadow: 0 20px 36px rgba(0, 0, 0, 0.12);
+    background: transparent;
+    box-shadow: none;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    transform: translateY(-20px);
+    transform: translateY(-34px);
   }
 
   .trust {
