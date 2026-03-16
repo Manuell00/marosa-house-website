@@ -1,16 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
     const stickyCta = document.querySelector(".mobile-sticky-cta");
     const footer = document.querySelector("footer");
+    const availabilitySection = document.querySelector("#disponibilita");
     const closeButton = document.querySelector(".mobile-sticky-dismiss");
+    let footerVisible = false;
+    let availabilityVisible = false;
 
     if (!stickyCta) return;
 
-    const hideSticky = () => {
-        stickyCta.classList.add("is-hidden");
-    };
-
-    const showSticky = () => {
-        stickyCta.classList.remove("is-hidden");
+    const syncStickyVisibility = () => {
+        if (stickyCta.classList.contains("is-dismissed")) return;
+        if (footerVisible || availabilityVisible) {
+            stickyCta.classList.add("is-hidden");
+        } else {
+            stickyCta.classList.remove("is-hidden");
+        }
     };
 
     if (closeButton) {
@@ -20,21 +24,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (footer && "IntersectionObserver" in window) {
-        const observer = new IntersectionObserver(
+        const footerObserver = new IntersectionObserver(
             ([entry]) => {
-                if (stickyCta.classList.contains("is-dismissed")) return;
-
-                if (entry.isIntersecting) {
-                    hideSticky();
-                } else {
-                    showSticky();
-                }
+                footerVisible = entry.isIntersecting;
+                syncStickyVisibility();
             },
             {
                 threshold: 0.15,
             }
         );
 
-        observer.observe(footer);
+        footerObserver.observe(footer);
+    }
+
+    if (availabilitySection && "IntersectionObserver" in window) {
+        const availabilityObserver = new IntersectionObserver(
+            ([entry]) => {
+                availabilityVisible = entry.isIntersecting;
+                syncStickyVisibility();
+            },
+            {
+                threshold: 0.2,
+            }
+        );
+
+        availabilityObserver.observe(availabilitySection);
     }
 });
