@@ -562,6 +562,17 @@
     display: none;
   }
 
+  .hero-slider,
+  .trust,
+  .intro,
+  .apartments-preview,
+  .why,
+  .reviews,
+  .booking,
+  .hero-apartment {
+    animation: none;
+  }
+
   .apartment-anchors {
     top: 73px;
     justify-content: flex-start;
@@ -622,13 +633,24 @@
   }
 
   .hero-slider {
-    height: 56svh;
-    min-height: 56svh;
+    height: auto;
+    min-height: clamp(420px, 58svh, 560px);
+    min-height: clamp(420px, 58dvh, 560px);
+    padding: 104px 20px 36px;
+    align-items: flex-end;
   }
 
   .hero-slider h1 {
     line-height: 1.15;
     margin-bottom: 14px;
+  }
+
+  .hero-apartment {
+    min-height: clamp(360px, 58svh, 500px);
+    min-height: clamp(360px, 58dvh, 500px);
+    padding: 104px 20px 32px;
+    animation: none;
+    background-attachment: scroll;
   }
 
   .hero-apartment h1 {

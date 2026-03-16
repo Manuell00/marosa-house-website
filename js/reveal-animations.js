@@ -1,6 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+    const isMobileViewport = window.matchMedia("(max-width: 768px)").matches;
+    const immediateMobileSelectors = [
+        ".hero-apartment h1",
+        ".hero-apartment p",
+        ".hero-kicker",
+        ".hero-buttons .btn",
+        ".apartment-anchors",
+        ".trust-item",
+    ];
+
     const revealSelectors = [
         "section h2",
         ".hero-apartment h1",
@@ -38,6 +48,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (elements.length === 0) return;
 
     elements.forEach((element, index) => {
+        if (isMobileViewport && element.matches(immediateMobileSelectors.join(","))) {
+            element.classList.add("is-visible");
+            return;
+        }
+
         element.classList.add("reveal-on-scroll");
         element.style.setProperty("--reveal-delay", `${Math.min(index % 6, 5) * 70}ms`);
     });
