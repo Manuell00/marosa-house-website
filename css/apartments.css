@@ -187,6 +187,25 @@
   margin: 0 auto 22px;
   background: linear-gradient(90deg, transparent, rgba(200, 164, 92, 0.7), transparent);
 }
+
+.policy-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.policy-page .info-intro {
+  margin-top: 96px;
+}
+
+.policy-page .info-section {
+  flex: 1 0 auto;
+  margin-bottom: 72px;
+}
+
+.policy-page footer {
+  margin-top: auto;
+}
 /* =========================================
    HERO APPARTAMENTI
 ========================================= */

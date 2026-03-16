@@ -53,6 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
               submitError: "Could not send the request. You can still use email or WhatsApp.",
               emailReady: "Email draft ready. If nothing opens, check the email app on your device.",
               whatsappReady: "WhatsApp message ready.",
+              toastSuccessTitle: "Request sent",
+              toastInfoTitle: "Ready to continue",
               toastSubmit: "Request sent successfully.",
               toastEmail: "Request ready: opening your email app.",
               toastWhatsapp: "Request ready: opening WhatsApp.",
@@ -76,6 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
               submitError: "Invio non riuscito. Puoi comunque usare email o WhatsApp.",
               emailReady: "Bozza email pronta. Se non si apre nulla, controlla il client email del dispositivo.",
               whatsappReady: "Messaggio WhatsApp pronto.",
+              toastSuccessTitle: "Richiesta inviata",
+              toastInfoTitle: "Tutto pronto",
               toastSubmit: "Richiesta inviata correttamente.",
               toastEmail: "Richiesta pronta: apertura email in corso.",
               toastWhatsapp: "Messaggio pronto: apertura WhatsApp in corso.",
@@ -145,7 +149,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const showToast = (message, type = "info") => {
         if (!toast) return;
 
-        toast.textContent = message;
+        const icon = type === "success" ? "fa-circle-check" : "fa-circle-info";
+        const title = type === "success" ? labels.toastSuccessTitle : labels.toastInfoTitle;
+
+        toast.innerHTML = `
+            <div class="request-toast-icon">
+                <i class="fa-solid ${icon}"></i>
+            </div>
+            <div class="request-toast-copy">
+                <strong>${title}</strong>
+                <span>${message}</span>
+            </div>
+        `;
         toast.classList.remove("is-info", "is-success");
         toast.classList.add(`is-${type}`);
         toast.classList.add("is-visible");

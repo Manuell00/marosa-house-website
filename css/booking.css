@@ -276,17 +276,21 @@
   transform: translateX(-50%) translateY(18px);
   opacity: 0;
   visibility: hidden;
-  min-width: 280px;
-  max-width: min(92vw, 420px);
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  align-items: center;
+  gap: 14px;
+  min-width: 320px;
+  max-width: min(92vw, 460px);
   padding: 16px 18px;
-  border-radius: 18px;
-  background: rgba(19, 19, 19, 0.94);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #f5efe2;
-  box-shadow: 0 24px 44px rgba(0, 0, 0, 0.24);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(200, 164, 92, 0.18);
+  color: #2b2418;
+  box-shadow: 0 24px 44px rgba(22, 18, 12, 0.18);
   z-index: 2600;
   transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
-  text-align: center;
+  text-align: left;
   line-height: 1.45;
 }
 
@@ -296,12 +300,45 @@
   transform: translateX(-50%) translateY(0);
 }
 
+.request-toast-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #fbf3e4 0%, #efdfbd 100%);
+  color: #a88339;
+  font-size: 20px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.68);
+}
+
+.request-toast-copy {
+  display: grid;
+  gap: 2px;
+}
+
+.request-toast-copy strong {
+  color: #171717;
+  font-size: 1rem;
+}
+
+.request-toast-copy span {
+  color: #62584a;
+  font-size: 0.92rem;
+}
+
 .request-toast.is-success {
-  background: linear-gradient(135deg, rgba(48, 86, 56, 0.96), rgba(34, 62, 40, 0.96));
+  border-color: rgba(83, 155, 96, 0.24);
+}
+
+.request-toast.is-success .request-toast-icon {
+  background: linear-gradient(180deg, #ebf8ef 0%, #d7efdd 100%);
+  color: #2f7a41;
 }
 
 .request-toast.is-info {
-  background: linear-gradient(135deg, rgba(33, 33, 33, 0.95), rgba(17, 17, 17, 0.95));
+  border-color: rgba(200, 164, 92, 0.22);
 }
 
 @media (max-width: 1024px) {
@@ -358,11 +395,20 @@
     left: 14px;
     right: 14px;
     bottom: 14px;
+    grid-template-columns: 42px 1fr;
+    min-width: 0;
     transform: translateY(18px);
-    text-align: center;
+    text-align: left;
   }
 
   .request-toast.is-visible {
     transform: translateY(0);
+  }
+
+  .request-toast-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    font-size: 18px;
   }
 }
