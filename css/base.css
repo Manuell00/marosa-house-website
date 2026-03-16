@@ -506,6 +506,10 @@ footer a:hover {
   max-width: 760px;
 }
 
+.cookie-banner p::after {
+  content: " 🍪";
+}
+
 .cookie-banner a {
   color: #8f6c2c;
   font-weight: 700;
