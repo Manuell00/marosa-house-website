@@ -137,6 +137,14 @@
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
+.field input[type="date"] {
+  text-align: left;
+}
+
+.field input[type="date"]::-webkit-date-and-time-value {
+  text-align: left;
+}
+
 .field input:hover,
 .field select:hover,
 .field textarea:hover {

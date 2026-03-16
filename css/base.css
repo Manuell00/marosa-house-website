@@ -446,29 +446,44 @@ footer a:hover {
 
 .cookie-banner {
   position: fixed;
-  left: 20px;
-  right: 20px;
+  left: 50%;
+  right: auto;
   bottom: 20px;
   display: none;
   align-items: center;
   justify-content: space-between;
   gap: 18px;
+  width: min(1040px, calc(100vw - 40px));
   padding: 18px 20px;
-  background: rgba(17, 17, 17, 0.94);
-  color: #f3efe6;
-  border-radius: 18px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+  background: rgba(255, 255, 255, 0.96);
+  color: #3a3123;
+  border: 1px solid rgba(200, 164, 92, 0.16);
+  border-radius: 22px;
+  box-shadow: 0 24px 48px rgba(22, 18, 12, 0.18);
+  backdrop-filter: blur(12px);
+  transform: translateX(-50%) translateY(12px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
   z-index: 2500;
 }
 
 .cookie-banner.active {
   display: flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
 }
 
 .cookie-banner p {
-  color: #f3efe6;
+  color: #5d5547;
   margin: 0;
   max-width: 760px;
+}
+
+.cookie-banner a {
+  color: #8f6c2c;
+  font-weight: 700;
 }
 
 .cookie-banner-actions {
@@ -483,16 +498,24 @@ footer a:hover {
   padding: 12px 16px;
   font-weight: 700;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.cookie-btn:hover {
+  transform: translateY(-1px);
 }
 
 .cookie-btn.accept {
-  background: #c8a45c;
-  color: #111;
+  background: linear-gradient(135deg, #cdaa5f, #b88d42);
+  color: white;
+  box-shadow: 0 12px 24px rgba(173, 129, 50, 0.24);
 }
 
 .cookie-btn.reject {
-  background: rgba(255, 255, 255, 0.12);
-  color: white;
+  background: #f7f2e8;
+  color: #473b28;
+  border: 1px solid rgba(200, 164, 92, 0.18);
 }
 
 /* =================================================

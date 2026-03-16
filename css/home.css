@@ -5,6 +5,7 @@
 .hero-slider {
   position: relative;
   height: 80vh;
+  height: 80svh;
 
   display: flex;
   align-items: center;
@@ -93,6 +94,9 @@
 
   background-size: cover;
   background-position: center;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: opacity;
 
   opacity: 0;
   transition: opacity 1.6s ease;

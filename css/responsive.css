@@ -592,6 +592,8 @@
     bottom: 14px;
     flex-direction: column;
     align-items: flex-start;
+    width: auto;
+    transform: translateY(18px);
   }
 
   .cookie-banner-actions {
@@ -620,7 +622,8 @@
   }
 
   .hero-slider {
-    height: 56vh;
+    height: 56svh;
+    min-height: 56svh;
   }
 
   .hero-slider h1 {
