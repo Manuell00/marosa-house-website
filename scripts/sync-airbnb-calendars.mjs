@@ -102,6 +102,20 @@ function parseBookedDates(icsText) {
   return [...booked].sort();
 }
 
+async function loadExistingAvailability() {
+  try {
+    const current = await fs.readFile(outputPath, "utf8");
+    const match = current.match(/^window\.marosaAvailability = (\{[\s\S]*\});\s*$/);
+
+    if (!match) return {};
+
+    return JSON.parse(match[1]);
+  } catch (error) {
+    if (error.code === "ENOENT") return {};
+    throw error;
+  }
+}
+
 async function loadCalendar(calendar) {
   const sources = await Promise.all(
     calendar.urls.map(async (url) => {
@@ -124,6 +138,7 @@ async function loadCalendar(calendar) {
 }
 
 const results = await Promise.all(calendars.map(loadCalendar));
+const existingAvailability = await loadExistingAvailability();
 
 const output = `window.marosaAvailability = ${JSON.stringify(
   Object.fromEntries(
@@ -131,6 +146,7 @@ const output = `window.marosaAvailability = ${JSON.stringify(
       calendar.key,
       {
         title: calendar.title,
+        prices: existingAvailability[calendar.key]?.prices || {},
         booked: calendar.booked,
       },
     ])

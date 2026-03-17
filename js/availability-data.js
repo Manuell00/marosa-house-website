@@ -3,41 +3,78 @@ window.marosaAvailability = {
         "title": "Disponibilita MaRoSa Bixio",
         "prices": {
             "03": {
-                "weekday": { "min": 48, "max": 62 },
-                "weekend": { "min": 55, "max": 75 }
+                "weekday": {
+                    "min": 48,
+                    "max": 62
+                },
+                "weekend": {
+                    "min": 55,
+                    "max": 75
+                }
             },
             "04": {
-                "weekday": { "min": 40, "max": 75 },
-                "weekend": { "min": 49, "max": 88 }
+                "weekday": {
+                    "min": 40,
+                    "max": 75
+                },
+                "weekend": {
+                    "min": 49,
+                    "max": 88
+                }
             },
             "05": {
-                "weekday": { "min": 48, "max": 85 },
-                "weekend": { "min": 72, "max": 90 }
+                "weekday": {
+                    "min": 48,
+                    "max": 85
+                },
+                "weekend": {
+                    "min": 72,
+                    "max": 90
+                }
             },
             "06": {
-                "weekday": { "min": 80, "max": 100 },
-                "weekend": { "min": 90, "max": 110 }
+                "weekday": {
+                    "min": 80,
+                    "max": 100
+                },
+                "weekend": {
+                    "min": 90,
+                    "max": 110
+                }
             },
             "08": {
-                "weekday": { "min": 108, "max": 130 },
-                "weekend": { "min": 115, "max": 150 }
+                "weekday": {
+                    "min": 108,
+                    "max": 130
+                },
+                "weekend": {
+                    "min": 115,
+                    "max": 150
+                }
             },
             "09": {
-                "weekday": { "min": 80, "max": 90 },
-                "weekend": { "min": 86, "max": 100 }
+                "weekday": {
+                    "min": 80,
+                    "max": 90
+                },
+                "weekend": {
+                    "min": 86,
+                    "max": 100
+                }
             }
         },
         "booked": [
-            "2026-03-14",
             "2026-03-15",
             "2026-03-16",
             "2026-03-17",
+            "2026-03-18",
             "2026-03-19",
             "2026-03-20",
             "2026-03-21",
             "2026-03-22",
             "2026-03-23",
             "2026-03-24",
+            "2026-03-25",
             "2026-03-26",
             "2026-03-27",
             "2026-03-31",
@@ -78,6 +115,7 @@ window.marosaAvailability = {
             "2026-06-22",
             "2026-06-23",
             "2026-06-24",
+            "2026-07-28",
             "2026-08-02",
             "2026-08-03",
             "2026-08-04",
@@ -92,30 +130,57 @@ window.marosaAvailability = {
         "title": "Disponibilita MaRoSa Magnolie",
         "prices": {
             "03": {
-                "weekday": { "min": 48, "max": 61 },
-                "weekend": { "min": 54, "max": 63 }
+                "weekday": {
+                    "min": 48,
+                    "max": 61
+                },
+                "weekend": {
+                    "min": 54,
+                    "max": 63
+                }
             },
             "04": {
-                "weekday": { "min": 56, "max": 85 },
-                "weekend": { "min": 58, "max": 100 }
+                "weekday": {
+                    "min": 56,
+                    "max": 85
+                },
+                "weekend": {
+                    "min": 58,
+                    "max": 100
+                }
             },
             "06": {
-                "weekday": { "min": 72, "max": 100 },
-                "weekend": { "min": 90, "max": 110 }
+                "weekday": {
+                    "min": 72,
+                    "max": 100
+                },
+                "weekend": {
+                    "min": 90,
+                    "max": 110
+                }
             },
             "07": {
-                "weekday": { "min": 99, "max": 135 },
-                "weekend": { "min": 113, "max": 153 }
+                "weekday": {
+                    "min": 99,
+                    "max": 135
+                },
+                "weekend": {
+                    "min": 113,
+                    "max": 153
+                }
             },
             "09": {
-                "weekday": { "min": 72, "max": 90 },
-                "weekend": { "min": 86, "max": 99 }
+                "weekday": {
+                    "min": 72,
+                    "max": 90
+                },
+                "weekend": {
+                    "min": 86,
+                    "max": 99
+                }
             }
         },
         "booked": [
-            "2026-03-12",
-            "2026-03-13",
-            "2026-03-14",
             "2026-03-15",
             "2026-03-16",
             "2026-03-17",
@@ -124,6 +189,8 @@ window.marosaAvailability = {
             "2026-03-20",
             "2026-03-21",
             "2026-03-22",
+            "2026-03-29",
+            "2026-03-30",
             "2026-03-31",
             "2026-04-02",
             "2026-04-03",
@@ -135,11 +202,14 @@ window.marosaAvailability = {
             "2026-04-28",
             "2026-04-29",
             "2026-05-18",
+            "2026-06-20",
+            "2026-06-24",
             "2026-07-05",
             "2026-07-06",
             "2026-07-07",
             "2026-07-08",
-            "2026-07-25"
+            "2026-07-25",
+            "2026-08-10"
         ]
     }
 };

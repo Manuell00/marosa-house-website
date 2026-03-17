@@ -180,12 +180,12 @@
 
 .request-helper {
   margin: 0;
-  padding: 14px 16px;
-  border-radius: 16px;
-  background: linear-gradient(180deg, #fffdf8 0%, #f7f1e6 100%);
-  border: 1px solid rgba(200, 164, 92, 0.16);
-  color: #696152;
-  font-size: var(--fs-body-sm);
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(200, 164, 92, 0.08);
+  border: 1px solid rgba(200, 164, 92, 0.12);
+  color: #6d624f;
+  font-size: 14px;
   line-height: 1.6;
 }
 
@@ -208,12 +208,19 @@
 }
 
 .secondary-submit {
-  background: linear-gradient(180deg, #4b4b4b 0%, #353535 100%);
+  min-width: 0;
+  padding: 12px 18px;
+  border: 1px solid rgba(200, 164, 92, 0.22);
+  background: #fffdf8;
+  color: #5a4520;
+  box-shadow: none;
 }
 
 .request-alternatives {
   display: grid;
-  gap: 12px;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(200, 164, 92, 0.14);
 }
 
 .request-alternatives-label {
@@ -224,6 +231,13 @@
   text-transform: uppercase;
 }
 
+.request-alternatives-copy {
+  margin: 0;
+  color: #7b7364;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
 .request-alternative-buttons {
   display: flex;
   gap: 12px;
@@ -231,7 +245,12 @@
 }
 
 .request-alternative-buttons .btn {
-  min-width: 180px;
+  min-width: 160px;
+}
+
+.request-alternative-buttons .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(22, 18, 12, 0.08);
 }
 
 .request-submit[disabled] {
