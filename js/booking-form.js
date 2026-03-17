@@ -153,6 +153,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (state) wrapper.classList.add(state);
     };
 
+    const setDateFieldsState = (state = "") => {
+        setFieldClass(checkin, state);
+        setFieldClass(checkout, state);
+    };
+
     const rangeOverlapsBookedDates = (apartmentName, startKey, endKey) => {
         const availabilityKey = apartmentAvailabilityKey[apartmentName];
         const booked = window.marosaAvailability?.[availabilityKey]?.booked;
@@ -182,14 +187,23 @@ document.addEventListener("DOMContentLoaded", () => {
             if (silent) {
                 setAvailabilityNote("");
             }
+            if (checkin.value) {
+                markFieldState(checkin);
+            } else {
+                setFieldClass(checkin);
+            }
+            if (checkout.value) {
+                markFieldState(checkout);
+            } else {
+                setFieldClass(checkout);
+            }
             return true;
         }
 
         const hasConflict = rangeOverlapsBookedDates(apartment.value, checkin.value, checkout.value);
 
         if (hasConflict) {
-            setFieldClass(checkin, "is-invalid");
-            setFieldClass(checkout, "is-invalid");
+            setDateFieldsState("is-invalid");
             setAvailabilityNote(labels.invalidAvailability);
             if (!silent) {
                 setStatus(labels.invalidAvailability, "is-error");
@@ -197,6 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         }
 
+        setDateFieldsState();
         if (checkin.value) markFieldState(checkin);
         if (checkout.value) markFieldState(checkout);
         setAvailabilityNote("");
@@ -310,6 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (values.checkout <= values.checkin) {
+            setDateFieldsState("is-invalid");
             setAvailabilityNote(labels.invalidDates);
             setStatus(labels.invalidDates, "is-error");
             return null;

@@ -227,6 +227,7 @@
 
 .request-availability-note {
   display: none;
+  grid-column: 1;
   margin: -4px 0 4px;
   padding: 12px 14px;
   border-radius: 14px;
@@ -398,6 +399,10 @@
   .request-grid {
     grid-template-columns: 1fr;
     gap: 14px;
+  }
+
+  .request-availability-note {
+    grid-column: 1 / -1;
   }
 
   .request-actions {
