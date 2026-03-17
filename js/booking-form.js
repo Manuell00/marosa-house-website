@@ -179,9 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const validateAvailability = ({ silent = false } = {}) => {
         if (!apartment.value || !checkin.value || !checkout.value || checkout.value <= checkin.value) {
-            if (checkout.value && checkin.value && checkout.value <= checkin.value && !silent) {
-                setAvailabilityNote(labels.invalidDates);
-            } else {
+            if (silent) {
                 setAvailabilityNote("");
             }
             return true;
@@ -282,11 +280,11 @@ document.addEventListener("DOMContentLoaded", () => {
             checkout.value = "";
         }
 
-        validateAvailability();
+        validateAvailability({ silent: true });
     });
 
     checkout.addEventListener("change", () => {
-        validateAvailability();
+        validateAvailability({ silent: true });
     });
 
     apartment.addEventListener("change", () => {
