@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkout = document.getElementById("checkout");
     const guests = document.getElementById("guests");
     const toast = document.getElementById("request-toast");
+    const availabilityNote = document.getElementById("request-availability-note");
     const isEnglish = document.documentElement.lang === "en";
     const formEndpoint = form?.dataset.formEndpoint?.trim() || "";
     const formSuccessMessage = form?.dataset.successMessage;
@@ -19,6 +20,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const today = new Date().toISOString().split("T")[0];
     checkin.min = today;
     checkout.min = today;
+
+    const addDaysToKey = (key, amount) => {
+        const date = new Date(`${key}T00:00:00`);
+        date.setDate(date.getDate() + amount);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+    };
 
     const params = new URLSearchParams(window.location.search);
     const apartmentParam = params.get("apartment");
@@ -35,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (checkinParam) {
         checkin.value = checkinParam;
-        checkout.min = checkinParam;
+        checkout.min = addDaysToKey(checkinParam, 1);
     }
 
     if (checkoutParam) {
@@ -46,8 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
         ? {
               select: "Select",
               invalidFields: "Please fill in the main fields before continuing.",
-              invalidDates: "Check-out must be after check-in.",
-              invalidAvailability: "The selected dates are not available for this apartment. Please choose different dates.",
+              invalidDates: "Choose a check-out date from the day after check-in onwards.",
+              invalidAvailability: "The selected dates are not available because one or more nights are already booked.",
               invalidSpam: "Request blocked.",
               submitReady: "Request sent successfully. We will reply as soon as possible.",
               submitSending: "Sending request...",
@@ -72,8 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
         : {
               select: "Seleziona",
               invalidFields: "Compila i campi principali prima di continuare.",
-              invalidDates: "La data di check-out deve essere successiva al check-in.",
-              invalidAvailability: "Le date selezionate non sono disponibili per questo appartamento. Scegli date diverse.",
+              invalidDates: "Scegli un check-out a partire dal giorno successivo al check-in.",
+              invalidAvailability: "Le date selezionate non sono disponibili perche una o piu notti risultano gia prenotate.",
               invalidSpam: "Richiesta bloccata.",
               submitReady: "Richiesta inviata correttamente. Ti risponderemo il prima possibile.",
               submitSending: "Invio della richiesta in corso...",
@@ -130,6 +140,12 @@ document.addEventListener("DOMContentLoaded", () => {
     apartment.addEventListener("change", updateGuestOptions);
     updateGuestOptions();
 
+    const setAvailabilityNote = (message = "") => {
+        if (!availabilityNote) return;
+        availabilityNote.textContent = message;
+        availabilityNote.classList.toggle("is-visible", Boolean(message));
+    };
+
     const setFieldClass = (fieldElement, state = "") => {
         const wrapper = fieldElement.closest(".field");
         if (!wrapper) return;
@@ -163,6 +179,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const validateAvailability = ({ silent = false } = {}) => {
         if (!apartment.value || !checkin.value || !checkout.value || checkout.value <= checkin.value) {
+            if (checkout.value && checkin.value && checkout.value <= checkin.value && !silent) {
+                setAvailabilityNote(labels.invalidDates);
+            } else {
+                setAvailabilityNote("");
+            }
             return true;
         }
 
@@ -171,6 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (hasConflict) {
             setFieldClass(checkin, "is-invalid");
             setFieldClass(checkout, "is-invalid");
+            setAvailabilityNote(labels.invalidAvailability);
             if (!silent) {
                 setStatus(labels.invalidAvailability, "is-error");
             }
@@ -179,6 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (checkin.value) markFieldState(checkin);
         if (checkout.value) markFieldState(checkout);
+        setAvailabilityNote("");
         if (status.textContent === labels.invalidAvailability) {
             setStatus("");
         }
@@ -253,9 +276,9 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     checkin.addEventListener("change", () => {
-        checkout.min = checkin.value || today;
+        checkout.min = checkin.value ? addDaysToKey(checkin.value, 1) : today;
 
-        if (checkout.value && checkin.value && checkout.value < checkin.value) {
+        if (checkout.value && checkin.value && checkout.value <= checkin.value) {
             checkout.value = "";
         }
 
@@ -289,6 +312,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (values.checkout <= values.checkin) {
+            setAvailabilityNote(labels.invalidDates);
             setStatus(labels.invalidDates, "is-error");
             return null;
         }

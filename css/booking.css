@@ -194,21 +194,6 @@
   grid-column: 1 / -1;
 }
 
-.request-helper {
-  margin: 0;
-  padding: 12px 14px;
-  border-radius: 14px;
-  background: rgba(200, 164, 92, 0.08);
-  border: 1px solid rgba(200, 164, 92, 0.12);
-  color: #6d624f;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.request-helper strong {
-  color: #4f3d19;
-}
-
 .request-actions {
   display: flex;
   justify-content: flex-start;
@@ -252,6 +237,22 @@
   color: #7b7364;
   font-size: 14px;
   line-height: 1.55;
+}
+
+.request-availability-note {
+  display: none;
+  margin: -4px 0 4px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(183, 70, 70, 0.08);
+  border: 1px solid rgba(183, 70, 70, 0.14);
+  color: #9d3d3d;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.request-availability-note.is-visible {
+  display: block;
 }
 
 .request-alternative-buttons {

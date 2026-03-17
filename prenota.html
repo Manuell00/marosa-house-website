@@ -146,6 +146,8 @@
               </select>
             </label>
 
+            <p class="request-availability-note field-full" id="request-availability-note" aria-live="polite"></p>
+
             <label class="field">
               <span>Nome e cognome</span>
               <input type="text" name="name" id="name" placeholder="Il tuo nome" required />
@@ -176,11 +178,6 @@
               <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" />
             </label>
           </div>
-
-          <p class="request-helper">
-            Compila i campi principali una sola volta, poi scegli il canale che
-            preferisci per inviare la richiesta.
-          </p>
 
           <div class="request-actions">
             <button class="btn email request-submit" type="submit" id="request-submit">
