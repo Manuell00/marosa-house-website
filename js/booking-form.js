@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ? {
               select: "Select",
               invalidFields: "Please fill in the main fields before continuing.",
+              invalidCheckoutOrder: "Check-out must be after check-in.",
               invalidSpam: "Request blocked.",
               submitReady: "Request sent successfully.\nWe will reply as soon as possible.",
               submitSending: "Sending request...",
@@ -60,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
               whatsappReady: "WhatsApp message ready.",
               toastSuccessTitle: "Request sent",
               toastInfoTitle: "Ready to continue",
+              toastErrorTitle: "Something went wrong",
               toastSubmit: "Request sent successfully.",
               toastEmail: "Request ready: opening your email app.",
               toastWhatsapp: "Request ready: opening WhatsApp.",
@@ -76,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
         : {
               select: "Seleziona",
               invalidFields: "Compila i campi principali prima di continuare.",
+              invalidCheckoutOrder: "Il check-out deve essere successivo al check-in.",
               invalidSpam: "Richiesta bloccata.",
               submitReady: "Richiesta inviata correttamente.\nTi risponderemo il prima possibile.",
               submitSending: "Invio della richiesta in corso...",
@@ -84,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
               whatsappReady: "Messaggio WhatsApp pronto.",
               toastSuccessTitle: "Richiesta inviata",
               toastInfoTitle: "Tutto pronto",
+              toastErrorTitle: "Qualcosa non ha funzionato",
               toastSubmit: "Richiesta inviata correttamente.",
               toastEmail: "Richiesta pronta: apertura email in corso.",
               toastWhatsapp: "Messaggio pronto: apertura WhatsApp in corso.",
@@ -126,6 +130,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     apartment.addEventListener("change", updateGuestOptions);
     updateGuestOptions();
+
+    const syncCheckoutMin = () => {
+        checkout.min = checkin.value || today;
+
+        if (checkout.value && checkin.value && checkout.value <= checkin.value) {
+            checkout.value = "";
+            setFieldClass(checkout);
+        }
+    };
+
+    checkin.addEventListener("change", syncCheckoutMin);
+    syncCheckoutMin();
 
     const setFieldClass = (fieldElement, state = "") => {
         const wrapper = fieldElement.closest(".field");
@@ -224,6 +240,13 @@ document.addEventListener("DOMContentLoaded", () => {
             return null;
         }
 
+        if (values.checkout <= values.checkin) {
+            setStatus(labels.invalidCheckoutOrder, "is-error");
+            setFieldClass(checkin, "is-invalid");
+            setFieldClass(checkout, "is-invalid");
+            return null;
+        }
+
         setStatus("");
 
         const lines = [
@@ -271,7 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         setSubmitting(true);
-        setStatus(formSuccessMessage || labels.submitSending);
+        setStatus(labels.submitSending);
 
         try {
             const response = await fetch(formEndpoint, {
@@ -309,6 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
             showToast(labels.toastSubmit, "success");
         } catch (error) {
             setStatus(formErrorMessage || labels.submitError, "is-error");
+            showToast(formErrorMessage || labels.submitError, "error");
         } finally {
             setSubmitting(false);
         }

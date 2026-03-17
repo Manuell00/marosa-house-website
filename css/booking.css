@@ -31,7 +31,7 @@
 
 .booking-hero h1 {
   margin: 18px 0 14px;
-  font-size: var(--fs-h1-page);
+  font-size: clamp(2.9rem, 6.2vw, var(--fs-h1-page));
 }
 
 .booking-hero p {
@@ -392,6 +392,20 @@
     padding: 76px 18px 42px;
     animation: none;
     background-attachment: scroll;
+  }
+
+  .booking-hero-content {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .booking-hero h1 {
+    font-size: clamp(1.95rem, 8.8vw, 2.7rem);
+    line-height: 1.08;
+  }
+
+  .booking-hero p {
+    font-size: clamp(1rem, 4.2vw, 1.1rem);
   }
 
   .request-section {
