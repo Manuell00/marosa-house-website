@@ -57,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
               select: "Select",
               invalidFields: "Please fill in the main fields before continuing.",
               invalidDates: "Choose a check-out date from the day after check-in onwards.",
-              invalidAvailability: "The selected dates are not available because one or more nights are already booked.",
               invalidSpam: "Request blocked.",
               submitReady: "Request sent successfully. We will reply as soon as possible.",
               submitSending: "Sending request...",
@@ -83,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
               select: "Seleziona",
               invalidFields: "Compila i campi principali prima di continuare.",
               invalidDates: "Scegli un check-out a partire dal giorno successivo al check-in.",
-              invalidAvailability: "Le date selezionate non sono disponibili perche una o piu notti risultano gia prenotate.",
               invalidSpam: "Richiesta bloccata.",
               submitReady: "Richiesta inviata correttamente. Ti risponderemo il prima possibile.",
               submitSending: "Invio della richiesta in corso...",
@@ -105,11 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
               phone: "Telefono",
               message: "Messaggio",
           };
-
-    const apartmentAvailabilityKey = {
-        "MaRoSa Bixio": "bixio",
-        "MaRoSa Magnolie": "magnolie",
-    };
 
     const guestOptionsByApartment = {
         "MaRoSa Bixio": isEnglish ? ["1 guest", "2 guests"] : ["1 ospite", "2 ospiti"],
@@ -158,67 +151,24 @@ document.addEventListener("DOMContentLoaded", () => {
         setFieldClass(checkout, state);
     };
 
-    const rangeOverlapsBookedDates = (apartmentName, startKey, endKey) => {
-        const availabilityKey = apartmentAvailabilityKey[apartmentName];
-        const booked = window.marosaAvailability?.[availabilityKey]?.booked;
-
-        if (!availabilityKey || !Array.isArray(booked)) return false;
-
-        const bookedSet = new Set(booked);
-        const cursor = new Date(`${startKey}T00:00:00`);
-        const endDate = new Date(`${endKey}T00:00:00`);
-
-        while (cursor < endDate) {
-            const year = cursor.getFullYear();
-            const month = String(cursor.getMonth() + 1).padStart(2, "0");
-            const day = String(cursor.getDate()).padStart(2, "0");
-            const key = `${year}-${month}-${day}`;
-
-            if (bookedSet.has(key)) return true;
-
-            cursor.setDate(cursor.getDate() + 1);
+    const clearDateValidation = () => {
+        if (checkin.value) {
+            markFieldState(checkin);
+        } else {
+            setFieldClass(checkin);
         }
 
-        return false;
-    };
-
-    const validateAvailability = ({ silent = false } = {}) => {
-        if (!apartment.value || !checkin.value || !checkout.value || checkout.value <= checkin.value) {
-            if (silent) {
-                setAvailabilityNote("");
-            }
-            if (checkin.value) {
-                markFieldState(checkin);
-            } else {
-                setFieldClass(checkin);
-            }
-            if (checkout.value) {
-                markFieldState(checkout);
-            } else {
-                setFieldClass(checkout);
-            }
-            return true;
+        if (checkout.value) {
+            markFieldState(checkout);
+        } else {
+            setFieldClass(checkout);
         }
 
-        const hasConflict = rangeOverlapsBookedDates(apartment.value, checkin.value, checkout.value);
-
-        if (hasConflict) {
-            setDateFieldsState("is-invalid");
-            setAvailabilityNote(labels.invalidAvailability);
-            if (!silent) {
-                setStatus(labels.invalidAvailability, "is-error");
-            }
-            return false;
-        }
-
-        setDateFieldsState();
-        if (checkin.value) markFieldState(checkin);
-        if (checkout.value) markFieldState(checkout);
         setAvailabilityNote("");
-        if (status.textContent === labels.invalidAvailability) {
+
+        if (status.textContent === labels.invalidDates) {
             setStatus("");
         }
-        return true;
     };
 
     const markFieldState = (fieldElement) => {
@@ -235,8 +185,8 @@ document.addEventListener("DOMContentLoaded", () => {
             wrapper.classList.add("is-invalid");
         }
 
-        if ((fieldElement === apartment || fieldElement === checkin || fieldElement === checkout) && status.classList.contains("is-error")) {
-            validateAvailability({ silent: true });
+        if ((fieldElement === checkin || fieldElement === checkout) && status.classList.contains("is-error")) {
+            clearDateValidation();
         }
     };
 
@@ -295,18 +245,16 @@ document.addEventListener("DOMContentLoaded", () => {
             checkout.value = "";
         }
 
-        validateAvailability({ silent: true });
+        clearDateValidation();
     });
 
     checkout.addEventListener("change", () => {
-        validateAvailability({ silent: true });
+        clearDateValidation();
     });
 
     apartment.addEventListener("change", () => {
-        validateAvailability({ silent: true });
+        setAvailabilityNote("");
     });
-
-    validateAvailability({ silent: true });
 
     const getPayload = () => {
         const formData = new FormData(form);
@@ -328,10 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
             setDateFieldsState("is-invalid");
             setAvailabilityNote(labels.invalidDates);
             setStatus(labels.invalidDates, "is-error");
-            return null;
-        }
-
-        if (!validateAvailability()) {
+            checkout.closest(".field-stack")?.scrollIntoView({ behavior: "smooth", block: "center" });
             return null;
         }
 
@@ -418,6 +363,7 @@ document.addEventListener("DOMContentLoaded", () => {
             updateGuestOptions();
             checkin.min = today;
             checkout.min = today;
+            setAvailabilityNote("");
             form.querySelectorAll(".field").forEach((field) => {
                 field.classList.remove("is-valid", "is-invalid");
             });

@@ -234,13 +234,14 @@
 .request-availability-note {
   display: none;
   margin: 0;
-  padding: 12px 14px;
-  border-radius: 14px;
-  background: rgba(183, 70, 70, 0.08);
-  border: 1px solid rgba(183, 70, 70, 0.14);
-  color: #9d3d3d;
+  padding: 13px 14px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 248, 245, 0.98), rgba(255, 241, 236, 0.98));
+  border: 1px solid rgba(183, 70, 70, 0.18);
+  color: #944040;
   font-size: 14px;
   line-height: 1.55;
+  box-shadow: 0 10px 24px rgba(140, 77, 62, 0.08);
 }
 
 .request-availability-note.is-visible {
