@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
               select: "Select",
               invalidFields: "Please fill in the main fields before continuing.",
               invalidDates: "Check-out must be after check-in.",
+              invalidAvailability: "The selected dates are not available for this apartment. Please choose different dates.",
               invalidSpam: "Request blocked.",
               submitReady: "Request sent successfully. We will reply as soon as possible.",
               submitSending: "Sending request...",
@@ -72,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
               select: "Seleziona",
               invalidFields: "Compila i campi principali prima di continuare.",
               invalidDates: "La data di check-out deve essere successiva al check-in.",
+              invalidAvailability: "Le date selezionate non sono disponibili per questo appartamento. Scegli date diverse.",
               invalidSpam: "Richiesta bloccata.",
               submitReady: "Richiesta inviata correttamente. Ti risponderemo il prima possibile.",
               submitSending: "Invio della richiesta in corso...",
@@ -93,6 +95,11 @@ document.addEventListener("DOMContentLoaded", () => {
               phone: "Telefono",
               message: "Messaggio",
           };
+
+    const apartmentAvailabilityKey = {
+        "MaRoSa Bixio": "bixio",
+        "MaRoSa Magnolie": "magnolie",
+    };
 
     const guestOptionsByApartment = {
         "MaRoSa Bixio": isEnglish ? ["1 guest", "2 guests"] : ["1 ospite", "2 ospiti"],
@@ -123,6 +130,61 @@ document.addEventListener("DOMContentLoaded", () => {
     apartment.addEventListener("change", updateGuestOptions);
     updateGuestOptions();
 
+    const setFieldClass = (fieldElement, state = "") => {
+        const wrapper = fieldElement.closest(".field");
+        if (!wrapper) return;
+        wrapper.classList.remove("is-valid", "is-invalid");
+        if (state) wrapper.classList.add(state);
+    };
+
+    const rangeOverlapsBookedDates = (apartmentName, startKey, endKey) => {
+        const availabilityKey = apartmentAvailabilityKey[apartmentName];
+        const booked = window.marosaAvailability?.[availabilityKey]?.booked;
+
+        if (!availabilityKey || !Array.isArray(booked)) return false;
+
+        const bookedSet = new Set(booked);
+        const cursor = new Date(`${startKey}T00:00:00`);
+        const endDate = new Date(`${endKey}T00:00:00`);
+
+        while (cursor < endDate) {
+            const year = cursor.getFullYear();
+            const month = String(cursor.getMonth() + 1).padStart(2, "0");
+            const day = String(cursor.getDate()).padStart(2, "0");
+            const key = `${year}-${month}-${day}`;
+
+            if (bookedSet.has(key)) return true;
+
+            cursor.setDate(cursor.getDate() + 1);
+        }
+
+        return false;
+    };
+
+    const validateAvailability = ({ silent = false } = {}) => {
+        if (!apartment.value || !checkin.value || !checkout.value || checkout.value <= checkin.value) {
+            return true;
+        }
+
+        const hasConflict = rangeOverlapsBookedDates(apartment.value, checkin.value, checkout.value);
+
+        if (hasConflict) {
+            setFieldClass(checkin, "is-invalid");
+            setFieldClass(checkout, "is-invalid");
+            if (!silent) {
+                setStatus(labels.invalidAvailability, "is-error");
+            }
+            return false;
+        }
+
+        if (checkin.value) markFieldState(checkin);
+        if (checkout.value) markFieldState(checkout);
+        if (status.textContent === labels.invalidAvailability) {
+            setStatus("");
+        }
+        return true;
+    };
+
     const markFieldState = (fieldElement) => {
         const wrapper = fieldElement.closest(".field");
         if (!wrapper) return;
@@ -135,6 +197,10 @@ document.addEventListener("DOMContentLoaded", () => {
             wrapper.classList.add("is-valid");
         } else {
             wrapper.classList.add("is-invalid");
+        }
+
+        if ((fieldElement === apartment || fieldElement === checkin || fieldElement === checkout) && status.classList.contains("is-error")) {
+            validateAvailability({ silent: true });
         }
     };
 
@@ -192,7 +258,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if (checkout.value && checkin.value && checkout.value < checkin.value) {
             checkout.value = "";
         }
+
+        validateAvailability();
     });
+
+    checkout.addEventListener("change", () => {
+        validateAvailability();
+    });
+
+    apartment.addEventListener("change", () => {
+        validateAvailability({ silent: true });
+    });
+
+    validateAvailability({ silent: true });
 
     const getPayload = () => {
         const formData = new FormData(form);
@@ -212,6 +290,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (values.checkout <= values.checkin) {
             setStatus(labels.invalidDates, "is-error");
+            return null;
+        }
+
+        if (!validateAvailability()) {
             return null;
         }
 

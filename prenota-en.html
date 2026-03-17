@@ -82,7 +82,7 @@
       <div class="booking-hero-content">
         <span class="booking-kicker">Stay request</span>
         <h1>Book with MaRoSa House</h1>
-        <p>Send a direct request in just a few seconds. If you prefer, you can use email or WhatsApp as an alternative.</p>
+        <p>Fill in the fields once, then choose how to send your request: directly from the form, by email or via WhatsApp.</p>
       </div>
     </section>
 
@@ -93,7 +93,8 @@
           <p>Select the apartment, add your dates and the number of guests: we will receive a complete direct request ready to manage.</p>
           <ul class="request-notes">
             <li>The form is the main channel for a quick reply</li>
-            <li>Email and WhatsApp are still available as alternatives</li>
+            <li>Email and WhatsApp use the same details you enter here</li>
+            <li>Dates are checked against the updated availability shown on the site</li>
             <li>Final availability is always confirmed by us</li>
           </ul>
         </div>
@@ -148,13 +149,13 @@
               <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" />
             </label>
           </div>
-          <p class="request-helper">The easiest option is to send the direct request below.</p>
+          <p class="request-helper">Fill in the main fields once, then choose the channel you prefer to send the request.</p>
           <div class="request-actions">
             <button class="btn email request-submit" type="submit" id="request-submit"><i class="fa-solid fa-paper-plane"></i> Send direct request</button>
           </div>
           <div class="request-alternatives">
             <span class="request-alternatives-label">Alternative channels</span>
-            <p class="request-alternatives-copy">If you prefer not to use the form, you can prepare your request by email or WhatsApp.</p>
+            <p class="request-alternatives-copy">After filling in the form, you can also send the same details by email or WhatsApp.</p>
             <div class="request-alternative-buttons">
               <button class="btn email request-submit secondary-submit" type="button" id="request-email"><i class="fa-solid fa-envelope"></i> Email</button>
               <button class="btn whatsapp request-submit secondary-submit" type="button" id="request-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</button>
@@ -185,6 +186,7 @@
       </div>
     </div>
 
+    <script src="js/availability-data.js"></script>
     <script src="js/booking-form.js"></script>
     <script src="js/reveal-animations.js"></script>
     <script src="js/cookie-consent.js"></script>
