@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    const syncDateValidation = () => {
+    const syncDateValidation = ({ showMessage = false } = {}) => {
         if (!checkin.value || !checkout.value) {
             clearDateValidation();
             return true;
@@ -179,7 +179,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (checkout.value <= checkin.value) {
             setDateFieldsState("is-invalid");
-            setAvailabilityNote(labels.invalidDates);
+            if (showMessage) {
+                setAvailabilityNote(labels.invalidDates);
+            }
             return false;
         }
 
@@ -271,7 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     checkout.addEventListener("change", () => {
-        syncDateValidation();
+        syncDateValidation({ showMessage: true });
     });
 
     apartment.addEventListener("change", () => {
