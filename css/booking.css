@@ -118,6 +118,12 @@
   gap: 8px;
 }
 
+.field-stack {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
 .field span {
   color: #4d4d4d;
   font-size: var(--fs-body-sm);
@@ -227,8 +233,7 @@
 
 .request-availability-note {
   display: none;
-  grid-column: 1;
-  margin: -4px 0 4px;
+  margin: 0;
   padding: 12px 14px;
   border-radius: 14px;
   background: rgba(183, 70, 70, 0.08);
@@ -399,10 +404,6 @@
   .request-grid {
     grid-template-columns: 1fr;
     gap: 14px;
-  }
-
-  .request-availability-note {
-    grid-column: 1 / -1;
   }
 
   .request-actions {

@@ -134,10 +134,14 @@
               <input type="date" name="checkin" id="checkin" required />
             </label>
 
-            <label class="field">
-              <span>Check-out</span>
-              <input type="date" name="checkout" id="checkout" required />
-            </label>
+            <div class="field-stack">
+              <label class="field">
+                <span>Check-out</span>
+                <input type="date" name="checkout" id="checkout" required />
+              </label>
+
+              <p class="request-availability-note" id="request-availability-note" aria-live="polite"></p>
+            </div>
 
             <label class="field">
               <span>Ospiti</span>
@@ -145,8 +149,6 @@
                 <option value="">Seleziona</option>
               </select>
             </label>
-
-            <p class="request-availability-note" id="request-availability-note" aria-live="polite"></p>
 
             <label class="field">
               <span>Nome e cognome</span>
