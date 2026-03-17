@@ -1047,7 +1047,8 @@
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   touch-action: pan-y;
-  padding: 0 22px 24px;
+  padding: 0 22px 124px;
+  scroll-padding-bottom: 124px;
 }
 
 .availability-modal-month {
@@ -1168,6 +1169,9 @@
 }
 
 .availability-modal__footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 4;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1244,8 +1248,9 @@
   }
 
   .availability-modal__calendar-scroll {
-    padding: 0 18px 22px;
+    padding: 0 18px 140px;
     max-height: calc(88vh - 220px);
+    scroll-padding-bottom: 140px;
   }
 
   .availability-modal-grid .availability-day.is-selected::before,
@@ -1267,7 +1272,7 @@
 
   .availability-modal__footer {
     align-items: flex-end;
-    padding: 14px 18px;
+    padding: 14px 18px calc(14px + env(safe-area-inset-bottom, 0px));
   }
 }
 

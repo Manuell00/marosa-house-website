@@ -139,26 +139,12 @@
 
 .field input[type="date"] {
   text-align: left;
+  min-height: 52px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
 }
 
 .field input[type="date"]::-webkit-date-and-time-value {
   text-align: left;
-}
-
-.field input[type="date"]::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-  opacity: 0.85;
-  filter: sepia(1) saturate(1.8) hue-rotate(350deg);
-}
-
-.field input[type="date"]::-webkit-clear-button {
-  display: none;
-}
-
-.field input[type="date"]::-webkit-inner-spin-button {
-  display: none;
-  cursor: pointer;
 }
 
 .field input:hover,
