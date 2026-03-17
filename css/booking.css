@@ -269,6 +269,20 @@
   background: rgba(63, 122, 78, 0.08);
   border: 1px solid rgba(63, 122, 78, 0.14);
   color: #3d6b3d;
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  align-items: start;
+  gap: 10px;
+  line-height: 1.55;
+}
+
+.request-status.is-success::before {
+  content: "\f058";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: #2f7a41;
+  font-size: 18px;
+  line-height: 1.2;
 }
 
 .field-hidden {
@@ -373,8 +387,11 @@
 
 @media (max-width: 768px) {
   .booking-hero {
-    min-height: 48vh;
-    padding: 72px 18px 48px;
+    min-height: clamp(320px, 46svh, 420px);
+    min-height: clamp(320px, 46dvh, 420px);
+    padding: 76px 18px 42px;
+    animation: none;
+    background-attachment: scroll;
   }
 
   .request-section {
@@ -386,6 +403,7 @@
     border-radius: 22px;
     padding: 22px 18px;
     gap: 22px;
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.06);
   }
 
   .request-grid {
