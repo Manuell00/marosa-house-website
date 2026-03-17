@@ -65,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
               whatsappReady: "WhatsApp message ready.",
               toastSuccessTitle: "Request sent",
               toastInfoTitle: "Ready to continue",
-              toastErrorTitle: "Check your dates",
               toastSubmit: "Request sent successfully.",
               toastEmail: "Request ready: opening your email app.",
               toastWhatsapp: "Request ready: opening WhatsApp.",
@@ -91,7 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
               whatsappReady: "Messaggio WhatsApp pronto.",
               toastSuccessTitle: "Richiesta inviata",
               toastInfoTitle: "Tutto pronto",
-              toastErrorTitle: "Controlla le date",
               toastSubmit: "Richiesta inviata correttamente.",
               toastEmail: "Richiesta pronta: apertura email in corso.",
               toastWhatsapp: "Messaggio pronto: apertura WhatsApp in corso.",
@@ -173,6 +171,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    const syncDateValidation = () => {
+        if (!checkin.value || !checkout.value) {
+            clearDateValidation();
+            return true;
+        }
+
+        if (checkout.value <= checkin.value) {
+            setDateFieldsState("is-invalid");
+            setAvailabilityNote(labels.invalidDates);
+            return false;
+        }
+
+        clearDateValidation();
+        return true;
+    };
+
     const markFieldState = (fieldElement) => {
         const wrapper = fieldElement.closest(".field");
         if (!wrapper) return;
@@ -187,8 +201,8 @@ document.addEventListener("DOMContentLoaded", () => {
             wrapper.classList.add("is-invalid");
         }
 
-        if ((fieldElement === checkin || fieldElement === checkout) && status.classList.contains("is-error")) {
-            clearDateValidation();
+        if (fieldElement === checkin || fieldElement === checkout) {
+            syncDateValidation();
         }
     };
 
@@ -249,14 +263,15 @@ document.addEventListener("DOMContentLoaded", () => {
         checkout.min = checkin.value ? addDaysToKey(checkin.value, 1) : today;
 
         if (checkout.value && checkin.value && checkout.value <= checkin.value) {
-            checkout.value = "";
+            syncDateValidation();
+            return;
         }
 
-        clearDateValidation();
+        syncDateValidation();
     });
 
     checkout.addEventListener("change", () => {
-        clearDateValidation();
+        syncDateValidation();
     });
 
     apartment.addEventListener("change", () => {
@@ -281,9 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (values.checkout <= values.checkin) {
             setDateFieldsState("is-invalid");
-            setAvailabilityNote("");
-            setStatus(labels.invalidDates, "is-error");
-            showToast(labels.invalidDates, "error");
+            setAvailabilityNote(labels.invalidDates);
             return null;
         }
 
