@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkout = document.getElementById("checkout");
     const guests = document.getElementById("guests");
     const toast = document.getElementById("request-toast");
-    const availabilityNote = document.getElementById("request-availability-note");
     const isEnglish = document.documentElement.lang === "en";
     const formEndpoint = form?.dataset.formEndpoint?.trim() || "";
     const formSuccessMessage = form?.dataset.successMessage;
@@ -56,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ? {
               select: "Select",
               invalidFields: "Please fill in the main fields before continuing.",
-              invalidDates: "Choose a check-out date from the day after check-in onwards.",
               invalidSpam: "Request blocked.",
               submitReady: "Request sent successfully. We will reply as soon as possible.",
               submitSending: "Sending request...",
@@ -81,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
         : {
               select: "Seleziona",
               invalidFields: "Compila i campi principali prima di continuare.",
-              invalidDates: "Scegli un check-out a partire dal giorno successivo al check-in.",
               invalidSpam: "Richiesta bloccata.",
               submitReady: "Richiesta inviata correttamente. Ti risponderemo il prima possibile.",
               submitSending: "Invio della richiesta in corso...",
@@ -133,60 +130,11 @@ document.addEventListener("DOMContentLoaded", () => {
     apartment.addEventListener("change", updateGuestOptions);
     updateGuestOptions();
 
-    const setAvailabilityNote = (message = "") => {
-        if (!availabilityNote) return;
-        availabilityNote.textContent = message;
-        availabilityNote.classList.toggle("is-visible", Boolean(message));
-    };
-
     const setFieldClass = (fieldElement, state = "") => {
         const wrapper = fieldElement.closest(".field");
         if (!wrapper) return;
         wrapper.classList.remove("is-valid", "is-invalid");
         if (state) wrapper.classList.add(state);
-    };
-
-    const setDateFieldsState = (state = "") => {
-        setFieldClass(checkin, state);
-        setFieldClass(checkout, state);
-    };
-
-    const clearDateValidation = () => {
-        if (checkin.value) {
-            markFieldState(checkin);
-        } else {
-            setFieldClass(checkin);
-        }
-
-        if (checkout.value) {
-            markFieldState(checkout);
-        } else {
-            setFieldClass(checkout);
-        }
-
-        setAvailabilityNote("");
-
-        if (status.textContent === labels.invalidDates) {
-            setStatus("");
-        }
-    };
-
-    const syncDateValidation = ({ showMessage = false } = {}) => {
-        if (!checkin.value || !checkout.value) {
-            clearDateValidation();
-            return true;
-        }
-
-        if (checkout.value <= checkin.value) {
-            setDateFieldsState("is-invalid");
-            if (showMessage) {
-                setAvailabilityNote(labels.invalidDates);
-            }
-            return false;
-        }
-
-        clearDateValidation();
-        return true;
     };
 
     const markFieldState = (fieldElement) => {
@@ -203,9 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
             wrapper.classList.add("is-invalid");
         }
 
-        if (fieldElement === checkin || fieldElement === checkout) {
-            syncDateValidation();
-        }
     };
 
     form.querySelectorAll("input, select, textarea").forEach((fieldElement) => {
@@ -263,21 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     checkin.addEventListener("change", () => {
         checkout.min = checkin.value ? addDaysToKey(checkin.value, 1) : today;
-
-        if (checkout.value && checkin.value && checkout.value <= checkin.value) {
-            syncDateValidation();
-            return;
-        }
-
-        syncDateValidation();
-    });
-
-    checkout.addEventListener("change", () => {
-        syncDateValidation({ showMessage: true });
-    });
-
-    apartment.addEventListener("change", () => {
-        setAvailabilityNote("");
     });
 
     const getPayload = () => {
@@ -293,12 +223,6 @@ document.addEventListener("DOMContentLoaded", () => {
             !values.email
         ) {
             setStatus(labels.invalidFields, "is-error");
-            return null;
-        }
-
-        if (values.checkout <= values.checkin) {
-            setDateFieldsState("is-invalid");
-            setAvailabilityNote(labels.invalidDates);
             return null;
         }
 
@@ -385,7 +309,6 @@ document.addEventListener("DOMContentLoaded", () => {
             updateGuestOptions();
             checkin.min = today;
             checkout.min = today;
-            setAvailabilityNote("");
             form.querySelectorAll(".field").forEach((field) => {
                 field.classList.remove("is-valid", "is-invalid");
             });
