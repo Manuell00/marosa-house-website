@@ -16,18 +16,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!form || !whatsappButton || !emailButton || !submitButton || !status || !apartment || !checkin || !checkout || !guests) return;
 
-    const today = new Date().toISOString().split("T")[0];
-    checkin.min = today;
-    checkout.min = today;
-
-    const addDaysToKey = (key, amount) => {
-        const date = new Date(`${key}T00:00:00`);
-        date.setDate(date.getDate() + amount);
+    const toDateKey = (date) => {
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, "0");
         const day = String(date.getDate()).padStart(2, "0");
         return `${year}-${month}-${day}`;
     };
+
+    const today = toDateKey(new Date());
+    checkin.min = today;
+    checkout.min = today;
 
     const params = new URLSearchParams(window.location.search);
     const apartmentParam = params.get("apartment");
@@ -44,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (checkinParam) {
         checkin.value = checkinParam;
-        checkout.min = addDaysToKey(checkinParam, 1);
     }
 
     if (checkoutParam) {
@@ -205,10 +202,6 @@ document.addEventListener("DOMContentLoaded", () => {
         emailButton.disabled = isSubmitting;
         whatsappButton.disabled = isSubmitting;
     };
-
-    checkin.addEventListener("change", () => {
-        checkout.min = checkin.value ? addDaysToKey(checkin.value, 1) : today;
-    });
 
     const getPayload = () => {
         const formData = new FormData(form);
