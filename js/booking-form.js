@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
               whatsappReady: "WhatsApp message ready.",
               toastSuccessTitle: "Request sent",
               toastInfoTitle: "Ready to continue",
+              toastErrorTitle: "Check your dates",
               toastSubmit: "Request sent successfully.",
               toastEmail: "Request ready: opening your email app.",
               toastWhatsapp: "Request ready: opening WhatsApp.",
@@ -90,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
               whatsappReady: "Messaggio WhatsApp pronto.",
               toastSuccessTitle: "Richiesta inviata",
               toastInfoTitle: "Tutto pronto",
+              toastErrorTitle: "Controlla le date",
               toastSubmit: "Richiesta inviata correttamente.",
               toastEmail: "Richiesta pronta: apertura email in corso.",
               toastWhatsapp: "Messaggio pronto: apertura WhatsApp in corso.",
@@ -201,8 +203,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const showToast = (message, type = "info") => {
         if (!toast) return;
 
-        const icon = type === "success" ? "fa-circle-check" : "fa-circle-info";
-        const title = type === "success" ? labels.toastSuccessTitle : labels.toastInfoTitle;
+        const icon = type === "success" ? "fa-circle-check" : type === "error" ? "fa-circle-exclamation" : "fa-circle-info";
+        const title =
+            type === "success"
+                ? labels.toastSuccessTitle
+                : type === "error"
+                  ? labels.toastErrorTitle
+                  : labels.toastInfoTitle;
 
         toast.innerHTML = `
             <div class="request-toast-icon">
@@ -213,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span>${message}</span>
             </div>
         `;
-        toast.classList.remove("is-info", "is-success");
+        toast.classList.remove("is-info", "is-success", "is-error");
         toast.classList.add(`is-${type}`);
         toast.classList.add("is-visible");
 
@@ -274,9 +281,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (values.checkout <= values.checkin) {
             setDateFieldsState("is-invalid");
-            setAvailabilityNote(labels.invalidDates);
+            setAvailabilityNote("");
             setStatus(labels.invalidDates, "is-error");
-            checkout.closest(".field-stack")?.scrollIntoView({ behavior: "smooth", block: "center" });
+            showToast(labels.invalidDates, "error");
             return null;
         }
 

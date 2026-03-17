@@ -378,6 +378,15 @@
   border-color: rgba(200, 164, 92, 0.22);
 }
 
+.request-toast.is-error {
+  border-color: rgba(183, 70, 70, 0.24);
+}
+
+.request-toast.is-error .request-toast-icon {
+  background: linear-gradient(180deg, #fff1ee 0%, #ffdcd6 100%);
+  color: #b24a4a;
+}
+
 @media (max-width: 1024px) {
   .request-card {
     grid-template-columns: 1fr;
