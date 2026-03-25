@@ -5,6 +5,18 @@
     const hasValidMeasurementId = /^G-[A-Z0-9]+$/i.test(measurementId) && measurementId !== "G-XXXXXXXXXX";
     let initialized = false;
 
+    const getApartmentContext = (url = new URL(window.location.href)) => {
+        const apartmentParam = url.searchParams.get("apartment");
+        if (apartmentParam === "bixio") return "MaRoSa Bixio";
+        if (apartmentParam === "magnolie") return "MaRoSa Magnolie";
+
+        const path = url.pathname.toLowerCase();
+        if (path.includes("marosa-bixio")) return "MaRoSa Bixio";
+        if (path.includes("marosa-magnolie")) return "MaRoSa Magnolie";
+
+        return "MaRoSa House";
+    };
+
     const loadScript = (src) =>
         new Promise((resolve, reject) => {
             const existing = document.querySelector(`script[src="${src}"]`);
@@ -26,6 +38,7 @@
         page_location: window.location.href,
         page_path: window.location.pathname,
         page_language: document.documentElement.lang || "it",
+        apartment: getApartmentContext(),
     });
 
     const sendEvent = (eventName, params = {}) => {
@@ -45,12 +58,27 @@
     const classifyInteraction = (element) => {
         const href = (element.getAttribute("href") || "").trim();
         const label = getLinkLabel(element);
+        const targetUrl = href ? new URL(href, window.location.href) : null;
+        const apartment = targetUrl ? getApartmentContext(targetUrl) : getApartmentContext();
+
+        if (targetUrl && /\/prenota(-en)?\.html$/i.test(targetUrl.pathname)) {
+            return {
+                eventName: "begin_checkout",
+                params: {
+                    currency: "EUR",
+                    value: 0,
+                    apartment,
+                    link_text: label,
+                },
+            };
+        }
 
         if (href.includes("wa.me")) {
             return {
                 eventName: "generate_lead",
                 params: {
                     method: "whatsapp",
+                    apartment,
                     link_text: label,
                     outbound: true,
                 },
@@ -63,6 +91,7 @@
                 params: {
                     content_type: "ota",
                     content_id: "airbnb",
+                    apartment,
                     link_text: label,
                     outbound: true,
                 },
@@ -75,6 +104,7 @@
                 params: {
                     content_type: "ota",
                     content_id: "booking",
+                    apartment,
                     link_text: label,
                     outbound: true,
                 },
@@ -86,6 +116,7 @@
                 eventName: "generate_lead",
                 params: {
                     method: "email",
+                    apartment,
                     link_text: label,
                     outbound: true,
                 },

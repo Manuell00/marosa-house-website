@@ -9,12 +9,17 @@
    - Users
    - Views
    - Views by page path
+   - `begin_checkout` events
    - `generate_lead` events
    - `select_content` events
 7. Schedule the report weekly to `manuell.caselli@gmail.com`.
+8. In `Admin` -> `Events`, mark these as conversions:
+   - `generate_lead`
+   - `begin_checkout`
 
 Tracked interactions after consent:
 - Page visits
+- Clicks on internal booking links
 - Clicks on WhatsApp
 - Clicks on Airbnb
 - Clicks on Booking
