@@ -277,6 +277,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const mailto = `mailto:manuell.caselli@gmail.com?subject=${encodeURIComponent(payload.subject)}&body=${encodeURIComponent(payload.body)}`;
         setStatus(labels.emailReady, "is-success");
         showToast(labels.toastEmail, "info");
+        window.marosaTrackEvent?.("generate_lead", {
+            method: "email",
+            apartment: payload.values.apartment,
+            guests: payload.values.guests,
+        });
         window.setTimeout(() => {
             window.location.href = mailto;
         }, 180);
@@ -330,6 +335,11 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             setStatus(formSuccessMessage || labels.submitReady, "is-success");
             showToast(labels.toastSubmit, "success");
+            window.marosaTrackEvent?.("generate_lead", {
+                method: "formspree",
+                apartment: payload.values.apartment,
+                guests: payload.values.guests,
+            });
         } catch (error) {
             setStatus(formErrorMessage || labels.submitError, "is-error");
             showToast(formErrorMessage || labels.submitError, "error");
@@ -353,6 +363,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const whatsappUrl = `https://wa.me/393383232007?text=${encodeURIComponent(payload.body)}`;
         showToast(labels.toastWhatsapp, "info");
+        window.marosaTrackEvent?.("generate_lead", {
+            method: "whatsapp_form",
+            apartment: payload.values.apartment,
+            guests: payload.values.guests,
+        });
         window.open(whatsappUrl, "_blank", "noopener");
         setStatus(labels.whatsappReady, "is-success");
     });
