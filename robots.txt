@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://marosahouse.it/sitemap.xml
+Sitemap: https://www.marosahouse.it/sitemap.xml
