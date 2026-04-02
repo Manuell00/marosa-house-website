@@ -816,6 +816,16 @@
 
   .apartment-info {
     padding: 22px 20px 24px;
+    text-align: center;
+  }
+
+  .apartment-tag {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card-link {
+    justify-content: center;
   }
 
   .apartment-tag {
