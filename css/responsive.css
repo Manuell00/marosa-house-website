@@ -714,8 +714,8 @@
   }
 
   .trust {
-    padding-top: 24px;
-    padding-bottom: 4px;
+    padding-top: 14px;
+    padding-bottom: 14px;
   }
 
   .hero-kicker {
@@ -954,8 +954,8 @@
   .trust-item {
     width: 100%;
     max-width: none;
-    min-height: 64px;
-    padding: 12px 14px;
+    min-height: 56px;
+    padding: 10px 12px;
     margin: 0 auto;
   }
 
