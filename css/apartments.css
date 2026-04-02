@@ -1363,17 +1363,22 @@
 .gallery-lightbox-close,
 .gallery-lightbox-nav {
   position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 0;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.16);
   color: white;
   cursor: pointer;
   backdrop-filter: blur(8px);
+  line-height: 1;
 }
 
 .gallery-lightbox-close {
   top: 24px;
-  right: max(24px, calc(50vw - 520px));
+  left: auto;
+  right: 24px;
   width: 54px;
   height: 54px;
   font-size: 28px;
@@ -1393,10 +1398,12 @@
 }
 
 .gallery-lightbox-prev {
+  right: auto;
   left: max(18px, calc(50vw - 560px));
 }
 
 .gallery-lightbox-next {
+  left: auto;
   right: max(18px, calc(50vw - 560px));
 }
 
