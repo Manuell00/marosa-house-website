@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const galleries = document.querySelectorAll(".gallery");
     const isEnglish = document.documentElement.lang === "en";
-    const isBixioPage = window.location.pathname.includes("marosa-bixio");
 
     if (galleries.length === 0) return;
 
@@ -127,11 +126,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    const handlePrevClick = isBixioPage ? showNext : showPrev;
-    const handleNextClick = isBixioPage ? showPrev : showNext;
-
-    prevButton.addEventListener("click", handlePrevClick);
-    nextButton.addEventListener("click", handleNextClick);
+    prevButton.addEventListener("click", showPrev);
+    nextButton.addEventListener("click", showNext);
 
     document.addEventListener("keydown", (event) => {
         if (!overlay.classList.contains("active")) return;
