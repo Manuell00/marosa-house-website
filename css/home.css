@@ -371,20 +371,28 @@ TRUST SECTION
 .card-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 16px;
-  color: #8f6b2a;
-  font-size: var(--fs-body-sm);
+  justify-content: center;
+  min-width: 110px;
+  margin-top: 18px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(191, 161, 101, 0.28);
+  background: linear-gradient(180deg, #fffaf0 0%, #f5ead2 100%);
+  color: #7b5f26;
+  font-size: 13px;
   font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 18px rgba(191, 161, 101, 0.14);
 }
 
 .card-link::after {
-  content: "->";
+  content: none;
   transition: transform 0.2s ease;
 }
 
 .apartment-card:hover .card-link::after {
-  transform: translateX(4px);
+  transform: none;
 }
 
 /* =================================================
