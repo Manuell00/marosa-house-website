@@ -366,12 +366,14 @@ TRUST SECTION
   position: relative;
   z-index: 1;
   padding: 26px 26px 28px;
-  text-align: left;
+  text-align: center;
 }
 
 .apartment-tag {
   display: inline-block;
   margin-bottom: 12px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 7px 12px;
   border-radius: 999px;
   background: rgba(191, 161, 101, 0.12);
