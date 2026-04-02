@@ -686,7 +686,7 @@
   .hero-apartment {
     min-height: clamp(360px, 58svh, 500px);
     min-height: clamp(360px, 58dvh, 500px);
-    padding: 104px 20px 32px;
+    padding: 0 20px;
     animation: none;
     background-attachment: scroll;
   }
