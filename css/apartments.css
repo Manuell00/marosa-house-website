@@ -236,6 +236,20 @@
   object-fit: cover;
 }
 
+.hero-apartment--entracque {
+  overflow: hidden;
+}
+
+.hero-apartment--entracque .hero-photo {
+  transform: rotate(3deg) scale(1.19);
+}
+
+@media (max-width: 768px) {
+  .hero-apartment--entracque .hero-photo {
+    transform: rotate(3deg) scale(1.12);
+  }
+}
+
 .hero-apartment::before {
   content: "";
   background: rgba(0, 0, 0, 0.35);
@@ -1623,6 +1637,19 @@
   transform: translateY(-3px);
   transition: 0.25s;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+}
+
+.ski-routes {
+  scroll-margin-top: 150px;
+}
+
+.ski-routes .info-card {
+  width: 100%;
+}
+
+.ski-routes .info-card h3 {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 /* =========================================

@@ -118,10 +118,6 @@
   gap: 8px;
 }
 
-.field[hidden] {
-  display: none;
-}
-
 .field span {
   color: #4d4d4d;
   font-size: var(--fs-body-sm);
