@@ -462,12 +462,6 @@
     border-radius: 20px;
   }
 
-  .review-card::before {
-    top: 16px;
-    left: 18px;
-    font-size: 30px;
-  }
-
   .features-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
@@ -575,14 +569,12 @@
     -webkit-backdrop-filter: none;
   }
 
-  .hero-slider,
   .trust,
   .intro,
   .apartments-preview,
   .why,
   .reviews,
-  .booking,
-  .hero-apartment {
+  .booking {
     animation: none;
   }
 
@@ -665,6 +657,7 @@
   }
 
   .hero-slider h1 {
+    font-size: clamp(32px, 9vw, var(--fs-h1-hero));
     line-height: 1.15;
     display: inline-block;
     margin: 0 auto 6px;
@@ -687,8 +680,6 @@
     min-height: clamp(360px, 58svh, 500px);
     min-height: clamp(360px, 58dvh, 500px);
     padding: 0 20px;
-    animation: none;
-    background-attachment: scroll;
   }
 
   .hero-apartment > div {
@@ -1009,12 +1000,6 @@
     border-radius: 18px;
   }
 
-  .review-card::before {
-    top: 12px;
-    left: 18px;
-    font-size: 28px;
-  }
-
   .map p,
   .guides p {
     display: none;
@@ -1077,6 +1062,13 @@
   .gallery-lightbox-close {
     top: 12px;
     right: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slider h1,
+  .hero-apartment h1 {
+    animation: none;
   }
 }
 

@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const today = toDateKey(new Date());
     checkin.min = today;
-    checkout.min = today;
 
     const params = new URLSearchParams(window.location.search);
     const apartmentParam = params.get("apartment");
@@ -131,10 +130,22 @@ document.addEventListener("DOMContentLoaded", () => {
     apartment.addEventListener("change", updateGuestOptions);
     updateGuestOptions();
 
-    const syncCheckoutMin = () => {
-        checkout.min = checkin.value || today;
+    const setFieldClass = (fieldElement, state = "") => {
+        const wrapper = fieldElement.closest(".field");
+        if (!wrapper) return;
+        wrapper.classList.remove("is-valid", "is-invalid");
+        if (state) wrapper.classList.add(state);
+    };
 
-        if (checkout.value && checkin.value && checkout.value <= checkin.value) {
+    const syncCheckoutMin = () => {
+        const startDate = checkin.validity.valid ? checkin.valueAsDate : new Date(today);
+        startDate.setUTCDate(startDate.getUTCDate() + 1);
+        const year = String(startDate.getUTCFullYear()).padStart(4, "0");
+        const month = String(startDate.getUTCMonth() + 1).padStart(2, "0");
+        const day = String(startDate.getUTCDate()).padStart(2, "0");
+        checkout.min = `${year}-${month}-${day}`;
+
+        if (checkout.validity.rangeUnderflow) {
             checkout.value = "";
             setFieldClass(checkout);
         }
@@ -142,13 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     checkin.addEventListener("change", syncCheckoutMin);
     syncCheckoutMin();
-
-    const setFieldClass = (fieldElement, state = "") => {
-        const wrapper = fieldElement.closest(".field");
-        if (!wrapper) return;
-        wrapper.classList.remove("is-valid", "is-invalid");
-        if (state) wrapper.classList.add(state);
-    };
 
     const markFieldState = (fieldElement) => {
         const wrapper = fieldElement.closest(".field");
@@ -223,27 +227,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const formData = new FormData(form);
         const values = Object.fromEntries(formData.entries());
 
-        if (
-            !values.apartment ||
-            !values.checkin ||
-            !values.checkout ||
-            !values.guests ||
-            !values.name ||
-            !values.email
-        ) {
-            setStatus(labels.invalidFields, "is-error");
-            return null;
-        }
-
         if (values.website) {
             setStatus(labels.invalidSpam, "is-error");
             return null;
         }
 
-        if (values.checkout <= values.checkin) {
+        if (checkout.valueAsNumber <= checkin.valueAsNumber) {
             setStatus(labels.invalidCheckoutOrder, "is-error");
             setFieldClass(checkin, "is-invalid");
             setFieldClass(checkout, "is-invalid");
+            return null;
+        }
+
+        if (!form.reportValidity()) {
+            setStatus(labels.invalidFields, "is-error");
             return null;
         }
 
@@ -328,8 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             form.reset();
             updateGuestOptions();
-            checkin.min = today;
-            checkout.min = today;
+            syncCheckoutMin();
             form.querySelectorAll(".field").forEach((field) => {
                 field.classList.remove("is-valid", "is-invalid");
             });

@@ -25,12 +25,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let items = [];
     let currentIndex = 0;
     let imageTransitionTimeout = null;
+    let opener = null;
+    let previousOverflow = "";
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const mobileBreakpoint = window.matchMedia("(max-width: 768px)");
     const tabletBreakpoint = window.matchMedia("(max-width: 1024px)");
 
     const closeLightbox = () => {
         overlay.classList.remove("active");
-        document.body.style.overflow = "";
+        document.body.style.overflow = previousOverflow;
+        opener?.focus();
     };
 
     const updateLightbox = () => {
@@ -38,29 +42,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!currentItem) return;
 
-        image.classList.add("is-transitioning");
-        caption.classList.add("is-transitioning");
-
-        window.clearTimeout(imageTransitionTimeout);
-        imageTransitionTimeout = window.setTimeout(() => {
+        const showImage = () => {
             image.src = currentItem.src;
             image.alt = currentItem.alt || "";
             caption.textContent = currentItem.alt || "";
             image.classList.remove("is-transitioning");
             caption.classList.remove("is-transitioning");
-        }, 140);
+        };
+
+        window.clearTimeout(imageTransitionTimeout);
+        if (reducedMotion.matches || !overlay.classList.contains("active")) {
+            showImage();
+            return;
+        }
+        image.classList.add("is-transitioning");
+        caption.classList.add("is-transitioning");
+        imageTransitionTimeout = window.setTimeout(showImage, 140);
     };
 
-    const openLightbox = (galleryItems, startIndex) => {
+    const openLightbox = (galleryItems, startIndex, trigger) => {
         items = galleryItems;
         currentIndex = startIndex;
-        overlay.classList.add("is-opening");
+        opener = trigger;
+        previousOverflow = document.body.style.overflow;
         updateLightbox();
         overlay.classList.add("active");
         document.body.style.overflow = "hidden";
-        window.setTimeout(() => {
-            overlay.classList.remove("is-opening");
-        }, 280);
+        closeButton.focus();
+        if (!reducedMotion.matches) {
+            overlay.classList.add("is-opening");
+            window.requestAnimationFrame(() => {
+                window.requestAnimationFrame(() => overlay.classList.remove("is-opening"));
+            });
+        }
     };
 
     const showNext = () => {
@@ -78,11 +92,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         galleryItems.forEach((item, index) => {
             item.setAttribute("tabindex", "0");
-            item.addEventListener("click", () => openLightbox(galleryItems, index));
+            item.setAttribute("role", "button");
+            item.addEventListener("click", () => openLightbox(galleryItems, index, item));
             item.addEventListener("keydown", (event) => {
                 if (event.key === "Enter" || event.key === " ") {
                     event.preventDefault();
-                    openLightbox(galleryItems, index);
+                    openLightbox(galleryItems, index, item);
                 }
             });
         });
@@ -103,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
             button.textContent = labels.showAll(galleryItems.length);
 
             button.addEventListener("click", () => {
-                openLightbox(galleryItems, 0);
+                openLightbox(galleryItems, 0, button);
             });
 
             actionWrap.appendChild(button);
@@ -129,11 +144,29 @@ document.addEventListener("DOMContentLoaded", () => {
     prevButton.addEventListener("click", showPrev);
     nextButton.addEventListener("click", showNext);
 
-    document.addEventListener("keydown", (event) => {
-        if (!overlay.classList.contains("active")) return;
-
-        if (event.key === "Escape") closeLightbox();
-        if (event.key === "ArrowRight") showNext();
-        if (event.key === "ArrowLeft") showPrev();
+    overlay.addEventListener("keydown", (event) => {
+        switch (event.key) {
+            case "Escape":
+                closeLightbox();
+                break;
+            case "ArrowRight":
+                showNext();
+                break;
+            case "ArrowLeft":
+                showPrev();
+                break;
+            case "Tab":
+                if (event.shiftKey && document.activeElement === closeButton) {
+                    event.preventDefault();
+                    nextButton.focus();
+                } else if (!event.shiftKey && document.activeElement === nextButton) {
+                    event.preventDefault();
+                    closeButton.focus();
+                }
+                return;
+            default:
+                return;
+        }
+        event.preventDefault();
     });
 });

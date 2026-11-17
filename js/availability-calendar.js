@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+function initializeAvailabilityCalendar() {
     const containers = document.querySelectorAll(".availability-calendar");
 
     if (containers.length === 0 || !window.marosaAvailability) return;
@@ -155,15 +155,21 @@ document.addEventListener("DOMContentLoaded", () => {
     containers.forEach((container) => {
         const apartment = container.dataset.apartment;
         const config = window.marosaAvailability[apartment];
-        if (!config) return;
+        const coverage = config?.coverage;
+        if (!Array.isArray(config?.booked) || !coverage?.start || !coverage?.end) return;
 
         const bookedSet = new Set(config.booked);
         const prices = config.prices || {};
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         const todayKey = toKey(today);
+        if (todayKey < coverage.start || toKey(addDays(today, 2)) >= coverage.end) return;
+
         const startMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-        const maxOffset = 5;
+        const lastCoveredDay = addDays(fromKey(coverage.end), -1);
+        const coveredMonths = (lastCoveredDay.getFullYear() - startMonth.getFullYear()) * 12
+            + lastCoveredDay.getMonth() - startMonth.getMonth();
+        const maxOffset = Math.min(5, coveredMonths);
         const selection = { start: null, end: null };
 
         const trigger = document.createElement("div");
@@ -428,4 +434,10 @@ document.addEventListener("DOMContentLoaded", () => {
         updateFooter();
         renderPreview();
     });
-});
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeAvailabilityCalendar);
+} else {
+    initializeAvailabilityCalendar();
+}

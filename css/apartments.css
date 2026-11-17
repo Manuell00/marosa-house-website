@@ -198,8 +198,11 @@
   margin-top: 96px;
 }
 
-.policy-page .info-section {
+.policy-page main {
   flex: 1 0 auto;
+}
+
+.policy-page .info-section {
   margin-bottom: 72px;
 }
 
@@ -211,13 +214,37 @@
 ========================================= */
 
 .hero-apartment {
+  position: relative;
   min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
-  animation: heroPageFadeUp 0.7s ease both;
+  background: #433c33;
+}
+
+.hero-apartment .hero-photo,
+.hero-apartment::before {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-apartment .hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-apartment::before {
+  content: "";
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.hero-apartment > div {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-apartment h1 {
@@ -229,18 +256,6 @@
 .hero-apartment p {
   font-size: var(--fs-body-lg);
   color: white;
-}
-
-@keyframes heroPageFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .apartment-anchors {
@@ -316,22 +331,6 @@
   scroll-margin-top: 150px;
 }
 
-/* immagini hero */
-
-.bixio-hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-    url("../img/Bixio/bixio-livingroom1.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-.magnolie-hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-    url("../img/Magnolie/magnolie-kitchen2.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
 /* =========================================
        SEZIONE APPARTAMENTO
     ========================================= */
@@ -391,6 +390,13 @@
 .availability p {
   max-width: 720px;
   margin: 12px auto 0;
+}
+
+.availability-fallback a {
+  color: #5e4a23;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .availability-legend {
@@ -1298,6 +1304,11 @@
 .gallery img:hover {
   transform: scale(1.05);
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+}
+
+.gallery img:focus-visible {
+  outline: 3px solid #6a5221;
+  outline-offset: 3px;
 }
 
 .gallery-lightbox {

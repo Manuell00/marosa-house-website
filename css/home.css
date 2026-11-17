@@ -13,11 +13,11 @@
 
   text-align: center;
   color: white;
+  background: #433c33;
 
   overflow: hidden;
 }
 
-.hero-slider,
 .trust,
 .intro,
 .apartments-preview,
@@ -69,43 +69,19 @@
 .hero-slider::before {
   content: "";
   position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.35);
   z-index: 1;
 }
 
-/* container slide */
-
-.slides {
+.hero-slider .hero-photo {
   position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-}
-
-/* singola slide */
-
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-
-  background-size: cover;
-  background-position: center;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  will-change: opacity;
-
-  opacity: 0;
-  transition: opacity 1.6s ease;
-}
-
-/* slide attiva */
-
-.slide.active {
-  opacity: 1;
+  object-fit: cover;
 }
 
 /* contenuto hero */
@@ -393,6 +369,11 @@ TRUST SECTION
   color: #666155;
 }
 
+.apartment-info .apartment-cin {
+  margin-top: 10px;
+  font-size: var(--fs-body-sm);
+}
+
 .card-link {
   display: inline-flex;
   align-items: center;
@@ -534,7 +515,7 @@ TRUST SECTION
 .reviews-grid {
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;
 
   gap: 28px;
@@ -545,10 +526,9 @@ TRUST SECTION
 .review-card {
   width: 100%;
   height: 100%;
-  position: relative;
   background: linear-gradient(180deg, #ffffff 0%, #fcfaf6 100%);
 
-  padding: 44px 28px 28px;
+  padding: 28px;
 
   border-radius: 22px;
 
@@ -558,30 +538,27 @@ TRUST SECTION
   transition: all 0.25s ease;
 }
 
-.review-card::before {
-  content: "\201C";
-  position: absolute;
-  top: 16px;
-  left: 24px;
-  color: rgba(191, 161, 101, 0.18);
-  font-size: 34px;
-  font-weight: 800;
-  line-height: 1;
+.review-card h3 {
+  margin-bottom: 12px;
+}
+
+.location > p:last-child {
+  margin-top: 24px;
 }
 
 .review-card p {
-  position: relative;
-  z-index: 1;
-  color: #575247;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 20px;
 }
 
-.review-meta {
-  display: block;
-  margin: 18px 0 8px;
-  color: #8c8373;
-  font-size: 13px;
+.review-card a,
+.location > p > a {
+  color: #6a5221;
   font-weight: 600;
-  letter-spacing: 0.01em;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 .review-card:hover {
@@ -610,7 +587,6 @@ TRUST SECTION
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-slider,
   .trust,
   .intro,
   .apartments-preview,

@@ -12,7 +12,7 @@ const calendars = [
   {
     key: "magnolie",
     title: "Disponibilita MaRoSa Magnolie",
-    urls: [process.env.MAGNOLIE_ICS_URL].filter(Boolean),
+    urls: [process.env.MAGNOLIE_ICS_URL, process.env.MAGNOLIE_BOOKING_ICS_URL].filter(Boolean),
   },
 ];
 
@@ -20,7 +20,7 @@ const missing = calendars.filter((calendar) => calendar.urls.length === 0);
 
 if (missing.length > 0) {
   console.error(
-    "Missing ICS URL. Set MAGNOLIE_ICS_URL and at least one source for BIXIO_ICS_URL or BIXIO_BOOKING_ICS_URL before running this script."
+    "Missing ICS URL. Set MAGNOLIE_ICS_URL or MAGNOLIE_BOOKING_ICS_URL and at least one source for BIXIO_ICS_URL or BIXIO_BOOKING_ICS_URL before running this script."
   );
   process.exit(1);
 }
@@ -57,17 +57,21 @@ function getVisibleRange() {
   const now = new Date();
   const start = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1));
   const end = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 6, 1));
-  return { start, end };
+  return { start: toKey(start), end: toKey(end) };
 }
 
+const coverage = getVisibleRange();
+
 function isWithinVisibleRange(key) {
-  const { start, end } = getVisibleRange();
-  const date = new Date(`${key}T00:00:00Z`);
-  return date >= start && date < end;
+  return key >= coverage.start && key < coverage.end;
 }
 
 function parseBookedDates(icsText) {
   const lines = unfoldLines(icsText);
+  if (!lines.includes("BEGIN:VCALENDAR") || !lines.includes("END:VCALENDAR")) {
+    throw new Error("Invalid iCalendar response");
+  }
+
   const booked = new Set();
   let event = null;
 
@@ -147,6 +151,7 @@ const output = `window.marosaAvailability = ${JSON.stringify(
       {
         title: calendar.title,
         prices: existingAvailability[calendar.key]?.prices || {},
+        coverage,
         booked: calendar.booked,
       },
     ])

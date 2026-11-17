@@ -31,7 +31,7 @@
     <link rel="alternate" hreflang="it" href="https://www.marosahouse.it/prenota.html" />
     <link rel="alternate" hreflang="en" href="https://www.marosahouse.it/prenota-en.html" />
     <link rel="alternate" hreflang="x-default" href="https://www.marosahouse.it/prenota.html" />
-    <link rel="icon" href="img/logo.png" />
+    <link rel="icon" href="img/favicon.png" type="image/png" sizes="96x96" />
     <link rel="apple-touch-icon" href="img/logo.png" />
 
     <link rel="stylesheet" href="css/base.css" />
@@ -50,17 +50,18 @@
   </head>
 
   <body>
-    <div class="menu-overlay" id="menu-overlay"></div>
+    <a class="skip-link" href="#main-content">Vai al contenuto</a>
+    <div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
     <header class="header">
       <div class="container header-container">
-        <a href="index.html" class="logo">
-          <img src="img/logo.png" alt="MaRoSa House" />
+        <a href="/" class="logo">
+          <img src="img/logo.png" alt="" />
           <span>MaRoSa House</span>
         </a>
 
         <div class="header-tools">
           <nav class="nav">
-            <a href="index.html">Home</a>
+            <a href="/">Home</a>
             <a href="marosa-bixio.html">Bixio</a>
             <a href="marosa-magnolie.html">Magnolie</a>
             <a href="info.html">Info</a>
@@ -72,23 +73,24 @@
           </div>
         </div>
 
-        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Apri menu" aria-haspopup="dialog" aria-controls="mobile-menu" aria-expanded="false"></button>
       </div>
     </header>
 
-    <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigazione principale">
       <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Chiudi menu">×</button>
       <div class="mobile-menu-language" aria-label="Selezione lingua">
         <a class="active" href="prenota.html">IT</a>
         <a href="prenota-en.html">EN</a>
       </div>
-      <a href="index.html">Home</a>
+      <a href="/">Home</a>
       <a href="marosa-bixio.html">Bixio</a>
       <a href="marosa-magnolie.html">Magnolie</a>
       <a href="info.html">Info</a>
       <a class="active" href="prenota.html">Prenota</a>
     </div>
 
+    <main id="main-content" tabindex="-1">
     <section class="booking-hero">
       <div class="booking-hero-content">
         <span class="booking-kicker">Richiesta soggiorno</span>
@@ -209,6 +211,8 @@
     </section>
 
     <div class="request-toast" id="request-toast" aria-live="polite"></div>
+
+    </main>
 
     <footer class="footer">
       <div class="footer-inner">

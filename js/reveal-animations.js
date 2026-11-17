@@ -1,23 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const isMobileViewport = window.matchMedia("(max-width: 768px)").matches;
     const immediateMobileSelectors = [
-        ".hero-apartment h1",
-        ".hero-apartment p",
-        ".hero-kicker",
-        ".hero-buttons .btn",
         ".apartment-anchors",
         ".trust-item",
     ];
 
     const revealSelectors = [
         "section h2",
-        ".hero-apartment h1",
-        ".hero-apartment p",
         ".section-lead",
-        ".hero-kicker",
-        ".hero-buttons .btn",
         ".trust-item",
         ".apartment-card",
         ".apartment > p",

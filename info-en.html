@@ -30,7 +30,7 @@
     <link rel="alternate" hreflang="it" href="https://www.marosahouse.it/info.html" />
     <link rel="alternate" hreflang="en" href="https://www.marosahouse.it/info-en.html" />
     <link rel="alternate" hreflang="x-default" href="https://www.marosahouse.it/info.html" />
-    <link rel="icon" href="img/logo.png" />
+    <link rel="icon" href="img/favicon.png" type="image/png" sizes="96x96" />
     <link rel="apple-touch-icon" href="img/logo.png" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/apartments.css" />
@@ -45,13 +45,14 @@
     />
   </head>
   <body>
-    <div class="menu-overlay" id="menu-overlay"></div>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
     <header class="header">
       <div class="container header-container">
         <a href="index-en.html" class="logo">
           <img
             src="img/logo.png"
-            alt="MaRoSa House"
+            alt=""
             width="1024"
             height="856"
             decoding="async"
@@ -71,11 +72,11 @@
             <a class="active" href="info-en.html">EN</a>
           </div>
         </div>
-        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-haspopup="dialog" aria-controls="mobile-menu" aria-expanded="false"></button>
       </div>
     </header>
 
-    <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Main navigation">
       <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">×</button>
       <div class="mobile-menu-language" aria-label="Language selector">
         <a href="info.html">IT</a>
@@ -88,8 +89,9 @@
       <a href="prenota-en.html">Book</a>
     </div>
 
+    <main id="main-content" tabindex="-1">
     <section class="info-intro">
-      <h2>Useful information for your stay</h2>
+      <h1>Practical information for your stay in Rapallo</h1>
       <p>We collected the most useful details to make your stay in Rapallo as simple and pleasant as possible.</p>
     </section>
 
@@ -219,10 +221,12 @@
       <div class="booking-buttons">
         <a class="btn email" href="prenota-en.html"><i class="fa-solid fa-calendar-check"></i> Stay request</a>
         <a class="btn whatsapp" href="https://wa.me/393383232007" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-        <a class="btn airbnb" href="https://www.airbnb.it/rooms/1637753276156157006" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-airbnb"></i> Airbnb</a>
+        <a class="btn airbnb" href="https://www.airbnb.com/rooms/1637753276156157006" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-airbnb"></i> Airbnb</a>
         <a class="btn booking-btn" href="https://www.booking.com/hotel/it/marosa-rapallo.it.html" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-hotel"></i> Booking</a>
       </div>
     </section>
+
+    </main>
 
     <footer class="footer">
       <div class="footer-inner">
