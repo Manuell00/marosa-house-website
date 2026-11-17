@@ -263,6 +263,30 @@ nav a.active::after {
   width: 100%;
 }
 
+.nav .destination-link {
+  display: grid;
+  gap: 3px;
+  line-height: 1.2;
+}
+
+.destination-link small {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #655137;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.mobile-menu .destination-link {
+  gap: 4px;
+  padding-block: 11px;
+}
+
+.mobile-menu .destination-link:hover small {
+  color: inherit;
+}
+
 .language-switch,
 .mobile-menu-language {
   display: inline-flex;
@@ -364,7 +388,6 @@ nav a.active::after {
 .intro h2::after,
 .apartments-preview h2::after,
 .why h2::after,
-.location h2::after,
 .reviews h2::after,
 .booking h2::after,
 .features h2::after,

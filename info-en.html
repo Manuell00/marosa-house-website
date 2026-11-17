@@ -62,9 +62,18 @@
         <div class="header-tools">
           <nav class="nav">
             <a href="index-en.html">Home</a>
-            <a href="marosa-bixio-en.html">Bixio</a>
-            <a href="marosa-magnolie-en.html">Magnolie</a>
-            <a href="marosa-entracque-en.html">Entracque</a>
+            <a class="destination-link" href="marosa-bixio-en.html">
+              <span>Bixio</span>
+              <small><i class="fa-solid fa-water" aria-hidden="true"></i>Rapallo</small>
+            </a>
+            <a class="destination-link" href="marosa-magnolie-en.html">
+              <span>Magnolie</span>
+              <small><i class="fa-solid fa-water" aria-hidden="true"></i>Rapallo</small>
+            </a>
+            <a class="destination-link" href="marosa-entracque-en.html">
+              <span>Entracque</span>
+              <small><i class="fa-solid fa-mountain" aria-hidden="true"></i>Piedmont</small>
+            </a>
             <a class="active" href="info-en.html">Info</a>
             <a href="prenota-en.html">Book</a>
           </nav>
@@ -84,9 +93,18 @@
         <a class="active" href="info-en.html">EN</a>
       </div>
       <a href="index-en.html">Home</a>
-      <a href="marosa-bixio-en.html">Bixio</a>
-      <a href="marosa-magnolie-en.html">Magnolie</a>
-      <a href="marosa-entracque-en.html">Entracque</a>
+      <a class="destination-link" href="marosa-bixio-en.html">
+        <span>Bixio</span>
+        <small><i class="fa-solid fa-water" aria-hidden="true"></i>Rapallo</small>
+      </a>
+      <a class="destination-link" href="marosa-magnolie-en.html">
+        <span>Magnolie</span>
+        <small><i class="fa-solid fa-water" aria-hidden="true"></i>Rapallo</small>
+      </a>
+      <a class="destination-link" href="marosa-entracque-en.html">
+        <span>Entracque</span>
+        <small><i class="fa-solid fa-mountain" aria-hidden="true"></i>Piedmont</small>
+      </a>
       <a class="active" href="info-en.html">Info</a>
       <a href="prenota-en.html">Book</a>
     </div>
@@ -94,140 +112,167 @@
     <main id="main-content" tabindex="-1">
     <section class="info-intro">
       <h1>Stay information for Rapallo and Entracque</h1>
-      <p>Amenities, parking and arrival information for your stay in Liguria or Piedmont.</p>
+      <p>Choose your destination for directions, parking and practical information.</p>
+      <nav class="info-destination-nav" aria-label="Choose a destination">
+        <a href="#info-rapallo"><i class="fa-solid fa-water" aria-hidden="true"></i>Rapallo · Liguria</a>
+        <a href="#info-entracque"><i class="fa-solid fa-mountain" aria-hidden="true"></i>Entracque · Piedmont</a>
+      </nav>
     </section>
 
-    <section class="info-section">
-      <h2>Amenities in Rapallo</h2>
-      <p>Facilities at MaRoSa Bixio and MaRoSa Magnolie on the Italian Riviera.</p>
-      <div
-        class="amenities-grid"
-        data-show-all-label="Show all 16 amenities"
-        data-show-less-label="Show less"
-      >
-        <div class="amenity"><i class="fa-solid fa-wifi"></i><span>Fast Wi-Fi</span></div>
-        <div class="amenity"><i class="fa-solid fa-snowflake"></i><span>Air conditioning</span></div>
-        <div class="amenity"><i class="fa-solid fa-tv"></i><span>Smart TV with Netflix and Prime Video</span></div>
-        <div class="amenity"><i class="fa-solid fa-plug"></i><span>Device charging station</span></div>
-        <div class="amenity"><i class="fa-solid fa-utensils"></i><span>Equipped kitchen</span></div>
-        <div class="amenity"><i class="fa-solid fa-mug-hot"></i><span>Coffee machine and moka</span></div>
-        <div class="amenity"><i class="fa-solid fa-bread-slice"></i><span>Toaster</span></div>
-        <div class="amenity"><i class="fa-solid fa-bolt"></i><span>Microwave</span></div>
-        <div class="amenity"><i class="fa-solid fa-mug-saucer"></i><span>Kettle</span></div>
-        <div class="amenity"><i class="fa-solid fa-wine-bottle"></i><span>Mini fridge</span></div>
-        <div class="amenity"><i class="fa-solid fa-bed"></i><span>Bed linen and towels</span></div>
-        <div class="amenity"><i class="fa-solid fa-pump-soap"></i><span>Shampoo and bathroom products</span></div>
-        <div class="amenity"><i class="fa-solid fa-tooth"></i><span>Toothbrush kit</span></div>
-        <div class="amenity"><i class="fa-solid fa-cookie-bite"></i><span>Welcome snacks and coffee</span></div>
-        <div class="amenity"><i class="fa-solid fa-key"></i><span>Self check-in</span></div>
-        <div class="amenity"><i class="fa-solid fa-smoking"></i><span>Outdoor smoking area</span></div>
+    <section class="info-destination" id="info-rapallo" aria-labelledby="info-rapallo-title">
+      <div class="info-destination-heading">
+        <h2 id="info-rapallo-title"><i class="fa-solid fa-water" aria-hidden="true"></i> Rapallo · Liguria</h2>
+        <p>MaRoSa Bixio and MaRoSa Magnolie</p>
       </div>
+
+      <section class="info-section">
+        <h3>Getting here</h3>
+        <div class="info-grid">
+          <div class="info-card">
+            <i class="fa-solid fa-train"></i>
+            <h4>By train</h4>
+            <p>Rapallo train station is only a few minutes from the apartments and has direct connections with Genoa, Milan and Cinque Terre.</p>
+          </div>
+          <div class="info-card">
+            <i class="fa-solid fa-car"></i>
+            <h4>By car</h4>
+            <p>Rapallo is easy to reach via the A12 motorway. Recommended exit: Rapallo.</p>
+          </div>
+          <div class="info-card">
+            <i class="fa-solid fa-plane"></i>
+            <h4>By plane</h4>
+            <p>The nearest airport is Genoa Cristoforo Colombo, about 30 minutes away by car.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-section">
+        <h3>Parking</h3>
+        <div class="info-grid info-grid--parking">
+          <div class="info-card">
+            <i class="fa-solid fa-square-parking" aria-hidden="true"></i>
+            <h4>MaRoSa Bixio</h4>
+            <p>Private parking on Via Nino Bixio in Rapallo.</p>
+          </div>
+          <div class="info-card">
+            <i class="fa-solid fa-car" aria-hidden="true"></i>
+            <h4>MaRoSa Magnolie</h4>
+            <p>Paid public parking on streets near the apartment in Rapallo.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-section stay-times">
+        <h3>Check-in and check-out</h3>
+        <div class="stay-times-grid">
+          <div class="stay-times-card">
+            <i class="fa-solid fa-door-open"></i>
+            <h4>Check-in</h4>
+            <p>From 3:00 PM onwards, with autonomous access through self check-in.</p>
+          </div>
+          <div class="stay-times-card">
+            <i class="fa-solid fa-door-closed"></i>
+            <h4>Check-out</h4>
+            <p>By 11:00 AM, to allow us to prepare the apartment for the next stay.</p>
+          </div>
+          <div class="stay-times-card">
+            <i class="fa-solid fa-key"></i>
+            <h4>Flexible arrival</h4>
+            <p>Arriving late is not a problem: self check-in gives you more freedom.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-section">
+        <h3>Apartment amenities</h3>
+        <div
+          class="amenities-grid"
+          data-show-all-label="Show all 16 amenities"
+          data-show-less-label="Show less"
+        >
+          <div class="amenity"><i class="fa-solid fa-wifi"></i><span>Fast Wi-Fi</span></div>
+          <div class="amenity"><i class="fa-solid fa-snowflake"></i><span>Air conditioning</span></div>
+          <div class="amenity"><i class="fa-solid fa-tv"></i><span>Smart TV with Netflix and Prime Video</span></div>
+          <div class="amenity"><i class="fa-solid fa-plug"></i><span>Device charging station</span></div>
+          <div class="amenity"><i class="fa-solid fa-utensils"></i><span>Equipped kitchen</span></div>
+          <div class="amenity"><i class="fa-solid fa-mug-hot"></i><span>Coffee machine and moka</span></div>
+          <div class="amenity"><i class="fa-solid fa-bread-slice"></i><span>Toaster</span></div>
+          <div class="amenity"><i class="fa-solid fa-bolt"></i><span>Microwave</span></div>
+          <div class="amenity"><i class="fa-solid fa-mug-saucer"></i><span>Kettle</span></div>
+          <div class="amenity"><i class="fa-solid fa-wine-bottle"></i><span>Mini fridge</span></div>
+          <div class="amenity"><i class="fa-solid fa-bed"></i><span>Bed linen and towels</span></div>
+          <div class="amenity"><i class="fa-solid fa-pump-soap"></i><span>Shampoo and bathroom products</span></div>
+          <div class="amenity"><i class="fa-solid fa-tooth"></i><span>Toothbrush kit</span></div>
+          <div class="amenity"><i class="fa-solid fa-cookie-bite"></i><span>Welcome snacks and coffee</span></div>
+          <div class="amenity"><i class="fa-solid fa-key"></i><span>Self check-in</span></div>
+          <div class="amenity"><i class="fa-solid fa-smoking"></i><span>Outdoor smoking area</span></div>
+        </div>
+      </section>
+
+      <section class="guides info-section">
+        <h3>Riviera guide</h3>
+        <div class="guides-grid single-guide">
+          <a href="pdf/guida-riviera-eng.pdf" target="_blank" rel="noopener noreferrer" class="guide-card">
+            <img
+              src="img/Qrcode/guida_eng.png"
+              alt="Riviera guide in English"
+              width="600"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            />
+            <p class="scan-text">Scan the QR code or click</p>
+            <h4>English guide</h4>
+            <p>Discover the best restaurants, beaches and places to visit between Rapallo, Portofino and Santa Margherita.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="info-section">
+        <h3>Frequently asked questions</h3>
+        <div class="faq">
+          <div class="faq-item">
+            <h4><i class="fa-solid fa-circle-question"></i> Can I arrive late?</h4>
+            <p>Yes, thanks to self check-in you can arrive at any time.</p>
+          </div>
+          <div class="faq-item">
+            <h4><i class="fa-solid fa-circle-question"></i> Is Wi-Fi available?</h4>
+            <p>Yes, both apartments in Rapallo have fast Wi-Fi.</p>
+          </div>
+          <div class="faq-item">
+            <h4><i class="fa-solid fa-circle-question"></i> Are bed linen and towels included?</h4>
+            <p>Yes, we provide clean bed linen and towels for all guests.</p>
+          </div>
+        </div>
+      </section>
     </section>
 
-    <section class="info-section">
-      <h2>Getting to Rapallo</h2>
-      <div class="info-grid">
-        <div class="info-card">
-          <i class="fa-solid fa-train"></i>
-          <h3>By train</h3>
-          <p>Rapallo train station is only a few minutes from the apartments and has direct connections with Genoa, Milan and Cinque Terre.</p>
-        </div>
-        <div class="info-card">
-          <i class="fa-solid fa-car"></i>
-          <h3>By car</h3>
-          <p>Rapallo is easy to reach via the A12 motorway. Recommended exit: Rapallo.</p>
-        </div>
-        <div class="info-card">
-          <i class="fa-solid fa-plane"></i>
-          <h3>By plane</h3>
-          <p>The nearest airport is Genoa Cristoforo Colombo, about 30 minutes away by car.</p>
-        </div>
+    <section class="info-destination info-destination--mountains" id="info-entracque" aria-labelledby="info-entracque-title">
+      <div class="info-destination-heading">
+        <h2 id="info-entracque-title"><i class="fa-solid fa-mountain" aria-hidden="true"></i> Entracque · Piedmont</h2>
+        <p>MaRoSa Entracque</p>
       </div>
-    </section>
-
-    <section class="info-section">
-      <h2>Parking</h2>
-      <div class="info-grid">
-        <div class="info-card">
-          <i class="fa-solid fa-square-parking" aria-hidden="true"></i>
-          <h3>MaRoSa Bixio</h3>
-          <p>Private parking on Via Nino Bixio in Rapallo.</p>
+      <div class="info-section">
+        <div class="info-grid">
+          <article class="info-card">
+            <i class="fa-solid fa-square-parking" aria-hidden="true"></i>
+            <h3>Address and parking</h3>
+            <p>Corso Francia 26, Entracque (Cuneo). Private parking for guests inside the gated grounds.</p>
+            <a class="info-card-link" href="marosa-entracque-en.html#mappa">See the map</a>
+          </article>
+          <article class="info-card">
+            <i class="fa-solid fa-house" aria-hidden="true"></i>
+            <h3>Apartment amenities</h3>
+            <p>Around 50 m² for 1–4 guests, with a kitchen, balcony, bed, sofa bed and storage for skis and equipment.</p>
+          </article>
+          <article class="info-card">
+            <i class="fa-solid fa-mountain" aria-hidden="true"></i>
+            <h3>Ski slopes nearby</h3>
+            <p>About 5 minutes by car to the Sole lift, 33 km to Limone Piemonte and 60 km to Prato Nevoso.</p>
+            <a class="info-card-link" href="marosa-entracque-en.html#sci">See routes to the slopes</a>
+          </article>
         </div>
-        <div class="info-card">
-          <i class="fa-solid fa-car" aria-hidden="true"></i>
-          <h3>MaRoSa Magnolie</h3>
-          <p>Paid public parking on streets near the apartment in Rapallo.</p>
-        </div>
-        <div class="info-card">
-          <i class="fa-solid fa-square-parking" aria-hidden="true"></i>
-          <h3>MaRoSa Entracque</h3>
-          <p>Private guest parking inside the gated grounds at Corso Francia 26 in Entracque.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="info-section stay-times">
-      <h2>Check-in and check-out in Rapallo</h2>
-      <p>These times apply to MaRoSa Bixio and MaRoSa Magnolie.</p>
-      <div class="stay-times-grid">
-        <div class="stay-times-card">
-          <i class="fa-solid fa-door-open"></i>
-          <h3>Check-in</h3>
-          <p>From 3:00 PM onwards, with autonomous access through self check-in.</p>
-        </div>
-        <div class="stay-times-card">
-          <i class="fa-solid fa-door-closed"></i>
-          <h3>Check-out</h3>
-          <p>By 11:00 AM, to allow us to prepare the apartment for the next stay.</p>
-        </div>
-        <div class="stay-times-card">
-          <i class="fa-solid fa-key"></i>
-          <h3>Flexible arrival</h3>
-          <p>Arriving late is not a problem: self check-in gives you more freedom.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="info-section">
-      <h2>Staying in Entracque</h2>
-      <p>At Corso Francia 26, MaRoSa Entracque is a mountain apartment of about 50 m² for 1–4 guests. It has a kitchen, a balcony, a bed, a sofa bed and a cellar for skis and equipment.</p>
-      <a class="map-cta" href="marosa-entracque-en.html">Explore MaRoSa Entracque</a>
-    </section>
-
-    <section class="guides info-section">
-      <h2>Riviera guide</h2>
-      <div class="guides-grid single-guide">
-        <a href="pdf/guida-riviera-eng.pdf" target="_blank" rel="noopener noreferrer" class="guide-card">
-          <img
-            src="img/Qrcode/guida_eng.png"
-            alt="Riviera guide in English"
-            width="600"
-            height="600"
-            loading="lazy"
-            decoding="async"
-          />
-          <p class="scan-text">Scan the QR code or click</p>
-          <h3>English guide</h3>
-          <p>Discover the best restaurants, beaches and places to visit between Rapallo, Portofino and Santa Margherita.</p>
-        </a>
-      </div>
-    </section>
-
-    <section class="info-section">
-      <h2>Frequently asked questions about Bixio and Magnolie</h2>
-      <div class="faq">
-        <div class="faq-item">
-          <h3><i class="fa-solid fa-circle-question"></i> Can I arrive late?</h3>
-          <p>Yes, thanks to self check-in you can arrive at any time.</p>
-        </div>
-        <div class="faq-item">
-          <h3><i class="fa-solid fa-circle-question"></i> Is Wi-Fi available?</h3>
-          <p>Yes, both apartments in Rapallo have fast Wi-Fi.</p>
-        </div>
-        <div class="faq-item">
-          <h3><i class="fa-solid fa-circle-question"></i> Are bed linen and towels included?</h3>
-          <p>Yes, we provide clean bed linen and towels for all guests.</p>
-        </div>
+        <a class="map-cta" href="marosa-entracque-en.html">Explore MaRoSa Entracque</a>
       </div>
     </section>
 
@@ -241,7 +286,6 @@
         <a class="btn booking-btn" href="https://www.booking.com/hotel/it/marosa-rapallo.it.html" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-hotel"></i> Booking</a>
       </div>
     </section>
-
     </main>
 
     <footer class="footer">
