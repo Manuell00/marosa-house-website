@@ -550,6 +550,20 @@
   }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .apartments-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .apartments-grid > .apartment-card {
+    grid-column: span 2;
+  }
+
+  .apartments-grid > .apartment-card:last-child {
+    grid-column: 2 / span 2;
+  }
+}
+
 /* =========================================
    MOBILE
 ========================================= */
@@ -754,7 +768,7 @@
   }
 
   .hero-buttons {
-    display: none;
+    margin-top: 16px;
   }
 
   .booking-buttons .btn {
@@ -972,7 +986,9 @@
     width: 100%;
     max-width: none;
     min-height: 56px;
-    padding: 10px 12px;
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 6px;
+    padding: 10px 8px;
     margin: 0 auto;
   }
 

@@ -9,10 +9,12 @@
         const apartmentParam = url.searchParams.get("apartment");
         if (apartmentParam === "bixio") return "MaRoSa Bixio";
         if (apartmentParam === "magnolie") return "MaRoSa Magnolie";
+        if (apartmentParam === "entracque") return "MaRoSa Entracque";
 
         const path = url.pathname.toLowerCase();
         if (path.includes("marosa-bixio")) return "MaRoSa Bixio";
         if (path.includes("marosa-magnolie")) return "MaRoSa Magnolie";
+        if (path.includes("marosa-entracque")) return "MaRoSa Entracque";
 
         return "MaRoSa House";
     };

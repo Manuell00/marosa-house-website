@@ -8,13 +8,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkin = document.getElementById("checkin");
     const checkout = document.getElementById("checkout");
     const guests = document.getElementById("guests");
+    const guestCount = document.getElementById("guest-count");
     const toast = document.getElementById("request-toast");
     const isEnglish = document.documentElement.lang === "en";
     const formEndpoint = form?.dataset.formEndpoint?.trim() || "";
     const formSuccessMessage = form?.dataset.successMessage;
     const formErrorMessage = form?.dataset.errorMessage;
 
-    if (!form || !whatsappButton || !emailButton || !submitButton || !status || !apartment || !checkin || !checkout || !guests) return;
+    if (!form || !whatsappButton || !emailButton || !submitButton || !status || !apartment || !checkin || !checkout || !guests || !guestCount) return;
+
+    const guestSelectField = guests.closest(".field");
+    const guestCountField = guestCount.closest(".field");
 
     const toDateKey = (date) => {
         const year = date.getFullYear();
@@ -31,12 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkinParam = params.get("checkin");
     const checkoutParam = params.get("checkout");
 
-    if (apartmentParam === "bixio") {
-        apartment.value = "MaRoSa Bixio";
-    }
-
-    if (apartmentParam === "magnolie") {
-        apartment.value = "MaRoSa Magnolie";
+    const requestedApartment = Array.from(apartment.options).find((option) => option.dataset.slug === apartmentParam);
+    if (requestedApartment) {
+        apartment.value = requestedApartment.value;
     }
 
     if (checkinParam) {
@@ -109,6 +110,13 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const updateGuestOptions = () => {
+        const useGuestCount = apartment.selectedOptions[0]?.dataset.slug === "entracque";
+        guestSelectField.hidden = useGuestCount;
+        guests.disabled = useGuestCount;
+        guestCountField.hidden = !useGuestCount;
+        guestCount.disabled = !useGuestCount;
+        if (useGuestCount) return;
+
         const selectedApartment = apartment.value;
         const options = guestOptionsByApartment[selectedApartment] || [];
         const currentValue = guests.value;

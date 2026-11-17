@@ -274,13 +274,14 @@ TRUST SECTION
   max-width: 1100px;
 
   margin: 74px auto 88px;
+  scroll-margin-top: 88px;
 
   text-align: center;
 }
 
 .apartments-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
   gap: 35px;
 
@@ -291,6 +292,8 @@ TRUST SECTION
 
 .apartment-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   background: linear-gradient(180deg, #ffffff 0%, #fdfbf7 100%);
 
   border-radius: 24px;
@@ -341,6 +344,10 @@ TRUST SECTION
 .apartment-info {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
   padding: 26px 26px 28px;
   text-align: center;
 }
@@ -353,7 +360,7 @@ TRUST SECTION
   padding: 7px 12px;
   border-radius: 999px;
   background: rgba(191, 161, 101, 0.12);
-  color: #9b7935;
+  color: #745721;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -369,6 +376,10 @@ TRUST SECTION
   color: #666155;
 }
 
+.apartment-info p:last-of-type {
+  margin-bottom: 18px;
+}
+
 .apartment-info .apartment-cin {
   margin-top: 10px;
   font-size: var(--fs-body-sm);
@@ -379,7 +390,7 @@ TRUST SECTION
   align-items: center;
   justify-content: center;
   min-width: 110px;
-  margin-top: 18px;
+  margin-top: auto;
   padding: 10px 18px;
   border-radius: 999px;
   border: 1px solid rgba(191, 161, 101, 0.28);

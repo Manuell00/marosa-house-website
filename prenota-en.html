@@ -3,28 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book your stay in Rapallo | MaRoSa House</title>
+    <title>Request a stay in Rapallo or Entracque | MaRoSa House</title>
     <meta
       name="description"
-      content="Book your stay in Rapallo with MaRoSa House. Send a request for Bixio or Magnolie and contact us easily by email or WhatsApp."
+      content="Ask about MaRoSa Bixio and Magnolie in Rapallo or MaRoSa Entracque in Piedmont. Contact us using the form, email or WhatsApp."
     />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://www.marosahouse.it/prenota-en.html" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="MaRoSa House" />
     <meta property="og:url" content="https://www.marosahouse.it/prenota-en.html" />
-    <meta property="og:title" content="Book your stay in Rapallo | MaRoSa House" />
+    <meta property="og:title" content="Request a stay in Rapallo or Entracque | MaRoSa House" />
     <meta
       property="og:description"
-      content="Fill in the form and send a stay request for our holiday apartments in Rapallo."
+      content="Use the form to ask about a stay in Rapallo, Liguria, or Entracque, Piedmont."
     />
     <meta property="og:image" content="https://www.marosahouse.it/img/logo.png" />
     <meta property="og:locale" content="en_GB" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Book your stay in Rapallo | MaRoSa House" />
+    <meta name="twitter:title" content="Request a stay in Rapallo or Entracque | MaRoSa House" />
     <meta
       name="twitter:description"
-      content="Fill in the form and send a stay request for our holiday apartments in Rapallo."
+      content="Use the form to ask about a stay in Rapallo, Liguria, or Entracque, Piedmont."
     />
     <meta name="twitter:image" content="https://www.marosahouse.it/img/logo.png" />
     <link rel="alternate" hreflang="it" href="https://www.marosahouse.it/prenota.html" />
@@ -58,6 +58,7 @@
             <a href="index-en.html">Home</a>
             <a href="marosa-bixio-en.html">Bixio</a>
             <a href="marosa-magnolie-en.html">Magnolie</a>
+            <a href="marosa-entracque-en.html">Entracque</a>
             <a href="info-en.html">Info</a>
             <a class="active" href="prenota-en.html">Book</a>
           </nav>
@@ -79,6 +80,7 @@
       <a href="index-en.html">Home</a>
       <a href="marosa-bixio-en.html">Bixio</a>
       <a href="marosa-magnolie-en.html">Magnolie</a>
+      <a href="marosa-entracque-en.html">Entracque</a>
       <a href="info-en.html">Info</a>
       <a class="active" href="prenota-en.html">Book</a>
     </div>
@@ -115,8 +117,9 @@
               <span>Apartment</span>
               <select name="apartment" id="apartment" required>
                 <option value="">Select</option>
-                <option value="MaRoSa Bixio">MaRoSa Bixio</option>
-                <option value="MaRoSa Magnolie">MaRoSa Magnolie</option>
+                <option value="MaRoSa Bixio" data-slug="bixio">MaRoSa Bixio · Rapallo</option>
+                <option value="MaRoSa Magnolie" data-slug="magnolie">MaRoSa Magnolie · Rapallo</option>
+                <option value="MaRoSa Entracque" data-slug="entracque">MaRoSa Entracque · Entracque</option>
               </select>
             </label>
             <label class="field">
@@ -133,6 +136,11 @@
               <select name="guests" id="guests" required>
                 <option value="">Select</option>
               </select>
+            </label>
+
+            <label class="field" hidden>
+              <span>Number of guests</span>
+              <input type="number" inputmode="numeric" name="guests" id="guest-count" min="1" step="1" required disabled />
             </label>
             <label class="field">
               <span>Full name</span>
@@ -177,7 +185,7 @@
 
     <footer class="footer">
       <div class="footer-inner">
-        <div class="footer-brand">© MaRoSa House · Rapallo</div>
+        <div class="footer-brand">© MaRoSa House · Rapallo and Entracque</div>
         <div class="footer-links">
           <a href="prenota-en.html">Book</a>
           <a href="privacy-cookie-en.html">Privacy & Cookie</a>

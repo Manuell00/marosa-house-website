@@ -4,28 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Prenota il tuo soggiorno a Rapallo | MaRoSa House</title>
+    <title>Richiedi un soggiorno a Rapallo o Entracque | MaRoSa House</title>
     <meta
       name="description"
-      content="Prenota il tuo soggiorno a Rapallo con MaRoSa House. Invia una richiesta per Bixio o Magnolie e contattaci facilmente via email o WhatsApp."
+      content="Chiedi disponibilità per MaRoSa Bixio e Magnolie a Rapallo o per MaRoSa Entracque in Piemonte. Contattaci tramite modulo, email o WhatsApp."
     />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://www.marosahouse.it/prenota.html" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="MaRoSa House" />
     <meta property="og:url" content="https://www.marosahouse.it/prenota.html" />
-    <meta property="og:title" content="Prenota il tuo soggiorno a Rapallo | MaRoSa House" />
+    <meta property="og:title" content="Richiedi un soggiorno a Rapallo o Entracque | MaRoSa House" />
     <meta
       property="og:description"
-      content="Compila il modulo e invia una richiesta soggiorno per i nostri appartamenti vacanza a Rapallo."
+      content="Compila il modulo per chiedere disponibilità a Rapallo, in Liguria, o a Entracque, in Piemonte."
     />
     <meta property="og:image" content="https://www.marosahouse.it/img/logo.png" />
     <meta property="og:locale" content="it_IT" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Prenota il tuo soggiorno a Rapallo | MaRoSa House" />
+    <meta name="twitter:title" content="Richiedi un soggiorno a Rapallo o Entracque | MaRoSa House" />
     <meta
       name="twitter:description"
-      content="Compila il modulo e invia una richiesta soggiorno per i nostri appartamenti vacanza a Rapallo."
+      content="Compila il modulo per chiedere disponibilità a Rapallo, in Liguria, o a Entracque, in Piemonte."
     />
     <meta name="twitter:image" content="https://www.marosahouse.it/img/logo.png" />
     <link rel="alternate" hreflang="it" href="https://www.marosahouse.it/prenota.html" />
@@ -64,6 +64,7 @@
             <a href="/">Home</a>
             <a href="marosa-bixio.html">Bixio</a>
             <a href="marosa-magnolie.html">Magnolie</a>
+            <a href="marosa-entracque.html">Entracque</a>
             <a href="info.html">Info</a>
             <a class="active" href="prenota.html">Prenota</a>
           </nav>
@@ -86,6 +87,7 @@
       <a href="/">Home</a>
       <a href="marosa-bixio.html">Bixio</a>
       <a href="marosa-magnolie.html">Magnolie</a>
+      <a href="marosa-entracque.html">Entracque</a>
       <a href="info.html">Info</a>
       <a class="active" href="prenota.html">Prenota</a>
     </div>
@@ -129,8 +131,9 @@
               <span>Appartamento</span>
               <select name="apartment" id="apartment" required>
                 <option value="">Seleziona</option>
-                <option value="MaRoSa Bixio">MaRoSa Bixio</option>
-                <option value="MaRoSa Magnolie">MaRoSa Magnolie</option>
+                <option value="MaRoSa Bixio" data-slug="bixio">MaRoSa Bixio · Rapallo</option>
+                <option value="MaRoSa Magnolie" data-slug="magnolie">MaRoSa Magnolie · Rapallo</option>
+                <option value="MaRoSa Entracque" data-slug="entracque">MaRoSa Entracque · Entracque</option>
               </select>
             </label>
 
@@ -149,6 +152,11 @@
               <select name="guests" id="guests" required>
                 <option value="">Seleziona</option>
               </select>
+            </label>
+
+            <label class="field" hidden>
+              <span>Numero di ospiti</span>
+              <input type="number" inputmode="numeric" name="guests" id="guest-count" min="1" step="1" required disabled />
             </label>
 
             <label class="field">
@@ -216,7 +224,7 @@
 
     <footer class="footer">
       <div class="footer-inner">
-        <div class="footer-brand">© MaRoSa House · Rapallo</div>
+        <div class="footer-brand">© MaRoSa House · Rapallo ed Entracque</div>
         <div class="footer-links">
           <a href="prenota.html">Prenota</a>
           <a href="privacy-cookie.html">Privacy e Cookie</a>
